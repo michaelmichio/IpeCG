@@ -2,9 +2,11 @@ package CG.Algorithm;
 
 import CG.Object.Point;
 import Ipe.Object.Layer;
+import Ipe.Object.Path;
 import Ipe.Object.Use;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GrahamScan {
     public ArrayList<Layer> layers = new ArrayList<>();
@@ -24,7 +26,18 @@ public class GrahamScan {
     }
 
     public void generateLayers() {
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Path> paths = new ArrayList<>();
+        ArrayList<Ipe.Object.Point> strPoint = new ArrayList<>();
 
+        strPoint.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+        strPoint.add(new Ipe.Object.Point(String.valueOf(points.get(0).x), String.valueOf(points.get(0).y), "l"));
+        paths.add(new Path(strPoint));
+        layers.add(new Layer(paths, null));
+
+        for (int i = 0; i < points.size(); i++) {
+
+        }
     }
 
     public int getInitialPointIndex() {
