@@ -8,12 +8,11 @@ import Ipe.Object.Layer;
 import Ipe.Object.Path;
 import Ipe.Object.Point;
 import Ipe.Object.Use;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 public class DocumentHandler {
     ArrayList<Layer> layers = new ArrayList<>();
@@ -32,8 +31,10 @@ public class DocumentHandler {
         else {
             System.out.println("invalid function");
         }
-        updateDocument();
-
+        if (doc != null) {
+            Document updatedDoc = updateDocument(doc);
+            new OutputHandler(updatedDoc);
+        }
     }
 
     public void setLayersResult(Layer layer, String alg) {
@@ -60,7 +61,7 @@ public class DocumentHandler {
                 }
             }
         } catch (Exception e) {
-            System.out.println("object not found");
+            System.out.println(e);
         }
     }
 
@@ -75,6 +76,7 @@ public class DocumentHandler {
                 Element secondNodeElement = (Element) secondNode;
                 if (secondNodeElement.getTagName().equals("page")) {
                     NodeList secondNodeList = secondNodeElement.getChildNodes();
+
                     for (int j = 0; j < secondNodeList.getLength(); j++) {
                         Node thirdNode = secondNodeList.item(j);
                         if (thirdNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -92,7 +94,13 @@ public class DocumentHandler {
                             }
                             else if (thirdNodeElement.getTagName().equals("use")) {
                                 String[] pos = thirdNodeElement.getAttribute("pos").split(" ");
-                                firstLayer.addUse(new Use(new Point(pos[0], pos[1])));
+                                HashMap<String, String> attributes = new HashMap<>();
+                                attributes.put("layer", "0");
+                                attributes.put("name", "mark/disk(sx)");
+                                attributes.put("pos", thirdNodeElement.getAttribute("pos"));
+                                attributes.put("size", "normal");
+                                attributes.put("stroke", "black");
+                                firstLayer.addUse(new Use(new Point(pos[0], pos[1]), attributes));
                             }
                             else if (thirdNodeElement.getTagName().equals("path")) {
                                 String[] paths = thirdNodeElement.getFirstChild().getNodeValue().split("\n");
@@ -109,12 +117,20 @@ public class DocumentHandler {
                                         pts.add(new Point("h"));
                                     }
                                 }
-                                firstLayer.addPath(new Path(pts));
+                                HashMap<String, String> attributes = new HashMap<>();
+                                attributes.put("layer", "0");
+                                attributes.put("stroke", "black");
+                                firstLayer.addPath(new Path(pts, attributes));
                             }
                             else {
                                 //
                             }
                         }
+                    }
+
+                    // remove initial layer
+                    while (secondNodeElement.hasChildNodes()) {
+                        secondNodeElement.removeChild(secondNodeElement.getFirstChild());
                     }
                 }
             }
@@ -123,7 +139,96 @@ public class DocumentHandler {
         return firstLayer;
     }
 
-    public void updateDocument() {
+    public Document updateDocument(Document doc) {
+        Node firstNode = doc.getElementsByTagName("ipe").item(0);
+        NodeList firstNodeList = firstNode.getChildNodes();
+        for (int i = 0; i < firstNodeList.getLength(); i++) {
+            Node secondNode = firstNodeList.item(i);
+            if (secondNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element secondNodeElement = (Element) secondNode;
+                if (secondNodeElement.getTagName().equals("page")) {
 
+                    // set layers
+                    for (int j = 0; j < layers.size(); j++) {
+                        Element element = secondNodeElement.getOwnerDocument().createElement("layer");
+                        secondNodeElement.appendChild(element);
+                        Attr attr = secondNodeElement.getOwnerDocument().createAttribute("name");
+                        attr.setValue(String.valueOf(j));
+                        element.setAttributeNode(attr);
+                    }
+
+                    // set views
+                    for (int j = 0; j < layers.size(); j++) {
+                        if (j == 0) {
+                            Element element = secondNodeElement.getOwnerDocument().createElement("view");
+                            secondNodeElement.appendChild(element);
+                            Attr attr = secondNodeElement.getOwnerDocument().createAttribute("layers");
+                            attr.setValue("0");
+                            element.setAttributeNode(attr);
+                        }
+                        else {
+                            Element element = secondNodeElement.getOwnerDocument().createElement("view");
+                            secondNodeElement.appendChild(element);
+                            Attr attr = secondNodeElement.getOwnerDocument().createAttribute("layers");
+                            attr.setValue("0 " + j);
+                            element.setAttributeNode(attr);
+                        }
+                    }
+
+                    // set paths
+                    for (Layer layer : layers) {
+                        Element element;
+                        Attr attr;
+                        Text text;
+
+                        // path
+                        if (layer.paths != null) {
+                            for (int j = 0; j < layer.paths.size(); j++) {
+                                element = secondNodeElement.getOwnerDocument().createElement("path");
+                                secondNodeElement.appendChild(element);
+
+                                Set<String> keys = layer.paths.get(j).attributes.keySet();
+                                for (String key : keys) {
+                                    attr = element.getOwnerDocument().createAttribute(key);
+                                    attr.setValue(layer.paths.get(j).attributes.get(key));
+                                    element.setAttributeNode(attr);
+                                }
+
+                                for (Point p : layer.paths.get(j).points) {
+                                    text = doc.createTextNode("\n" + p.toString());
+                                    element.appendChild(text);
+                                }
+                                text = doc.createTextNode("\n");
+                                element.appendChild(text);
+                            }
+                        }
+                    }
+
+                    // set uses
+                    for (Layer layer : layers) {
+                        Element element;
+                        Attr attr;
+
+                        // use
+                        if (layer.uses != null) {
+                            for (int j = 0; j < layer.uses.size(); j++) {
+                                element = secondNodeElement.getOwnerDocument().createElement("use");
+                                secondNodeElement.appendChild(element);
+
+                                Set<String> keys = layer.uses.get(j).attributes.keySet();
+                                for (String key : keys) {
+                                    attr = element.getOwnerDocument().createAttribute(key);
+                                    attr.setValue(layer.uses.get(j).attributes.get(key));
+                                    element.setAttributeNode(attr);
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        return doc;
     }
 }

@@ -1,5 +1,6 @@
 package CG.Algorithm;
 
+import CG.Object.LineSegment;
 import CG.Object.Point;
 import Ipe.Object.Layer;
 import Ipe.Object.Path;
@@ -7,6 +8,7 @@ import Ipe.Object.Use;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Stack;
 
 public class GrahamScan {
     public ArrayList<Layer> layers = new ArrayList<>();
@@ -26,18 +28,61 @@ public class GrahamScan {
     }
 
     public void generateLayers() {
+        Stack<Point> stack = new Stack<>();
+
+        stack.push(initialPoint);
+        stack.push(points.get(0));
+
+        int i = 1;
+        while (i < points.size()) {
+            HashMap<String, String> attributes = new HashMap<>();
+            ArrayList<Path> paths = new ArrayList<>();
+            ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+            Point p1 = new Point(stack.get(stack.size()-2).x, stack.get(stack.size()-2).y);
+            Point p2 = new Point(stack.get(stack.size()-1).x, stack.get(stack.size()-1).y);
+            Point p3 = new Point(points.get(i).x, points.get(i).y);
+            LineSegment lineSegment = new LineSegment(p1, p2);
+
+            if (lineSegment.crossProductToPoint(p3) < 0) {
+                stack.pop();
+            }
+            else {
+                stack.push(points.get(i));
+
+                for (int j = 0; j < stack.size(); j++) {
+                    if (j == 0) {
+                        strPoints.add(new Ipe.Object.Point(String.valueOf(stack.get(j).x), String.valueOf(stack.get(j).y), "m"));
+                    }
+                    else {
+                        strPoints.add(new Ipe.Object.Point(String.valueOf(stack.get(j).x), String.valueOf(stack.get(j).y), "l"));
+                    }
+                }
+                attributes.put("layer", String.valueOf(layers.size()+1));
+                attributes.put("stroke", "black");
+                paths.add(new Path(strPoints, attributes));
+                layers.add(new Layer(paths, null));
+
+                i++;
+            }
+        }
+
         HashMap<String, String> attributes = new HashMap<>();
         ArrayList<Path> paths = new ArrayList<>();
-        ArrayList<Ipe.Object.Point> strPoint = new ArrayList<>();
-
-        strPoint.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-        strPoint.add(new Ipe.Object.Point(String.valueOf(points.get(0).x), String.valueOf(points.get(0).y), "l"));
-        paths.add(new Path(strPoint));
-        layers.add(new Layer(paths, null));
-
-        for (int i = 0; i < points.size(); i++) {
-
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+        for (int j = 0; j < stack.size(); j++) {
+            if (j == 0) {
+                strPoints.add(new Ipe.Object.Point(String.valueOf(stack.get(j).x), String.valueOf(stack.get(j).y), "m"));
+            }
+            else {
+                strPoints.add(new Ipe.Object.Point(String.valueOf(stack.get(j).x), String.valueOf(stack.get(j).y), "l"));
+            }
         }
+        strPoints.add(new Ipe.Object.Point("h"));
+        attributes.put("layer", String.valueOf(layers.size()+1));
+        attributes.put("stroke", "black");
+        paths.add(new Path(strPoints, attributes));
+        layers.add(new Layer(paths, null));
     }
 
     public int getInitialPointIndex() {
