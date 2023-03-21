@@ -1,10 +1,12 @@
 package CG.Algorithm;
 
+import CG.Object.LineSegment;
 import CG.Object.Point;
 import Ipe.Object.Layer;
 import Ipe.Object.Path;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class AreaOfPolygon {
     public ArrayList<Layer> layers = new ArrayList<>();
@@ -13,7 +15,64 @@ public class AreaOfPolygon {
     public AreaOfPolygon(Path path) {
         setVertices(path);
         sortVertices();
-        // ...
+        generateLayer();
+    }
+
+    public void generateLayer() {
+        for (int i = 0; i < vertices.size()-2; i++) {
+            HashMap<String, String> attributes = new HashMap<>();
+            ArrayList<Path> paths = new ArrayList<>();
+            ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+            Point p1 = new Point(vertices.get(0).x, vertices.get(0).y);
+            Point p2 = new Point(vertices.get(i+1).x, vertices.get(i+1).y);
+            Point p3 = new Point(vertices.get(i+2).x, vertices.get(i+2).y);
+            LineSegment lineSegment = new LineSegment(p1, p2);
+
+            if (lineSegment.crossProductToPoint(p3) < 0) {
+                strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(0).x), String.valueOf(vertices.get(0).y), "m"));
+                for (int j = 1; j <= i+2; j++) {
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(j).x), String.valueOf(vertices.get(j).y), "l"));
+                }
+                strPoints.add(new Ipe.Object.Point("h"));
+                attributes.put("fill", "green");
+                attributes.put("opacity", "50%");
+                attributes.put("layer", String.valueOf(layers.size()+1));
+
+                paths.add(new Path(strPoints, attributes));
+
+                attributes = new HashMap<>();
+                strPoints = new ArrayList<>();
+
+                strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(0).x), String.valueOf(vertices.get(0).y), "m"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(i+1).x), String.valueOf(vertices.get(i+1).y), "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(i+2).x), String.valueOf(vertices.get(i+2).y), "l"));
+                strPoints.add(new Ipe.Object.Point("h"));
+                attributes.put("fill", "red");
+                attributes.put("opacity", "50%");
+                attributes.put("layer", String.valueOf(layers.size()+1));
+
+                paths.add(new Path(strPoints, attributes));
+
+                layers.add(new Layer(paths, null));
+            }
+
+            attributes = new HashMap<>();
+            paths = new ArrayList<>();
+            strPoints = new ArrayList<>();
+
+            strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(0).x), String.valueOf(vertices.get(0).y), "m"));
+            for (int j = 1; j <= i+2; j++) {
+                strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(j).x), String.valueOf(vertices.get(j).y), "l"));
+            }
+            strPoints.add(new Ipe.Object.Point("h"));
+            attributes.put("fill", "green");
+            attributes.put("opacity", "50%");
+            attributes.put("layer", String.valueOf(layers.size()+1));
+
+            paths.add(new Path(strPoints, attributes));
+            layers.add(new Layer(paths, null));
+        }
     }
 
     public void sortVertices() {
@@ -63,7 +122,7 @@ public class AreaOfPolygon {
                 try {
                     vertices.add(new Point(Double.parseDouble(point.x), Double.parseDouble(point.y)));
                 } catch (Exception e) {
-                    //
+                    System.out.println(e);
                 }
             }
         }

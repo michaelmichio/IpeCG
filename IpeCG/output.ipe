@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ipe creator="Ipe 7.2.26" version="70218">
 
-<info created="D:20230321093451" modified="D:20230321093451"/>
+<info created="D:20230321095808" modified="D:20230321095808"/>
 
 <ipestyle name="basic">
 
@@ -471,6 +471,8 @@ h
 <layer name="5"/>
 <layer name="6"/>
 <layer name="7"/>
+<layer name="8"/>
+<layer name="9"/>
 <view layers="0"/>
 <view layers="0 1"/>
 <view layers="0 2"/>
@@ -479,62 +481,114 @@ h
 <view layers="0 5"/>
 <view layers="0 6"/>
 <view layers="0 7"/>
-<path layer="1" stroke="black">
-208.0 528.0 m
-384.0 544.0 l
-416.0 608.0 l
-</path>
-<path layer="2" stroke="black">
-208.0 528.0 m
-384.0 544.0 l
-416.0 608.0 l
-320.0 656.0 l
-</path>
-<path layer="3" stroke="black">
-208.0 528.0 m
-384.0 544.0 l
-416.0 608.0 l
-368.0 736.0 l
-</path>
-<path layer="4" stroke="black">
-208.0 528.0 m
-384.0 544.0 l
-416.0 608.0 l
-368.0 736.0 l
-240.0 592.0 l
-</path>
-<path layer="5" stroke="black">
-208.0 528.0 m
-384.0 544.0 l
-416.0 608.0 l
-368.0 736.0 l
-240.0 704.0 l
-</path>
-<path layer="6" stroke="black">
-208.0 528.0 m
-384.0 544.0 l
-416.0 608.0 l
-368.0 736.0 l
-240.0 704.0 l
-176.0 672.0 l
-</path>
-<path layer="7" stroke="black">
-208.0 528.0 m
-384.0 544.0 l
-416.0 608.0 l
-368.0 736.0 l
-240.0 704.0 l
-176.0 672.0 l
+<view layers="0 8"/>
+<view layers="0 9"/>
+<path layer="0" stroke="black">
+192 624 m
+272 704 l
+368 688 l
+448 576 l
+400 480 l
+208 512 l
+256 576 l
+368 592 l
+320 640 l
 null null h
 </path>
-<use layer="0" name="mark/disk(sx)" pos="176 672" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="240 704" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="240 592" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="320 656" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="368 736" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="384 544" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="208 528" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="416 608" size="normal" stroke="black"/>
+<path fill="green" layer="1" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+null null h
+</path>
+<path fill="green" layer="2" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+272.0 704.0 l
+null null h
+</path>
+<path fill="green" layer="3" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+272.0 704.0 l
+192.0 624.0 l
+null null h
+</path>
+<path fill="green" layer="4" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+272.0 704.0 l
+192.0 624.0 l
+320.0 640.0 l
+null null h
+</path>
+<path fill="red" layer="4" opacity="50%">
+400.0 480.0 m
+192.0 624.0 l
+320.0 640.0 l
+null null h
+</path>
+<path fill="green" layer="5" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+272.0 704.0 l
+192.0 624.0 l
+320.0 640.0 l
+null null h
+</path>
+<path fill="green" layer="6" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+272.0 704.0 l
+192.0 624.0 l
+320.0 640.0 l
+368.0 592.0 l
+null null h
+</path>
+<path fill="red" layer="6" opacity="50%">
+400.0 480.0 m
+320.0 640.0 l
+368.0 592.0 l
+null null h
+</path>
+<path fill="green" layer="7" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+272.0 704.0 l
+192.0 624.0 l
+320.0 640.0 l
+368.0 592.0 l
+null null h
+</path>
+<path fill="green" layer="8" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+272.0 704.0 l
+192.0 624.0 l
+320.0 640.0 l
+368.0 592.0 l
+256.0 576.0 l
+null null h
+</path>
+<path fill="green" layer="9" opacity="50%">
+400.0 480.0 m
+448.0 576.0 l
+368.0 688.0 l
+272.0 704.0 l
+192.0 624.0 l
+320.0 640.0 l
+368.0 592.0 l
+256.0 576.0 l
+208.0 512.0 l
+null null h
+</path>
 </page>
 
 </ipe>
