@@ -32,6 +32,7 @@ public class DocumentHandler {
         else {
             System.out.println("invalid function");
         }
+        updateDocument();
 
     }
 
