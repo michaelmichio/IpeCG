@@ -2,12 +2,14 @@ package CG.Algorithm;
 
 import CG.Object.LineSegment;
 import CG.Object.Point;
+import Ipe.Object.Layer;
 import Ipe.Object.Path;
 
 import java.util.ArrayList;
 
 public class BentleyOttmann {
-    ArrayList<LineSegment> lineSegments = new ArrayList<>();
+    public ArrayList<Layer> layers = new ArrayList<>();
+    public ArrayList<LineSegment> lineSegments = new ArrayList<>();
 
     public BentleyOttmann(ArrayList<Path> paths) {
         setLineSegments(paths);

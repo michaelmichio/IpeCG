@@ -1,12 +1,14 @@
 package CG.Algorithm;
 
 import CG.Object.Point;
+import Ipe.Object.Layer;
 import Ipe.Object.Path;
 
 import java.util.ArrayList;
 
 public class AreaOfPolygon {
-    ArrayList<Point> vertices = new ArrayList<>();
+    public ArrayList<Layer> layers = new ArrayList<>();
+    public ArrayList<Point> vertices = new ArrayList<>();
 
     public AreaOfPolygon(Path path) {
         setVertices(path);

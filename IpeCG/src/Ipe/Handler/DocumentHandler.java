@@ -27,14 +27,15 @@ public class DocumentHandler {
             System.out.println("invalid document");
         }
         if(alg != null) {
-            runAlgorithm(firstLayer, alg);
+            setLayersResult(firstLayer, alg);
         }
         else {
             System.out.println("invalid function");
         }
+
     }
 
-    public void runAlgorithm(Layer layer, String alg) {
+    public void setLayersResult(Layer layer, String alg) {
         ArrayList<Path> lineSegments = new ArrayList<>();
         ArrayList<Path> polygons = new ArrayList<>();
         for (Path pth : layer.paths) {
@@ -47,12 +48,13 @@ public class DocumentHandler {
                 //
             }
         }
+        layers.add(layer);
         try {
             switch (alg) {
-                case "area_of_polygon" -> new AreaOfPolygon(polygons.get(0));
-                case "bentley_ottmann" -> new BentleyOttmann(lineSegments);
-                case "graham_scan" -> new GrahamScan(layer.uses);
-                case "triangulation_monotone_polygon" -> new TriangulationMonotonePolygon(polygons.get(0));
+                case "area_of_polygon" -> layers.addAll(new AreaOfPolygon(polygons.get(0)).layers);
+                case "bentley_ottmann" -> layers.addAll(new BentleyOttmann(lineSegments).layers);
+                case "graham_scan" -> layers.addAll(new GrahamScan(layer.uses).layers);
+                case "triangulation_monotone_polygon" -> layers.addAll(new TriangulationMonotonePolygon(polygons.get(0)).layers);
                 default -> {
                 }
             }
@@ -118,5 +120,9 @@ public class DocumentHandler {
         }
 
         return firstLayer;
+    }
+
+    public void updateDocument() {
+
     }
 }
