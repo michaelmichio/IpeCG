@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ipe creator="Ipe 7.2.26" version="70218">
 
-<info created="D:20230321095808" modified="D:20230321095808"/>
+<info created="D:20230321094026" modified="D:20230321094026"/>
 
 <ipestyle name="basic">
 
@@ -473,6 +473,9 @@ h
 <layer name="7"/>
 <layer name="8"/>
 <layer name="9"/>
+<layer name="10"/>
+<layer name="11"/>
+<layer name="12"/>
 <view layers="0"/>
 <view layers="0 1"/>
 <view layers="0 2"/>
@@ -483,111 +486,80 @@ h
 <view layers="0 7"/>
 <view layers="0 8"/>
 <view layers="0 9"/>
+<view layers="0 10"/>
+<view layers="0 11"/>
+<view layers="0 12"/>
 <path layer="0" stroke="black">
-192 624 m
-272 704 l
+128 736 m
+160 688 l
+</path>
+<path layer="0" stroke="black">
+112 592 m
+176 608 l
+</path>
+<path layer="0" stroke="black">
+80 656 m
+304 720 l
+</path>
+<path layer="0" stroke="black">
+208 720 m
+304 624 l
+</path>
+<path layer="0" stroke="black">
+240 624 m
 368 688 l
-448 576 l
-400 480 l
-208 512 l
-256 576 l
-368 592 l
-320 640 l
-null null h
 </path>
-<path fill="green" layer="1" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-null null h
+<path layer="0" stroke="black">
+336 704 m
+416 608 l
 </path>
-<path fill="green" layer="2" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-272.0 704.0 l
-null null h
+<path layer="1" pen="ultrafat" stroke="red">
+80.0 752.0 m
+80.0 576.0 l
 </path>
-<path fill="green" layer="3" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-272.0 704.0 l
-192.0 624.0 l
-null null h
+<path layer="2" pen="ultrafat" stroke="red">
+112.0 752.0 m
+112.0 576.0 l
 </path>
-<path fill="green" layer="4" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-272.0 704.0 l
-192.0 624.0 l
-320.0 640.0 l
-null null h
+<path layer="3" pen="ultrafat" stroke="red">
+128.0 752.0 m
+128.0 576.0 l
 </path>
-<path fill="red" layer="4" opacity="50%">
-400.0 480.0 m
-192.0 624.0 l
-320.0 640.0 l
-null null h
+<path layer="4" pen="ultrafat" stroke="red">
+160.0 752.0 m
+160.0 576.0 l
 </path>
-<path fill="green" layer="5" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-272.0 704.0 l
-192.0 624.0 l
-320.0 640.0 l
-null null h
+<path layer="5" pen="ultrafat" stroke="red">
+176.0 752.0 m
+176.0 576.0 l
 </path>
-<path fill="green" layer="6" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-272.0 704.0 l
-192.0 624.0 l
-320.0 640.0 l
-368.0 592.0 l
-null null h
+<path layer="6" pen="ultrafat" stroke="red">
+208.0 752.0 m
+208.0 576.0 l
 </path>
-<path fill="red" layer="6" opacity="50%">
-400.0 480.0 m
-320.0 640.0 l
-368.0 592.0 l
-null null h
+<path layer="7" pen="ultrafat" stroke="red">
+240.0 752.0 m
+240.0 576.0 l
 </path>
-<path fill="green" layer="7" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-272.0 704.0 l
-192.0 624.0 l
-320.0 640.0 l
-368.0 592.0 l
-null null h
+<path layer="8" pen="ultrafat" stroke="red">
+304.0 752.0 m
+304.0 576.0 l
 </path>
-<path fill="green" layer="8" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-272.0 704.0 l
-192.0 624.0 l
-320.0 640.0 l
-368.0 592.0 l
-256.0 576.0 l
-null null h
+<path layer="9" pen="ultrafat" stroke="red">
+304.0 752.0 m
+304.0 576.0 l
 </path>
-<path fill="green" layer="9" opacity="50%">
-400.0 480.0 m
-448.0 576.0 l
-368.0 688.0 l
-272.0 704.0 l
-192.0 624.0 l
-320.0 640.0 l
-368.0 592.0 l
-256.0 576.0 l
-208.0 512.0 l
-null null h
+<path layer="10" pen="ultrafat" stroke="red">
+336.0 752.0 m
+336.0 576.0 l
+</path>
+<path layer="11" pen="ultrafat" stroke="red">
+368.0 752.0 m
+368.0 576.0 l
+</path>
+<path layer="12" pen="ultrafat" stroke="red">
+416.0 752.0 m
+416.0 576.0 l
 </path>
 </page>
 

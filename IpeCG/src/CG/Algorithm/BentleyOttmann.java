@@ -6,6 +6,7 @@ import Ipe.Object.Layer;
 import Ipe.Object.Path;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BentleyOttmann {
     public ArrayList<Layer> layers = new ArrayList<>();
@@ -14,7 +15,85 @@ public class BentleyOttmann {
     public BentleyOttmann(ArrayList<Path> paths) {
         setLineSegments(paths);
         sortLineSegments();
-        // ...
+        generateLayers();
+    }
+
+    public void generateLayers() {
+        double maxY = getMaxtY() + 16; // y for p1 sweep line
+        double minY = getMinY() - 16; // y for p2 sweep line
+
+        ArrayList<Point> eventPoints = getEventPoints();
+
+        //ArrayList<LineSegment> totalPreorders = new ArrayList<>();
+
+        for (int i = 0; i < eventPoints.size(); i++) {
+            HashMap<String, String> attributes = new HashMap<>();
+            ArrayList<Path> paths = new ArrayList<>();
+            ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+            strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.get(i).x), String.valueOf(maxY), "m"));
+            strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.get(i).x), String.valueOf(minY), "l"));
+            attributes.put("layer", String.valueOf(i+1));
+            attributes.put("stroke", "red");
+            attributes.put("pen", "ultrafat");
+            paths.add(new Path(strPoints, attributes));
+            layers.add(new Layer(paths, null));
+        }
+    }
+
+    public ArrayList<Point> getEventPoints() {
+        ArrayList<Point> eventPoints = new ArrayList<>();
+        eventPoints.add(lineSegments.get(0).p1);
+        eventPoints.add(lineSegments.get(0).p2);
+        for (int i = 1; i < lineSegments.size(); i++) {
+            for (int j = 0; j < eventPoints.size(); j++) {
+                if (lineSegments.get(i).p1.x < eventPoints.get(j).x) {
+                    eventPoints.add(j, lineSegments.get(i).p1);
+                    break;
+                }
+                else if (j == eventPoints.size() - 1) {
+                    eventPoints.add(lineSegments.get(i).p1);
+                    break;
+                }
+            }
+            for (int j = 0; j < eventPoints.size(); j++) {
+                if (lineSegments.get(i).p2.x < eventPoints.get(j).x) {
+                    eventPoints.add(j, lineSegments.get(i).p2);
+                    break;
+                }
+                else if (j == eventPoints.size() - 1) {
+                    eventPoints.add(lineSegments.get(i).p2);
+                    break;
+                }
+            }
+        }
+        return eventPoints;
+    }
+
+    public double getMaxtY() {
+        double max = Double.MIN_VALUE;
+        for (LineSegment ls : lineSegments) {
+            if (ls.p1.y > max) {
+                max = ls.p1.y;
+            }
+            if (ls.p2.y > max) {
+                max = ls.p2.y;
+            }
+        }
+        return max;
+    }
+
+    public double getMinY() {
+        double min = Double.MAX_VALUE;
+        for (LineSegment ls : lineSegments) {
+            if (ls.p1.y < min) {
+                min = ls.p1.y;
+            }
+            if (ls.p2.y < min) {
+                min = ls.p2.y;
+            }
+        }
+        return min;
     }
 
     public void sortLineSegments() {
