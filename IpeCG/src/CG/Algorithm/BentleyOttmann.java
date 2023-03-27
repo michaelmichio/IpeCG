@@ -1,12 +1,12 @@
 package CG.Algorithm;
 
+import CG.Object.Endpoint;
 import CG.Object.LineSegment;
 import CG.Object.Point;
 import Ipe.Object.Layer;
 import Ipe.Object.Path;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class BentleyOttmann {
     public ArrayList<Layer> layers = new ArrayList<>();
@@ -22,49 +22,276 @@ public class BentleyOttmann {
         double maxY = getMaxtY() + 16; // y for p1 sweep line
         double minY = getMinY() - 16; // y for p2 sweep line
 
-        ArrayList<Point> eventPoints = getEventPoints();
+        TreeMap<Double, Deque<Endpoint>> eventPoints = getEventPoints();
+        TreeMap<Double, ArrayList<Integer>> status = new TreeMap<>();
 
-        //ArrayList<LineSegment> totalPreorders = new ArrayList<>();
+        // status.put(eventPoints.firstEntry().getValue().getFirst().y, new ArrayList<>());
 
-        for (int i = 0; i < eventPoints.size(); i++) {
+        int n = eventPoints.size();
+        for (int i = 0; i < n; i++) {
+
             HashMap<String, String> attributes = new HashMap<>();
             ArrayList<Path> paths = new ArrayList<>();
             ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-            strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.get(i).x), String.valueOf(maxY), "m"));
-            strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.get(i).x), String.valueOf(minY), "l"));
-            attributes.put("layer", String.valueOf(i+1));
-            attributes.put("stroke", "red");
-            attributes.put("pen", "ultrafat");
-            paths.add(new Path(strPoints, attributes));
-            layers.add(new Layer(paths, null));
+            int m = 0;
+            if (eventPoints.firstEntry() != null) {
+                m = eventPoints.firstEntry().getValue().size();
+            }
+            for (int j = 0; j < m; j++) {
+
+                double x = eventPoints.firstEntry().getValue().getFirst().x;
+                double prev;
+                double y = eventPoints.firstEntry().getValue().getFirst().y;
+                double next;
+                int segmentIndex = eventPoints.firstEntry().getValue().getFirst().segmenIdx;
+                int type = eventPoints.firstEntry().getValue().getFirst().type;
+                int intersectSegmentIndex = 0;
+                boolean isIntersect;
+                Point intersectPoint;
+
+                if (type == 0) { // start
+
+                    System.out.println("masuk " + segmentIndex);
+
+                    // add new line segment to status
+                    if (status.containsKey(y)) { // key already exist
+
+                        // check above (same key)
+                        intersectSegmentIndex = status.get(y).get(status.get(y).size()-1);
+                        isIntersect = lineSegments.get(segmentIndex).isIntersect(lineSegments.get(intersectSegmentIndex));
+                        intersectPoint = lineSegments.get(segmentIndex).getIntersectPoint(lineSegments.get(intersectSegmentIndex));
+
+                        if (isIntersect) { // intersect
+                            Deque<Endpoint> ep = new ArrayDeque<>();
+                            ep.add(new Endpoint(intersectPoint.x, intersectPoint.y, intersectSegmentIndex, segmentIndex, 2));
+                            if (eventPoints.containsKey(intersectPoint.x)) {
+                                ep.addAll(eventPoints.get(intersectPoint.x));
+                            }
+                            eventPoints.put(intersectPoint.x, ep);
+                        }
+
+                        // check below if exist (next key)
+                        if (status.higherKey(y) != null) {
+                            // get first
+                            next = status.higherKey(y);
+                            intersectSegmentIndex = status.get(next).get(0);
+                            isIntersect = lineSegments.get(segmentIndex).isIntersect(lineSegments.get(intersectSegmentIndex));
+                            intersectPoint = lineSegments.get(segmentIndex).getIntersectPoint(lineSegments.get(intersectSegmentIndex));
+
+                            if (isIntersect) {
+                                Deque<Endpoint> ep = new ArrayDeque<>();
+                                ep.add(new Endpoint(intersectPoint.x, intersectPoint.y, segmentIndex, intersectSegmentIndex, 2));
+                                if (eventPoints.containsKey(intersectPoint.x)) {
+                                    ep.addAll(eventPoints.get(intersectPoint.x));
+                                }
+                                eventPoints.put(intersectPoint.x, ep);
+                            }
+                        }
+
+                        // add new line segment to status
+                        ArrayList<Integer> ls = new ArrayList<>();
+                        ls.add(segmentIndex); // add new value
+                        if (status.containsKey(y)) {
+                            ls.addAll(status.get(y)); // merge with the prev value
+                        }
+                        status.put(y, ls);
+                    }
+                    else { // new key
+
+                        // check above if exist (prev key)
+                        if (status.lowerKey(y) != null) {
+                            // get first
+                            prev = status.lowerKey(y);
+                            //
+                            if (status.get(prev).size() > 0) {
+                                intersectSegmentIndex = status.get(prev).get(status.get(prev).size()-1);
+                            }
+                            //
+                            isIntersect = lineSegments.get(segmentIndex).isIntersect(lineSegments.get(intersectSegmentIndex));
+                            intersectPoint = lineSegments.get(segmentIndex).getIntersectPoint(lineSegments.get(intersectSegmentIndex));
+
+                            if (isIntersect) {
+                                Deque<Endpoint> ep = new ArrayDeque<>();
+                                ep.add(new Endpoint(intersectPoint.x, intersectPoint.y, intersectSegmentIndex, segmentIndex, 2));
+                                if (eventPoints.containsKey(intersectPoint.x)) {
+                                    ep.addAll(eventPoints.get(intersectPoint.x));
+                                }
+                                eventPoints.put(intersectPoint.x, ep);
+                            }
+                        }
+
+                        // check below if exist (next key)
+                        if (status.higherKey(y) != null) {
+                            // get first
+                            next = status.higherKey(y);
+                            if (status.get(next).size() > 0) {
+                                intersectSegmentIndex = status.get(next).get(0);
+                            }
+                            isIntersect = lineSegments.get(segmentIndex).isIntersect(lineSegments.get(intersectSegmentIndex));
+                            intersectPoint = lineSegments.get(segmentIndex).getIntersectPoint(lineSegments.get(intersectSegmentIndex));
+
+                            if (isIntersect) {
+                                Deque<Endpoint> ep = new ArrayDeque<>();
+                                ep.add(new Endpoint(intersectPoint.x, intersectPoint.y, segmentIndex, intersectSegmentIndex, 2));
+                                if (eventPoints.containsKey(intersectPoint.x)) {
+                                    ep.addAll(eventPoints.get(intersectPoint.x));
+                                }
+                                eventPoints.put(intersectPoint.x, ep);
+                            }
+                        }
+
+                        // add new line segment to status
+                        ArrayList<Integer> ls = new ArrayList<>();
+                        ls.add(segmentIndex); // add new value
+                        if (status.containsKey(y)) {
+                            ls.addAll(status.get(y)); // merge with the prev value
+                        }
+                        status.put(y, ls);
+
+                    }
+
+                }
+                else if (type == 1) { // end
+
+                    System.out.println("keluar " + segmentIndex);
+
+                    ArrayList<Integer> ls = new ArrayList<>();
+                    if (status.get(y) != null) {
+                        ls.addAll(status.get(y));
+                    }
+                    for (int k = 0; k < ls.size(); k++) {
+                        if (ls.get(k) == segmentIndex) {
+                            ls.remove(k);
+                            break;
+                        }
+                    }
+                    if (status.get(y) != null) {
+                        if (status.get(y).size() == 0) {
+                            status.remove(y);
+                        }
+                    }
+                    status.put(y, ls);
+                    if (status.get(y).size() == 0) {
+                        status.remove(y);
+                    }
+                }
+                else { // intersection
+
+                    n++;
+
+                    System.out.println("intersect " + segmentIndex);
+
+                    int ls1 = eventPoints.firstEntry().getValue().getFirst().segmenIdx;
+                    int ls2 = eventPoints.firstEntry().getValue().getFirst().intersectSegmentIndex;
+                    int lsAbove = -1;
+                    for (Map.Entry<Double, ArrayList<Integer>> entry : status.entrySet()) {
+                        ArrayList<Integer> ls = entry.getValue();
+                        for (int k = 0; k < ls.size(); k++) {
+                            if (ls.get(k) == ls1) {
+                                ls.set(k, ls2);
+                                if (lsAbove != -1) {
+                                    if (lineSegments.get(ls2).isIntersect(lineSegments.get(lsAbove))) {
+                                        Point ip = lineSegments.get(ls2).getIntersectPoint(lineSegments.get(lsAbove));
+                                        Deque<Endpoint> ep = new ArrayDeque<>();
+                                        if (eventPoints.containsKey(ip.x)) {
+                                            ep.addAll(eventPoints.get(ip.x));
+                                        }
+                                        else {
+                                            n++;
+                                        }
+                                        ep.add(new Endpoint(ip.x, ip.y, ls2, lsAbove, 2));
+                                        eventPoints.put(ip.x, ep);
+                                    }
+                                }
+                            }
+                            else if (ls.get(k) == ls2) {
+                                ls.set(k, ls1);
+                                if (k < ls.size()-1) {
+                                    if (lineSegments.get(ls1).isIntersect(lineSegments.get(ls.get(k+1)))) {
+                                        Point ip = lineSegments.get(ls1).getIntersectPoint(lineSegments.get(k+1));
+                                        Deque<Endpoint> ep = new ArrayDeque<>();
+                                        if (eventPoints.containsKey(ip.x)) {
+                                            ep.addAll(eventPoints.get(ip.x));
+                                        }
+                                        else {
+                                            n++;
+                                        }
+                                        ep.add(new Endpoint(ip.x, ip.y, ls1, ls.get(k+1), 2));
+                                        eventPoints.put(ip.x, ep);
+                                    }
+                                }
+                                else if (status.higherKey(entry.getKey()) != null && status.get(status.higherKey(entry.getKey())).size() > 0) {
+                                    int lsBelow = status.get(status.higherKey(entry.getKey())).get(0);
+                                    if (lineSegments.get(ls1).isIntersect(lineSegments.get(lsBelow))) {
+                                        Point ip = lineSegments.get(ls1).getIntersectPoint(lineSegments.get(lsBelow));
+                                        Deque<Endpoint> ep = new ArrayDeque<>();
+                                        if (eventPoints.containsKey(ip.x)) {
+                                            ep.addAll(eventPoints.get(ip.x));
+                                        }
+                                        else {
+                                            n++;
+                                        }
+                                        ep.add(new Endpoint(ip.x, ip.y, ls1, ls.get(lsBelow), 2));
+                                        eventPoints.put(ip.x, ep);
+                                    }
+                                }
+                            }
+                            lsAbove = ls.get(k);
+                        }
+                    }
+                }
+
+                for (Map.Entry<Double, Deque<Endpoint>> entry : eventPoints.entrySet()) {
+                    Deque<Endpoint> newDeq = new ArrayDeque<>();
+                    newDeq.addAll(entry.getValue());
+                    newDeq.forEach((z) -> System.out.println(z.x));
+                }
+                System.out.println("status " + status.values());
+
+                // draw sweep line
+                strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.firstEntry().getValue().getFirst().x), String.valueOf(maxY), "m"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.firstEntry().getValue().getFirst().x), String.valueOf(minY), "l"));
+                attributes.put("layer", String.valueOf(i+1));
+                attributes.put("stroke", "red");
+                attributes.put("pen", "ultrafat");
+                paths.add(new Path(strPoints, attributes));
+                layers.add(new Layer(paths, null));
+
+                if (eventPoints.firstEntry() != null) {
+                    eventPoints.firstEntry().getValue().removeFirst();
+                }
+
+            }
+
+            if (eventPoints.firstEntry() != null) {
+                eventPoints.pollFirstEntry();
+            }
         }
     }
 
-    public ArrayList<Point> getEventPoints() {
-        ArrayList<Point> eventPoints = new ArrayList<>();
-        eventPoints.add(lineSegments.get(0).p1);
-        eventPoints.add(lineSegments.get(0).p2);
-        for (int i = 1; i < lineSegments.size(); i++) {
-            for (int j = 0; j < eventPoints.size(); j++) {
-                if (lineSegments.get(i).p1.x < eventPoints.get(j).x) {
-                    eventPoints.add(j, lineSegments.get(i).p1);
-                    break;
-                }
-                else if (j == eventPoints.size() - 1) {
-                    eventPoints.add(lineSegments.get(i).p1);
-                    break;
-                }
+    public TreeMap<Double, Deque<Endpoint>> getEventPoints() {
+        TreeMap<Double, Deque<Endpoint>> eventPoints = new TreeMap<>();
+        for (int i = 0; i < lineSegments.size(); i++) {
+            if (eventPoints.containsKey(lineSegments.get(i).p1.x)) {
+                Deque<Endpoint> yList = eventPoints.get(lineSegments.get(i).p1.x);
+                yList.add(new Endpoint(lineSegments.get(i).p1.x, lineSegments.get(i).p1.y, i, 0));
+                eventPoints.put(lineSegments.get(i).p1.x, yList);
             }
-            for (int j = 0; j < eventPoints.size(); j++) {
-                if (lineSegments.get(i).p2.x < eventPoints.get(j).x) {
-                    eventPoints.add(j, lineSegments.get(i).p2);
-                    break;
-                }
-                else if (j == eventPoints.size() - 1) {
-                    eventPoints.add(lineSegments.get(i).p2);
-                    break;
-                }
+            else {
+                Deque<Endpoint> yList = new ArrayDeque<>();
+                yList.add(new Endpoint(lineSegments.get(i).p1.x, lineSegments.get(i).p1.y, i, 0));
+                eventPoints.put(lineSegments.get(i).p1.x, yList);
+            }
+            if (eventPoints.containsKey(lineSegments.get(i).p2.x)) {
+                Deque<Endpoint> yList = eventPoints.get(lineSegments.get(i).p2.x);
+                yList.add(new Endpoint(lineSegments.get(i).p2.x, lineSegments.get(i).p2.y, i, 1));
+                eventPoints.put(lineSegments.get(i).p2.x, yList);
+            }
+            else {
+                Deque<Endpoint> yList = new ArrayDeque<>();
+                yList.add(new Endpoint(lineSegments.get(i).p2.x, lineSegments.get(i).p2.y, i, 1));
+                eventPoints.put(lineSegments.get(i).p2.x, yList);
             }
         }
         return eventPoints;

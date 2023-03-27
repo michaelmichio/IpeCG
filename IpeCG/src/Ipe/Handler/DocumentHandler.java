@@ -61,7 +61,7 @@ public class DocumentHandler {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            throw e;
         }
     }
 
