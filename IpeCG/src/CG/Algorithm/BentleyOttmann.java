@@ -156,17 +156,50 @@ public class BentleyOttmann {
 
                     System.out.println("keluar " + segmentIndex);
 
+                    // check above and below
+                    int lsAbove = -1;
+                    int lsBelow = -1;
+
+                    if (status.get(y) != null) {
+                        if (status.get(y).indexOf(segmentIndex) > 0) {
+                            lsAbove = status.get(y).indexOf(status.get(y).indexOf(segmentIndex)-1);
+                        }
+                        else if (status.lowerKey(y) != null) {
+                            lsAbove = status.get(status.lowerKey(y)).get(status.get(status.lowerKey(y)).size()-1);
+                        }
+
+                        if (status.get(y).indexOf(segmentIndex) < status.get(y).size()-1) {
+                            lsBelow = status.get(y).indexOf(status.get(y).indexOf(segmentIndex)+1);
+                        }
+                        else if (status.lowerKey(y) != null) {
+                            lsBelow = status.get(status.higherKey(y)).get(0);
+                        }
+                    }
+
+                    if (lsAbove != -1 && lsBelow != -1) {
+                        if (lineSegments.get(lsAbove).isIntersect(lineSegments.get(lsBelow))) {
+                            Point ip = lineSegments.get(lsAbove).getIntersectPoint(lineSegments.get(lsBelow));
+                            Deque<Endpoint> ep = new ArrayDeque<>();
+                            if (eventPoints.containsKey(ip.x)) {
+                                if (eventPoints.get(ip.x).size() > 0) {
+                                    ep.addAll(eventPoints.get(ip.x));
+                                }
+                            }
+                            else {
+                                n++;
+                            }
+                            ep.add(new Endpoint(ip.x, ip.y, lsBelow, lsAbove, 2));
+                            eventPoints.put(ip.x, ep);
+                        }
+                    }
+
+                    //
+
                     ArrayList<Integer> ls = new ArrayList<>();
                     if (status.get(y) != null) {
                         ls.addAll(status.get(y));
-                    }
-                    for (int k = 0; k < ls.size(); k++) {
-                        if (ls.get(k) == segmentIndex) {
-                            ls.remove(k);
-                            break;
-                        }
-                    }
-                    if (status.get(y) != null) {
+                        ls.remove(Integer.valueOf(segmentIndex));
+
                         if (status.get(y).size() == 0) {
                             status.remove(y);
                         }
@@ -198,7 +231,7 @@ public class BentleyOttmann {
                                             ep.addAll(eventPoints.get(ip.x));
                                         }
                                         else {
-                                            n++;
+                                            //n++;
                                         }
                                         ep.add(new Endpoint(ip.x, ip.y, ls2, lsAbove, 2));
                                         eventPoints.put(ip.x, ep);
@@ -215,7 +248,7 @@ public class BentleyOttmann {
                                             ep.addAll(eventPoints.get(ip.x));
                                         }
                                         else {
-                                            n++;
+                                            //n++;
                                         }
                                         ep.add(new Endpoint(ip.x, ip.y, ls1, ls.get(k+1), 2));
                                         eventPoints.put(ip.x, ep);
@@ -230,7 +263,7 @@ public class BentleyOttmann {
                                             ep.addAll(eventPoints.get(ip.x));
                                         }
                                         else {
-                                            n++;
+                                            //n++;
                                         }
                                         ep.add(new Endpoint(ip.x, ip.y, ls1, ls.get(lsBelow), 2));
                                         eventPoints.put(ip.x, ep);
@@ -245,7 +278,6 @@ public class BentleyOttmann {
                 for (Map.Entry<Double, Deque<Endpoint>> entry : eventPoints.entrySet()) {
                     Deque<Endpoint> newDeq = new ArrayDeque<>();
                     newDeq.addAll(entry.getValue());
-                    newDeq.forEach((z) -> System.out.println(z.x));
                 }
                 System.out.println("status " + status.values());
 
