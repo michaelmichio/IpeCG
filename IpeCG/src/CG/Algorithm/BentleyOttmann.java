@@ -19,7 +19,7 @@ public class BentleyOttmann {
     }
 
     public void generateLayers() {
-        double maxY = getMaxtY() + 16; // y for p1 sweep line
+        double maxY = getMaxY() + 16; // y for p1 sweep line
         double minY = getMinY() - 16; // y for p2 sweep line
 
         TreeMap<Double, Deque<Endpoint>> eventPoints = getEventPoints();
@@ -52,7 +52,7 @@ public class BentleyOttmann {
 
                 if (type == 0) { // start
 
-                    System.out.println("masuk " + segmentIndex);
+                    // System.out.println("masuk " + segmentIndex);
 
                     // add new line segment to status
                     if (status.containsKey(y)) { // key already exist
@@ -154,7 +154,7 @@ public class BentleyOttmann {
                 }
                 else if (type == 1) { // end
 
-                    System.out.println("keluar " + segmentIndex);
+                    // System.out.println("keluar " + segmentIndex);
 
                     // check above and below
                     int lsAbove = -1;
@@ -213,7 +213,7 @@ public class BentleyOttmann {
 
                     n++;
 
-                    System.out.println("intersect " + segmentIndex);
+                    // System.out.println("intersect " + segmentIndex);
 
                     int ls1 = eventPoints.firstEntry().getValue().getFirst().segmenIdx;
                     int ls2 = eventPoints.firstEntry().getValue().getFirst().intersectSegmentIndex;
@@ -275,11 +275,7 @@ public class BentleyOttmann {
                     }
                 }
 
-                for (Map.Entry<Double, Deque<Endpoint>> entry : eventPoints.entrySet()) {
-                    Deque<Endpoint> newDeq = new ArrayDeque<>();
-                    newDeq.addAll(entry.getValue());
-                }
-                System.out.println("status " + status.values());
+                // System.out.println("status " + status.values());
 
                 // draw sweep line
                 strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.firstEntry().getValue().getFirst().x), String.valueOf(maxY), "m"));
@@ -329,7 +325,7 @@ public class BentleyOttmann {
         return eventPoints;
     }
 
-    public double getMaxtY() {
+    public double getMaxY() {
         double max = Double.MIN_VALUE;
         for (LineSegment ls : lineSegments) {
             if (ls.p1.y > max) {
