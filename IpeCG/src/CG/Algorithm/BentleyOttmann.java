@@ -160,6 +160,16 @@ public class BentleyOttmann {
                     int lsAbove = -1;
                     int lsBelow = -1;
 
+                    int endIdx = eventPoints.firstEntry().getValue().getFirst().segmenIdx;
+                    double startKey = 0;
+                    for (Map.Entry<Double, ArrayList<Integer>> idxList : status.entrySet()) {
+                        for (int idx : idxList.getValue()) {
+                            if (idx == endIdx) {
+                                startKey = idxList.getKey();
+                                break;
+                            }
+                        }
+                    }
                     if (status.get(y) != null) {
                         if (status.get(y).indexOf(segmentIndex) > 0) {
                             lsAbove = status.get(y).indexOf(status.get(y).indexOf(segmentIndex)-1);
@@ -171,7 +181,7 @@ public class BentleyOttmann {
                         if (status.get(y).indexOf(segmentIndex) < status.get(y).size()-1) {
                             lsBelow = status.get(y).indexOf(status.get(y).indexOf(segmentIndex)+1);
                         }
-                        else if (status.lowerKey(y) != null) {
+                        else if (status.higherKey(y) != null) {
                             lsBelow = status.get(status.higherKey(y)).get(0);
                         }
                     }
@@ -282,7 +292,7 @@ public class BentleyOttmann {
                 strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.firstEntry().getValue().getFirst().x), String.valueOf(minY), "l"));
                 attributes.put("layer", String.valueOf(i+1));
                 attributes.put("stroke", "red");
-                attributes.put("pen", "ultrafat");
+                attributes.put("pen", "2");
                 paths.add(new Path(strPoints, attributes));
                 layers.add(new Layer(paths, null));
 
