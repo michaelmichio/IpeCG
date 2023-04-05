@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.26">
-<info created="D:20200813140717" modified="D:20230328100533" numberpages="yes"/>
+<info created="D:20200813140717" modified="D:20230403165923" numberpages="yes"/>
 <preamble>\usepackage[T1]{fontenc} 
 \usepackage[sfdefault]{overlock}
 \usepackage[small,euler-digits,icomma,OT1]{eulervm}
@@ -2187,21 +2187,17 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" stroke="black">
-448 128 m
-640 192 l
-</path>
-<path stroke="black">
-512 176 m
-240 304 l
-</path>
-<path stroke="black">
-192 160 m
-784 464 l
-</path>
-<path stroke="black">
-768 336 m
-96 448 l
-</path>
+<use layer="alpha" name="mark/disk(sx)" pos="448 384" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="192 320" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="256 448" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="256 192" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="576 320" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="384 480" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="512 448" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="288 352" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="528 240" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="320 256" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="480 304" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="384 272" size="normal" stroke="black"/>
 </page>
 </ipe>

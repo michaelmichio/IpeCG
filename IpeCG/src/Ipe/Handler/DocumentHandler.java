@@ -225,6 +225,31 @@ public class DocumentHandler {
                         }
                     }
 
+                    // set text
+                    for (Layer layer : layers) {
+                        Element element;
+                        Attr attr;
+                        Text text;
+
+                        // text
+                        if (layer.texts != null) {
+                            for (int j = 0; j < layer.texts.size(); j++) {
+                                element = secondNodeElement.getOwnerDocument().createElement("text");
+                                secondNodeElement.appendChild(element);
+
+                                Set<String> keys = layer.texts.get(j).attributes.keySet();
+                                for (String key : keys) {
+                                    attr = element.getOwnerDocument().createAttribute(key);
+                                    attr.setValue(layer.texts.get(j).attributes.get(key));
+                                    element.setAttributeNode(attr);
+                                }
+
+                                text = doc.createTextNode(layer.texts.get(j).text);
+                                element.appendChild(text);
+                            }
+                        }
+                    }
+
                 }
             }
         }

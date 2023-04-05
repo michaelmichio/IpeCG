@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ipe creator="Ipe 7.2.26" version="70218">
 
-<info created="D:20200813140717" modified="D:20230328100929" numberpages="yes"/>
+<info created="D:20200813140717" modified="D:20230403165923" numberpages="yes"/>
 
 <preamble>\usepackage[T1]{fontenc} 
 \usepackage[sfdefault]{overlock}
@@ -2546,6 +2546,8 @@ h
 <layer name="6"/>
 <layer name="7"/>
 <layer name="8"/>
+<layer name="9"/>
+<layer name="10"/>
 <view layers="0"/>
 <view layers="0 1"/>
 <view layers="0 2"/>
@@ -2555,68 +2557,98 @@ h
 <view layers="0 6"/>
 <view layers="0 7"/>
 <view layers="0 8"/>
-<path layer="1" stroke="black">
-320.0 128.0 m
-672.0 160.0 l
-592.0 192.0 l
-</path>
+<view layers="0 9"/>
+<view layers="0 10"/>
 <path layer="2" stroke="black">
-320.0 128.0 m
-672.0 160.0 l
-640.0 272.0 l
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
 </path>
 <path layer="3" stroke="black">
-320.0 128.0 m
-672.0 160.0 l
-640.0 272.0 l
-544.0 288.0 l
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
+480.0 304.0 l
 </path>
 <path layer="4" stroke="black">
-320.0 128.0 m
-672.0 160.0 l
-640.0 272.0 l
-544.0 288.0 l
-448.0 272.0 l
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
+480.0 304.0 l
+384.0 272.0 l
 </path>
 <path layer="5" stroke="black">
-320.0 128.0 m
-672.0 160.0 l
-640.0 272.0 l
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
 512.0 448.0 l
 </path>
 <path layer="6" stroke="black">
-320.0 128.0 m
-672.0 160.0 l
-640.0 272.0 l
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
 512.0 448.0 l
-288.0 400.0 l
+384.0 480.0 l
 </path>
 <path layer="7" stroke="black">
-320.0 128.0 m
-672.0 160.0 l
-640.0 272.0 l
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
 512.0 448.0 l
-288.0 400.0 l
-192.0 240.0 l
+384.0 480.0 l
+288.0 352.0 l
 </path>
 <path layer="8" stroke="black">
-320.0 128.0 m
-672.0 160.0 l
-640.0 272.0 l
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
 512.0 448.0 l
-288.0 400.0 l
-192.0 240.0 l
+384.0 480.0 l
+256.0 448.0 l
+</path>
+<path layer="9" stroke="black">
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
+512.0 448.0 l
+384.0 480.0 l
+256.0 448.0 l
+192.0 320.0 l
+</path>
+<path layer="10" stroke="black">
+256.0 192.0 m
+528.0 240.0 l
+576.0 320.0 l
+512.0 448.0 l
+384.0 480.0 l
+256.0 448.0 l
+192.0 320.0 l
 null null h
 </path>
-<use layer="0" name="mark/disk(sx)" pos="320 128" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="448 384" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="192 320" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="256 448" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="256 192" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="576 320" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="384 480" size="normal" stroke="black"/>
 <use layer="0" name="mark/disk(sx)" pos="512 448" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="448 272" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="544 288" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="640 272" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="592 192" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="672 160" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="288 400" size="normal" stroke="black"/>
-<use layer="0" name="mark/disk(sx)" pos="192 240" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="288 352" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="528 240" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="320 256" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="480 304" size="normal" stroke="black"/>
+<use layer="0" name="mark/disk(sx)" pos="384 272" size="normal" stroke="black"/>
+<text depth="0.0825" height="18.59" layer="1" pos="456.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">1</text>
+<text depth="0.0825" height="18.59" layer="1" pos="200.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">2</text>
+<text depth="0.0825" height="18.59" layer="1" pos="264.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">3</text>
+<text depth="0.0825" height="18.59" layer="1" pos="264.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">4</text>
+<text depth="0.0825" height="18.59" layer="1" pos="584.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">5</text>
+<text depth="0.0825" height="18.59" layer="1" pos="392.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">6</text>
+<text depth="0.0825" height="18.59" layer="1" pos="520.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">7</text>
+<text depth="0.0825" height="18.59" layer="1" pos="296.0 360.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">8</text>
+<text depth="0.0825" height="18.59" layer="1" pos="536.0 248.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">9</text>
+<text depth="0.0825" height="18.59" layer="1" pos="328.0 264.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">10</text>
+<text depth="0.0825" height="18.59" layer="1" pos="488.0 312.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">11</text>
+<text depth="0.0825" height="18.59" layer="1" pos="392.0 280.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">12</text>
 </page>
 
 </ipe>

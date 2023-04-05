@@ -54,7 +54,7 @@ public class AreaOfPolygon {
 
                 paths.add(new Path(strPoints, attributes));
 
-                layers.add(new Layer(paths, null));
+                layers.add(new Layer(paths, null, null));
             }
 
             attributes = new HashMap<>();
@@ -71,7 +71,7 @@ public class AreaOfPolygon {
             attributes.put("layer", String.valueOf(layers.size()+1));
 
             paths.add(new Path(strPoints, attributes));
-            layers.add(new Layer(paths, null));
+            layers.add(new Layer(paths, null, null));
         }
     }
 

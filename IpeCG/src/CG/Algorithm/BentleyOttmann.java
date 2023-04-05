@@ -157,51 +157,51 @@ public class BentleyOttmann {
                     // System.out.println("keluar " + segmentIndex);
 
                     // check above and below
-                    int lsAbove = -1;
-                    int lsBelow = -1;
-
-                    int endIdx = eventPoints.firstEntry().getValue().getFirst().segmenIdx;
-                    double startKey = 0;
-                    for (Map.Entry<Double, ArrayList<Integer>> idxList : status.entrySet()) {
-                        for (int idx : idxList.getValue()) {
-                            if (idx == endIdx) {
-                                startKey = idxList.getKey();
-                                break;
-                            }
-                        }
-                    }
-                    if (status.get(y) != null) {
-                        if (status.get(y).indexOf(segmentIndex) > 0) {
-                            lsAbove = status.get(y).indexOf(status.get(y).indexOf(segmentIndex)-1);
-                        }
-                        else if (status.lowerKey(y) != null) {
-                            lsAbove = status.get(status.lowerKey(y)).get(status.get(status.lowerKey(y)).size()-1);
-                        }
-
-                        if (status.get(y).indexOf(segmentIndex) < status.get(y).size()-1) {
-                            lsBelow = status.get(y).indexOf(status.get(y).indexOf(segmentIndex)+1);
-                        }
-                        else if (status.higherKey(y) != null) {
-                            lsBelow = status.get(status.higherKey(y)).get(0);
-                        }
-                    }
-
-                    if (lsAbove != -1 && lsBelow != -1) {
-                        if (lineSegments.get(lsAbove).isIntersect(lineSegments.get(lsBelow))) {
-                            Point ip = lineSegments.get(lsAbove).getIntersectPoint(lineSegments.get(lsBelow));
-                            Deque<Endpoint> ep = new ArrayDeque<>();
-                            if (eventPoints.containsKey(ip.x)) {
-                                if (eventPoints.get(ip.x).size() > 0) {
-                                    ep.addAll(eventPoints.get(ip.x));
-                                }
-                            }
-                            else {
-                                n++;
-                            }
-                            ep.add(new Endpoint(ip.x, ip.y, lsBelow, lsAbove, 2));
-                            eventPoints.put(ip.x, ep);
-                        }
-                    }
+//                    int lsAbove = -1;
+//                    int lsBelow = -1;
+//
+//                    int endIdx = eventPoints.firstEntry().getValue().getFirst().segmenIdx;
+//                    double startKey = 0;
+//                    for (Map.Entry<Double, ArrayList<Integer>> idxList : status.entrySet()) {
+//                        for (int idx : idxList.getValue()) {
+//                            if (idx == endIdx) {
+//                                startKey = idxList.getKey();
+//                                break;
+//                            }
+//                        }
+//                    }
+//                    if (status.get(y) != null) {
+//                        if (status.get(y).indexOf(segmentIndex) > 0) {
+//                            lsAbove = status.get(y).indexOf(status.get(y).indexOf(segmentIndex)-1);
+//                        }
+//                        else if (status.lowerKey(y) != null) {
+//                            lsAbove = status.get(status.lowerKey(y)).get(status.get(status.lowerKey(y)).size()-1);
+//                        }
+//
+//                        if (status.get(y).indexOf(segmentIndex) < status.get(y).size()-1) {
+//                            lsBelow = status.get(y).indexOf(status.get(y).indexOf(segmentIndex)+1);
+//                        }
+//                        else if (status.higherKey(y) != null) {
+//                            lsBelow = status.get(status.higherKey(y)).get(0);
+//                        }
+//                    }
+//
+//                    if (lsAbove != -1 && lsBelow != -1) {
+//                        if (lineSegments.get(lsAbove).isIntersect(lineSegments.get(lsBelow))) {
+//                            Point ip = lineSegments.get(lsAbove).getIntersectPoint(lineSegments.get(lsBelow));
+//                            Deque<Endpoint> ep = new ArrayDeque<>();
+//                            if (eventPoints.containsKey(ip.x)) {
+//                                if (eventPoints.get(ip.x).size() > 0) {
+//                                    ep.addAll(eventPoints.get(ip.x));
+//                                }
+//                            }
+//                            else {
+//                                n++;
+//                            }
+//                            ep.add(new Endpoint(ip.x, ip.y, lsBelow, lsAbove, 2));
+//                            eventPoints.put(ip.x, ep);
+//                        }
+//                    }
 
                     //
 
@@ -294,7 +294,7 @@ public class BentleyOttmann {
                 attributes.put("stroke", "red");
                 attributes.put("pen", "2");
                 paths.add(new Path(strPoints, attributes));
-                layers.add(new Layer(paths, null));
+                layers.add(new Layer(paths, null, null));
 
                 if (eventPoints.firstEntry() != null) {
                     eventPoints.firstEntry().getValue().removeFirst();
