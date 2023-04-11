@@ -140,42 +140,12 @@ public class GrahamScan {
 
         ArrayList<Point> pointsTemp = new ArrayList<>(points);
         ArrayList<Point> duplicates = new ArrayList<>();
-        LineSegment horizontal = new LineSegment(new Point(10000, initialPoint.y), new Point(initialPoint.x, initialPoint.y));
         pointsTemp.sort((a, b) -> {
-//            double crossProductA = horizontal.crossProductToPoint(a);
-//            double crossProductB = horizontal.crossProductToPoint(b);
-//
-//            if (crossProductA - crossProductB > 0) {
-//                return 1;
-//            }
-//            else if (crossProductA - crossProductB < 0) {
-//                return -1;
-//            }
-//            else {
-//                if (a.y > b.y) {
-//                    duplicates.add(b);
-//                }
-//                else if (a.y < b.y) {
-//                    duplicates.add(a);
-//                }
-//                else if (a.x > b.x) {
-//                    duplicates.add(b);
-//                }
-//                else if (a.x < b.x) {
-//                    duplicates.add(a);
-//                }
-//                else {
-//                    duplicates.add(a);
-//                }
-//                return 0;
-//            }
-            double cotanA = -(a.x - initialPoint.x) / (a.y - initialPoint.y);
-            double cotanB = -(b.x - initialPoint.x) / (b.y - initialPoint.y);
-            if (cotanA - cotanB > 0) {
-                return 1;
-            }
-            else if (cotanA - cotanB < 0) {
+            if (new LineSegment(new Point(initialPoint.x, initialPoint.y), new Point(a.x, a.y)).crossProductToPoint(b) > 0) {
                 return -1;
+            }
+            else if (new LineSegment(new Point(initialPoint.x, initialPoint.y), new Point(a.x, a.y)).crossProductToPoint(b) < 0) {
+                return 1;
             }
             else {
                 if (a.y > b.y) {
