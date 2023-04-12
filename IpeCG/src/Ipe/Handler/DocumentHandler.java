@@ -50,7 +50,7 @@ public class DocumentHandler {
                 //
             }
         }
-        layers.add(layer);
+        // layers.add(layer);
         try {
             switch (alg) {
                 case "area_of_polygon" -> layers.addAll(new AreaOfPolygon(polygons.get(0)).layers);
@@ -159,20 +159,25 @@ public class DocumentHandler {
 
                     // set views
                     for (int j = 0; j < layers.size(); j++) {
-                        if (j == 0) {
-                            Element element = secondNodeElement.getOwnerDocument().createElement("view");
-                            secondNodeElement.appendChild(element);
-                            Attr attr = secondNodeElement.getOwnerDocument().createAttribute("layers");
-                            attr.setValue("0");
-                            element.setAttributeNode(attr);
-                        }
-                        else {
-                            Element element = secondNodeElement.getOwnerDocument().createElement("view");
-                            secondNodeElement.appendChild(element);
-                            Attr attr = secondNodeElement.getOwnerDocument().createAttribute("layers");
-                            attr.setValue("0 " + j);
-                            element.setAttributeNode(attr);
-                        }
+//                        if (j == 0) {
+//                            Element element = secondNodeElement.getOwnerDocument().createElement("view");
+//                            secondNodeElement.appendChild(element);
+//                            Attr attr = secondNodeElement.getOwnerDocument().createAttribute("layers");
+//                            attr.setValue("0");
+//                            element.setAttributeNode(attr);
+//                        }
+//                        else {
+//                            Element element = secondNodeElement.getOwnerDocument().createElement("view");
+//                            secondNodeElement.appendChild(element);
+//                            Attr attr = secondNodeElement.getOwnerDocument().createAttribute("layers");
+//                            attr.setValue("0 " + j);
+//                            element.setAttributeNode(attr);
+//                        }
+                        Element element = secondNodeElement.getOwnerDocument().createElement("view");
+                        secondNodeElement.appendChild(element);
+                        Attr attr = secondNodeElement.getOwnerDocument().createAttribute("layers");
+                        attr.setValue(String.valueOf(j));
+                        element.setAttributeNode(attr);
                     }
 
                     // set paths

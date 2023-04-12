@@ -22,9 +22,15 @@ public class Point {
 
     @Override
     public String toString() {
-        if(type != null) {
-            return x + " " + y + " " + type;
+        if(type.equals("a")) {
+            return "64 0 0 64 " + x + " " + y + " " + (Double.parseDouble(x) - 64) + " " + y + " " + type;
         }
-        return x + " " + y;
+        else if(type.equals("e")) {
+            return "16 0 0 16 " + x + " " + y + " " + type;
+        }
+        else if(type.equals("h")) {
+            return "h";
+        }
+        return x + " " + y + " " + type;
     }
 }
