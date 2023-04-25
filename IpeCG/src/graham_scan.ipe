@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ipe creator="Ipe 7.2.26" version="70218">
-
-<info created="D:20200813140717" modified="D:20230328092510" numberpages="yes"/>
-
+<?xml version="1.0"?>
+<!DOCTYPE ipe SYSTEM "ipe.dtd">
+<ipe version="70218" creator="Ipe 7.2.26">
+<info created="D:20200813140717" modified="D:20230425111026" numberpages="yes"/>
 <preamble>\usepackage[T1]{fontenc} 
 \usepackage[sfdefault]{overlock}
 \usepackage[small,euler-digits,icomma,OT1]{eulervm}
@@ -62,8 +61,7 @@
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}</preamble>
-
-<bitmap BitsPerComponent="8" ColorSpace="DeviceRGB" Filter="DCTDecode" encoding="base64" height="1240" id="1" length="94042" width="1653">
+<bitmap id="1" width="1653" height="1240" BitsPerComponent="8" ColorSpace="DeviceRGB" Filter="DCTDecode" length="94042" encoding="base64">
 /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoM
 DAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsN
 FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAAR
@@ -1807,103 +1805,70 @@ FFTzPnkc+Ik5WuNbR9Yx83h0kf8AYLx/JKq/EbR75rHwif7AZh/ZchbbaSAKTe3XHA44AP40
 UVLk+eHr+hlT2l6I4htLnjA36Bj/AHoZh/7NXR/C+1RPiBowfRooz5rHOJh/A3+3RRXXUk/Z
 suMncvRm076Nak/70/8ASSiiiqh8KOaUndn/2Q==
 </bitmap>
-
 <ipestyle name="lnv-presentation-unpar-draft">
-
 <opacity name="Draft" value="0.1"/>
-
 </ipestyle>
-
 <ipestyle name="lnv-presentation-unpar">
-
 <symbol name="Background">
-
-<image bitmap="1" opacity="Draft" rect="-40 -96 984 672"/>
-
+<image rect="-40 -96 984 672" opacity="Draft" bitmap="1"/>
 </symbol>
-
 <symbol name="arrow/arc(spx)">
-
-<path fill="sym-stroke" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -1 -0.333 l
 h
 </path>
-
 </symbol>
-
 <symbol name="arrow/farc(spx)">
-
-<path fill="white" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -1 -0.333 l
 h
 </path>
-
 </symbol>
-
 <symbol name="arrow/ptarc(spx)">
-
-<path fill="sym-stroke" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -0.8 0 l
 -1 -0.333 l
 h
 </path>
-
 </symbol>
-
 <symbol name="arrow/fptarc(spx)">
-
-<path fill="white" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -0.8 0 l
 -1 -0.333 l
 h
 </path>
-
 </symbol>
-
 <symbol name="mark/circle(sx)" transformations="translations">
-
 <path fill="sym-stroke">
 0.6 0 0 0.6 0 0 e
 0.4 0 0 0.4 0 0 e
 </path>
-
 </symbol>
-
 <symbol name="mark/disk(sx)" transformations="translations">
-
 <path fill="sym-stroke">
 0.6 0 0 0.6 0 0 e
 </path>
-
 </symbol>
-
 <symbol name="mark/fdisk(sfx)" transformations="translations">
-
 <group>
-
 <path fill="sym-fill">
 0.5 0 0 0.5 0 0 e
 </path>
-
 <path fill="sym-stroke" fillrule="eofill">
 0.6 0 0 0.6 0 0 e
 0.4 0 0 0.4 0 0 e
 </path>
-
 </group>
-
 </symbol>
-
 <symbol name="mark/box(sx)" transformations="translations">
-
 <path fill="sym-stroke" fillrule="eofill">
 -0.6 -0.6 m
 0.6 -0.6 l
@@ -1916,11 +1881,8 @@ h
 -0.4 0.4 l
 h
 </path>
-
 </symbol>
-
 <symbol name="mark/square(sx)" transformations="translations">
-
 <path fill="sym-stroke">
 -0.6 -0.6 m
 0.6 -0.6 l
@@ -1928,13 +1890,9 @@ h
 -0.6 0.6 l
 h
 </path>
-
 </symbol>
-
 <symbol name="mark/fsquare(sfx)" transformations="translations">
-
 <group>
-
 <path fill="sym-fill">
 -0.5 -0.5 m
 0.5 -0.5 l
@@ -1942,7 +1900,6 @@ h
 -0.5 0.5 l
 h
 </path>
-
 <path fill="sym-stroke" fillrule="eofill">
 -0.6 -0.6 m
 0.6 -0.6 l
@@ -1955,15 +1912,10 @@ h
 -0.4 0.4 l
 h
 </path>
-
 </group>
-
 </symbol>
-
 <symbol name="mark/cross(sx)" transformations="translations">
-
 <group>
-
 <path fill="sym-stroke">
 -0.43 -0.57 m
 0.57 0.43 l
@@ -1971,7 +1923,6 @@ h
 -0.57 -0.43 l
 h
 </path>
-
 <path fill="sym-stroke">
 -0.43 0.57 m
 0.57 -0.43 l
@@ -1979,59 +1930,43 @@ h
 -0.57 0.43 l
 h
 </path>
-
 </group>
-
 </symbol>
-
 <symbol name="arrow/fnormal(spx)">
-
-<path fill="white" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -1 -0.333 l
 h
 </path>
-
 </symbol>
-
 <symbol name="arrow/pointed(spx)">
-
-<path fill="sym-stroke" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -0.8 0 l
 -1 -0.333 l
 h
 </path>
-
 </symbol>
-
 <symbol name="arrow/fpointed(spx)">
-
-<path fill="white" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -0.8 0 l
 -1 -0.333 l
 h
 </path>
-
 </symbol>
-
 <symbol name="arrow/linear(spx)">
-
-<path pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" pen="sym-pen">
 -1 0.333 m
 0 0 l
 -1 -0.333 l
 </path>
-
 </symbol>
-
 <symbol name="arrow/fdouble(spx)">
-
-<path fill="white" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -1 -0.333 l
@@ -2041,12 +1976,9 @@ h
 -2 -0.333 l
 h
 </path>
-
 </symbol>
-
 <symbol name="arrow/double(spx)">
-
-<path fill="sym-stroke" pen="sym-pen" stroke="sym-stroke">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
 0 0 m
 -1 0.333 l
 -1 -0.333 l
@@ -2056,648 +1988,216 @@ h
 -2 -0.333 l
 h
 </path>
-
 </symbol>
-
 <anglesize name="22.5 deg" value="22.5"/>
-
 <anglesize name="30 deg" value="30"/>
-
 <anglesize name="45 deg" value="45"/>
-
 <anglesize name="60 deg" value="60"/>
-
 <anglesize name="90 deg" value="90"/>
-
 <arrowsize name="large" value="10"/>
-
 <arrowsize name="larger" value="15"/>
-
 <arrowsize name="largest" value="20"/>
-
 <arrowsize name="small" value="5"/>
-
 <arrowsize name="supertiny" value="2"/>
-
 <arrowsize name="tiny" value="3"/>
-
 <color name="blue" value="0 0 1"/>
-
 <color name="blue_dark" value="0.1 0.1 0.5"/>
-
 <color name="blue_light" value="0.75 0.75 1"/>
-
 <color name="bluenice" value="0.122 0.471 0.706"/>
-
 <color name="brown" value="0.647 0.165 0.165"/>
-
 <color name="brown_dark" value="0.5 0.3 0.1"/>
-
 <color name="brown_light" value="1 0.9 0.75"/>
-
 <color name="darkblue" value="0 0 0.545"/>
-
 <color name="darkcyan" value="0 0.545 0.545"/>
-
 <color name="darkgray" value="0.663"/>
-
 <color name="darkgreen" value="0 0.392 0"/>
-
 <color name="darkmagenta" value="0.545 0 0.545"/>
-
 <color name="darkorange" value="1 0.549 0"/>
-
 <color name="darkred" value="0.545 0 0"/>
-
 <color name="gold" value="1 0.843 0"/>
-
 <color name="gray" value="0.745"/>
-
 <color name="gray1" value="0.125"/>
-
 <color name="gray2" value="0.25"/>
-
 <color name="gray3" value="0.375"/>
-
 <color name="gray4" value="0.5"/>
-
 <color name="gray5" value="0.625"/>
-
 <color name="gray6" value="0.75"/>
-
 <color name="gray7" value="0.875"/>
-
 <color name="gray_dark" value="0.3"/>
-
 <color name="gray_light" value="0.9"/>
-
 <color name="green" value="0 1 0"/>
-
 <color name="green_dark" value="0.1 0.5 0.1"/>
-
 <color name="green_light" value="0.75 1 0.75"/>
-
 <color name="greennice" value="0.2 0.627 0.173"/>
-
 <color name="ground" value="0.65 0.95 0.05"/>
-
 <color name="lightblue" value="0.678 0.847 0.902"/>
-
 <color name="lightcyan" value="0.878 1 1"/>
-
 <color name="lightgray" value="0.827"/>
-
 <color name="lightgreen" value="0.565 0.933 0.565"/>
-
 <color name="lightyellow" value="1 1 0.878"/>
-
 <color name="navy" value="0 0 0.502"/>
-
 <color name="orange" value="1 0.647 0"/>
-
 <color name="orangenice" value="0.929 0.459 0.219"/>
-
 <color name="pink" value="1 0.753 0.796"/>
-
 <color name="purple" value="0.627 0.125 0.941"/>
-
 <color name="purple_dark" value="0.5 0.1 0.5"/>
-
 <color name="purple_light" value="1 0.75 1"/>
-
 <color name="red" value="1 0 0"/>
-
 <color name="red_dark" value="0.5 0.1 0.1"/>
-
 <color name="red_light" value="1 0.75 0.75"/>
-
 <color name="rednice" value="0.89 0.102 0.11"/>
-
 <color name="seagreen" value="0.18 0.545 0.341"/>
-
 <color name="title" value="0.4 0 0.4"/>
-
 <color name="turquoise" value="0.251 0.878 0.816"/>
-
 <color name="utrecht" value="0.965 0.832 0.07"/>
-
 <color name="violet" value="0.933 0.51 0.933"/>
-
 <color name="yellow" value="1 1 0"/>
-
 <color name="yellow_dark" value="0.5 0.5 0.1"/>
-
 <color name="yellow_light" value="1 1 0.75"/>
-
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
-
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
-
 <dashstyle name="dashed" value="[4] 0"/>
-
 <dashstyle name="dense dotted" value="[1 1] 0"/>
-
 <dashstyle name="dotted" value="[1 3] 0"/>
-
 <gridsize name="1 pts" value="1"/>
-
 <gridsize name="10 pts (~3.5 mm)" value="10"/>
-
 <gridsize name="128 pts (~48 mm)" value="128"/>
-
 <gridsize name="14 pts (~5 mm)" value="14"/>
-
 <gridsize name="16 pts (~6 mm)" value="16"/>
-
 <gridsize name="2 pts" value="2"/>
-
 <gridsize name="20 pts (~7 mm)" value="20"/>
-
 <gridsize name="28 pts (~10 mm)" value="28"/>
-
 <gridsize name="32 pts (~12 mm)" value="32"/>
-
 <gridsize name="4 pts" value="4"/>
-
 <gridsize name="56 pts (~20 mm)" value="56"/>
-
 <gridsize name="64 pts (~24 mm)" value="64"/>
-
 <gridsize name="8 pts (~3 mm)" value="8"/>
-
 <opacity name="10%" value="0.1"/>
-
 <opacity name="20%" value="0.2"/>
-
 <opacity name="25%" value="0.25"/>
-
 <opacity name="30%" value="0.3"/>
-
 <opacity name="50%" value="0.5"/>
-
 <opacity name="65%" value="0.65"/>
-
 <opacity name="75%" value="0.75"/>
-
 <opacity name="80%" value="0.8"/>
-
 <opacity name="90%" value="0.9"/>
-
 <opacity name="Draft" value="0.25"/>
-
 <pen name="10" value="10"/>
-
 <pen name="104" value="104"/>
-
 <pen name="12" value="12"/>
-
 <pen name="15" value="15"/>
-
 <pen name="16" value="16"/>
-
 <pen name="20" value="20"/>
-
 <pen name="24" value="24"/>
-
 <pen name="242" value="242"/>
-
 <pen name="25" value="25"/>
-
 <pen name="30" value="30"/>
-
 <pen name="32" value="32"/>
-
 <pen name="35" value="35"/>
-
 <pen name="4" value="4"/>
-
 <pen name="48" value="48"/>
-
 <pen name="5" value="5"/>
-
 <pen name="6" value="6"/>
-
 <pen name="64" value="64"/>
-
 <pen name="8" value="8"/>
-
 <pen name="fat (1.2)" value="1.2"/>
-
 <pen name="heavier (0.8)" value="0.8"/>
-
 <pen name="heaviest (1.0)" value="1"/>
-
 <pen name="heavy (0.5)" value="0.5"/>
-
 <pen name="light (0.3)" value="0.3"/>
-
 <pen name="normal (0.4)" value="0.4"/>
-
 <pen name="superfat (3.0)" value="3"/>
-
 <pen name="ultrafat (2.0)" value="2"/>
-
 <pen name="ultralight (0.1)" value="0.1"/>
-
 <pen name="weighty (0.65)" value="0.65"/>
-
 <symbolsize name="1.75 (1.75)" value="1.75"/>
-
 <symbolsize name="3.0 (3.0)" value="3"/>
-
 <symbolsize name="big (15.0)" value="15"/>
-
 <symbolsize name="huge (20.0)" value="20"/>
-
 <symbolsize name="huge++ (30.0)" value="30"/>
-
 <symbolsize name="large (5.0)" value="5"/>
-
 <symbolsize name="large+ (7.0)" value="7"/>
-
 <symbolsize name="larger (8.0)" value="8"/>
-
 <symbolsize name="larger+ (9.0)" value="9"/>
-
 <symbolsize name="largest (10.0)" value="10"/>
-
 <symbolsize name="normal (4.0)" value="4"/>
-
 <symbolsize name="normal+ (6.0)" value="6"/>
-
 <symbolsize name="semibig (12.0)" value="12"/>
-
 <symbolsize name="small (2.0)" value="2"/>
-
 <symbolsize name="smaller (1.5)" value="1.5"/>
-
 <symbolsize name="tiny (1.1)" value="1.1"/>
-
 <textsize name="Huge" value="\Huge"/>
-
 <textsize name="LARGE" value="\LARGE"/>
-
 <textsize name="Large" value="\Large"/>
-
 <textsize name="footnote" value="\footnotesize"/>
-
 <textsize name="huge" value="\huge"/>
-
 <textsize name="large" value="\large"/>
-
 <textsize name="normal" value="\normalsize"/>
-
 <textsize name="small" value="\small"/>
-
 <textsize name="tiny" value="\tiny"/>
-
 <textstretch name="Huge" value="2.75"/>
-
 <textstretch name="LARGE" value="2.75"/>
-
 <textstretch name="Large" value="2.75"/>
-
 <textstretch name="footnote" value="2.4"/>
-
 <textstretch name="huge" value="2.75"/>
-
 <textstretch name="large" value="2.75"/>
-
 <textstretch name="normal" value="2.75"/>
-
 <textstretch name="small" value="2.55"/>
-
 <textstretch name="tiny" value="3.2"/>
-
-<textstyle begin="\begin{center}" end="\end{center}" name="center"/>
-
-<textstyle begin="\begin{flushleft}\begin{itemize}\item{}" end="\end{itemize}\end{flushleft}" name="item"/>
-
-<textstyle begin="\begin{flushleft}\begin{itemize}" end="\end{itemize}\end{flushleft}" name="itemize"/>
-
-<textstyle begin="\begin{flushleft}" end="\end{flushleft}" name="normal"/>
-
-<preamble>
-
-
-
-
-\renewcommand\rmdefault{cmss}
-
-
-
-
-\makeatletter
-
-
-
-
-\leftmargini 1.5em
-
-
-
-
-\leftmargin \leftmargini
-
-
-
-
-\leftmarginii  1.2em
-
-
-
-
-\leftmarginiii 1em
-
-
-
-
-\def\@listI{\leftmargin\leftmargini
-
-
-
-
-            \parsep \z@
-
-
-
-
-	    \partopsep 3pt
-
-
-
-
-	    \topsep \z@
-
-
-
-
-            \itemsep \z@}
-
-
-
-
-\@listI
-
-
-
-
-\def\@listii {\leftmargin\leftmarginii
-
-
-
-
-              \labelwidth\leftmarginii
-
-
-
-
-              \advance\labelwidth-\labelsep
-
-
-
-
-              \topsep    \z@
-
-
-
-
-              \parsep    \z@
-
-
-
-
-              \itemsep   \parsep}
-
-
-
-
-\def\@listiii{\leftmargin\leftmarginiii
-
-
-
-
-              \labelwidth\leftmarginiii
-
-
-
-
-              \advance\labelwidth-\labelsep
-
-
-
-
-              \topsep    \z@
-
-
-
-
-              \parsep    \z@
-
-
-
-
-              \partopsep \z@
-
-
-
-
-              \itemsep   \topsep}
-
-
-
-
-\makeatother
-
-
-
-
+<textstyle name="center" begin="\begin{center}" end="\end{center}"/>
+<textstyle name="item" begin="\begin{flushleft}\begin{itemize}\item{}" end="\end{itemize}\end{flushleft}"/>
+<textstyle name="itemize" begin="\begin{flushleft}\begin{itemize}" end="\end{itemize}\end{flushleft}"/>
+<textstyle name="normal" begin="\begin{flushleft}" end="\end{flushleft}"/>
+<preamble>
+\renewcommand\rmdefault{cmss}
+\makeatletter
+\leftmargini 1.5em
+\leftmargin \leftmargini
+\leftmarginii  1.2em
+\leftmarginiii 1em
+\def\@listI{\leftmargin\leftmargini
+            \parsep \z@
+	    \partopsep 3pt
+	    \topsep \z@
+            \itemsep \z@}
+\@listI
+\def\@listii {\leftmargin\leftmarginii
+              \labelwidth\leftmarginii
+              \advance\labelwidth-\labelsep
+              \topsep    \z@
+              \parsep    \z@
+              \itemsep   \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+              \labelwidth\leftmarginiii
+              \advance\labelwidth-\labelsep
+              \topsep    \z@
+              \parsep    \z@
+              \partopsep \z@
+              \itemsep   \topsep}
+\makeatother
 </preamble>
-
-<layout crop="no" frame="944 592" origin="40 96" paper="1024 768"/>
-
-<pagenumberstyle color="darkblue" halign="right" pos="40 -88" size="tiny" valign="baseline">
-
-
-
-
-\ipeNumber{\arabic{ipePage}}{\arabic{ipePage}--\arabic{ipeView}}:(\arabic{ipePages})
-
-
-
-
+<layout paper="1024 768" origin="40 96" frame="944 592" crop="no"/>
+<pagenumberstyle pos="40 -88" color="darkblue" size="tiny" halign="right" valign="baseline">
+\ipeNumber{\arabic{ipePage}}{\arabic{ipePage}--\arabic{ipeView}}:(\arabic{ipePages})
 </pagenumberstyle>
-
-<titlestyle color="darkblue" halign="right" pos="944 616" size="LARGE" valign="baseline"/>
-
-<tiling angle="-60" name="falling" step="12" width="3"/>
-
-<tiling angle="30" name="rising" step="12" width="3"/>
-
+<titlestyle pos="944 616" size="LARGE" color="darkblue"  halign="right" valign="baseline"/>
+<tiling name="falling" angle="-60" step="12" width="3"/>
+<tiling name="rising" angle="30" step="12" width="3"/>
 </ipestyle>
-
 <page>
-<layer name="0"/>
-<layer name="1"/>
-<layer name="2"/>
-<layer name="3"/>
-<layer name="4"/>
-<layer name="5"/>
-<layer name="6"/>
-<layer name="7"/>
-<layer name="8"/>
-<layer name="9"/>
-<layer name="10"/>
-<layer name="11"/>
-<view layers="0"/>
-<view layers="0 1"/>
-<view layers="0 2"/>
-<view layers="0 3"/>
-<view layers="0 4"/>
-<view layers="0 5"/>
-<view layers="0 6"/>
-<view layers="0 7"/>
-<view layers="0 8"/>
-<view layers="0 9"/>
-<view layers="0 10"/>
-<view layers="0 11"/>
-<path layer="0" stroke="black">
-320 400 m
-448 480 l
-576 432 l
-656 272 l
-624 128 l
-368 80 l
-208 192 l
-304 224 l
-448 192 l
-576 256 l
-528 368 l
-null null h
-</path>
-<path fill="green" layer="1" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-null null h
-</path>
-<path fill="green" layer="2" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-null null h
-</path>
-<path fill="green" layer="3" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-null null h
-</path>
-<path fill="green" layer="4" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-320.0 400.0 l
-null null h
-</path>
-<path fill="green" layer="5" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-320.0 400.0 l
-528.0 368.0 l
-null null h
-</path>
-<path fill="red" layer="5" opacity="50%">
-368.0 80.0 m
-320.0 400.0 l
-528.0 368.0 l
-null null h
-</path>
-<path fill="green" layer="6" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-320.0 400.0 l
-528.0 368.0 l
-null null h
-</path>
-<path fill="green" layer="7" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-320.0 400.0 l
-528.0 368.0 l
-576.0 256.0 l
-null null h
-</path>
-<path fill="red" layer="7" opacity="50%">
-368.0 80.0 m
-528.0 368.0 l
-576.0 256.0 l
-null null h
-</path>
-<path fill="green" layer="8" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-320.0 400.0 l
-528.0 368.0 l
-576.0 256.0 l
-null null h
-</path>
-<path fill="green" layer="9" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-320.0 400.0 l
-528.0 368.0 l
-576.0 256.0 l
-448.0 192.0 l
-null null h
-</path>
-<path fill="green" layer="10" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-320.0 400.0 l
-528.0 368.0 l
-576.0 256.0 l
-448.0 192.0 l
-304.0 224.0 l
-null null h
-</path>
-<path fill="green" layer="11" opacity="50%">
-368.0 80.0 m
-624.0 128.0 l
-656.0 272.0 l
-576.0 432.0 l
-448.0 480.0 l
-320.0 400.0 l
-528.0 368.0 l
-576.0 256.0 l
-448.0 192.0 l
-304.0 224.0 l
-208.0 192.0 l
-null null h
-</path>
+<layer name="alpha"/>
+<view layers="alpha" active="alpha"/>
+<use layer="alpha" name="mark/disk(sx)" pos="512 320" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="256 256" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="320 384" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="320 128" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="640 256" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="448 416" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="576 384" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="352 288" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="592 176" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="384 192" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="544 240" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="448 208" size="normal" stroke="black"/>
 </page>
-
 </ipe>

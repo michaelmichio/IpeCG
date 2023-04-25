@@ -47,7 +47,7 @@ public class GrahamScan {
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("name", "mark/disk(sx)");
             attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-            attributes.put("size", "normal");
+            attributes.put("size", "large (5.0)");
             attributes.put("stroke", "black");
             uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -85,7 +85,7 @@ public class GrahamScan {
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("name", "mark/disk(sx)");
             attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-            attributes.put("size", "normal");
+            attributes.put("size", "large (5.0)");
             attributes.put("stroke", "black");
             uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -128,7 +128,7 @@ public class GrahamScan {
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("name", "mark/disk(sx)");
             attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-            attributes.put("size", "normal");
+            attributes.put("size", "large (5.0)");
             attributes.put("stroke", "black");
             uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -181,7 +181,7 @@ public class GrahamScan {
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("name", "mark/disk(sx)");
             attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-            attributes.put("size", "normal");
+            attributes.put("size", "large (5.0)");
             attributes.put("stroke", "black");
             uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -247,7 +247,7 @@ public class GrahamScan {
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("name", "mark/disk(sx)");
                 attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                attributes.put("size", "normal");
+                attributes.put("size", "large (5.0)");
                 attributes.put("stroke", "black");
                 uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -315,7 +315,7 @@ public class GrahamScan {
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("name", "mark/disk(sx)");
                     attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                    attributes.put("size", "normal");
+                    attributes.put("size", "large (5.0)");
                     attributes.put("stroke", "black");
                     uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -335,14 +335,14 @@ public class GrahamScan {
                 }
             }
 
-            for (int i = 0; i < 12; i++) {
+            for (int i = 0; i < 18; i++) {
                 attributes = new HashMap<>();
                 strPoints = new ArrayList<>();
 
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 48), "m"));
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 48), "l"));
-                strPoints.add(new Ipe.Object.Point("48", String.valueOf((i + 1) * 48), "l"));
-                strPoints.add(new Ipe.Object.Point("48", String.valueOf(i * 48), "l"));
+                strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
+                strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("64", String.valueOf((i + 1) * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("64", String.valueOf(i * 32), "l"));
                 strPoints.add(new Ipe.Object.Point("h"));
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "black");
@@ -368,7 +368,7 @@ public class GrahamScan {
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("name", "mark/disk(sx)");
                 attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                attributes.put("size", "normal");
+                attributes.put("size", "large (5.0)");
                 attributes.put("stroke", "black");
                 uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -388,14 +388,14 @@ public class GrahamScan {
             }
         }
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 18; i++) {
             attributes = new HashMap<>();
             strPoints = new ArrayList<>();
 
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 48), "m"));
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 48), "l"));
-            strPoints.add(new Ipe.Object.Point("48", String.valueOf((i + 1) * 48), "l"));
-            strPoints.add(new Ipe.Object.Point("48", String.valueOf(i * 48), "l"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf((i + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf(i * 32), "l"));
             strPoints.add(new Ipe.Object.Point("h"));
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("stroke", "black");
@@ -444,7 +444,7 @@ public class GrahamScan {
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("name", "mark/disk(sx)");
                 attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                attributes.put("size", "normal");
+                attributes.put("size", "large (5.0)");
                 attributes.put("stroke", "black");
                 uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -464,14 +464,14 @@ public class GrahamScan {
             }
         }
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 18; i++) {
             attributes = new HashMap<>();
             strPoints = new ArrayList<>();
 
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 48), "m"));
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 48), "l"));
-            strPoints.add(new Ipe.Object.Point("48", String.valueOf((i + 1) * 48), "l"));
-            strPoints.add(new Ipe.Object.Point("48", String.valueOf(i * 48), "l"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf((i + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf(i * 32), "l"));
             strPoints.add(new Ipe.Object.Point("h"));
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("stroke", "black");
@@ -511,7 +511,7 @@ public class GrahamScan {
 
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("transformations", "translations");
-            attributes.put("pos", 16 + " " + (16 + (48 * i)));
+            attributes.put("pos", 24 + " " + (8 + (32 * i)));
             attributes.put("stroke", "black");
             attributes.put("type", "label");
             attributes.put("width", "14.6575");
@@ -529,7 +529,7 @@ public class GrahamScan {
         strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(1).x), String.valueOf(points.get(1).y), "l"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "blue");
-        attributes.put("pen", "fat (1.2)");
+        attributes.put("pen", "ultrafat (2.0)");
         paths.add(new Path(strPoints, attributes));
 
         layers.add(new Layer(paths, uses, texts));
@@ -550,7 +550,7 @@ public class GrahamScan {
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("name", "mark/disk(sx)");
                 attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                attributes.put("size", "normal");
+                attributes.put("size", "large (5.0)");
                 attributes.put("stroke", "black");
                 uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
@@ -570,14 +570,14 @@ public class GrahamScan {
             }
         }
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 18; i++) {
             attributes = new HashMap<>();
             strPoints = new ArrayList<>();
 
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 48), "m"));
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 48), "l"));
-            strPoints.add(new Ipe.Object.Point("48", String.valueOf((i + 1) * 48), "l"));
-            strPoints.add(new Ipe.Object.Point("48", String.valueOf(i * 48), "l"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf((i + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf(i * 32), "l"));
             strPoints.add(new Ipe.Object.Point("h"));
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("stroke", "black");
@@ -589,7 +589,7 @@ public class GrahamScan {
 
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("transformations", "translations");
-            attributes.put("pos", 16 + " " + (16 + (48 * i)));
+            attributes.put("pos", 24 + " " + (8 + (32 * i)));
             attributes.put("stroke", "black");
             attributes.put("type", "label");
             attributes.put("width", "14.6575");
@@ -607,7 +607,7 @@ public class GrahamScan {
         strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(1).x), String.valueOf(points.get(1).y), "l"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "blue");
-        attributes.put("pen", "fat (1.2)");
+        attributes.put("pen", "ultrafat (2.0)");
         paths.add(new Path(strPoints, attributes));
 
         layers.add(new Layer(paths, uses, texts));
@@ -639,7 +639,7 @@ public class GrahamScan {
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("name", "mark/disk(sx)");
                     attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                    attributes.put("size", "normal");
+                    attributes.put("size", "large (5.0)");
                     attributes.put("stroke", "black");
                     uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
 
@@ -660,15 +660,27 @@ public class GrahamScan {
             }
             // end points and numbers
 
-            // start stack
-            for (int j = 0; j < 12; j++) {
+            for (int j = 0; j < points.size(); j++) {
                 attributes = new HashMap<>();
                 strPoints = new ArrayList<>();
 
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 48), "m"));
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 48), "l"));
-                strPoints.add(new Ipe.Object.Point("48", String.valueOf((j + 1) * 48), "l"));
-                strPoints.add(new Ipe.Object.Point("48", String.valueOf(j * 48), "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("stroke", "black");
+                attributes.put("dash", "dashed");
+                paths.add(new Path(strPoints, attributes));
+            }
+
+            // start stack
+            for (int j = 0; j < 18; j++) {
+                attributes = new HashMap<>();
+                strPoints = new ArrayList<>();
+
+                strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+                strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
                 strPoints.add(new Ipe.Object.Point("h"));
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "black");
@@ -680,9 +692,15 @@ public class GrahamScan {
             for (int j = 0; j < hull.size(); j++) {
                 attributes = new HashMap<>();
 
+                if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
+                    attributes.put("pos", 16 + " " + (8 + (32 * j)));
+                }
+                else {
+                    attributes.put("pos", 24 + " " + (8 + (32 * j)));
+                }
+
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("transformations", "translations");
-                attributes.put("pos", 16 + " " + (16 + (48 * j)));
                 attributes.put("stroke", "black");
                 attributes.put("type", "label");
                 attributes.put("width", "14.6575");
@@ -733,7 +751,7 @@ public class GrahamScan {
             }
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("stroke", "blue");
-            attributes.put("pen", "fat (1.2)");
+            attributes.put("pen", "ultrafat (2.0)");
             paths.add(new Path(strPoints, attributes));
             // end blue
 
@@ -768,7 +786,7 @@ public class GrahamScan {
                         attributes.put("layer", String.valueOf(layers.size()));
                         attributes.put("name", "mark/disk(sx)");
                         attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "normal");
+                        attributes.put("size", "large (5.0)");
                         attributes.put("stroke", "black");
                         uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
 
@@ -789,15 +807,27 @@ public class GrahamScan {
                 }
                 // end points and numbers
 
-                // start stack
-                for (int j = 0; j < 12; j++) {
+                for (int j = 0; j < points.size(); j++) {
                     attributes = new HashMap<>();
                     strPoints = new ArrayList<>();
 
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 48), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf(j * 48), "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("stroke", "black");
+                    attributes.put("dash", "dashed");
+                    paths.add(new Path(strPoints, attributes));
+                }
+
+                // start stack
+                for (int j = 0; j < 18; j++) {
+                    attributes = new HashMap<>();
+                    strPoints = new ArrayList<>();
+
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
                     strPoints.add(new Ipe.Object.Point("h"));
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("stroke", "black");
@@ -809,9 +839,15 @@ public class GrahamScan {
                 for (int j = 0; j < hull.size(); j++) {
                     attributes = new HashMap<>();
 
+                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
+                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
+                    }
+                    else {
+                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
+                    }
+
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("transformations", "translations");
-                    attributes.put("pos", 16 + " " + (16 + (48 * j)));
                     attributes.put("stroke", "black");
                     attributes.put("type", "label");
                     attributes.put("width", "14.6575");
@@ -862,7 +898,7 @@ public class GrahamScan {
                 }
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "blue");
-                attributes.put("pen", "fat (1.2)");
+                attributes.put("pen", "ultrafat (2.0)");
                 paths.add(new Path(strPoints, attributes));
                 // end blue
 
@@ -874,7 +910,7 @@ public class GrahamScan {
                 strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "l"));
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "red");
-                attributes.put("pen", "fat (1.2)");
+                attributes.put("pen", "ultrafat (2.0)");
                 attributes.put("dash", "dashed");
                 paths.add(new Path(strPoints, attributes));
                 // end red dashed
@@ -899,7 +935,7 @@ public class GrahamScan {
                         attributes.put("layer", String.valueOf(layers.size()));
                         attributes.put("name", "mark/disk(sx)");
                         attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "normal");
+                        attributes.put("size", "large (5.0)");
                         attributes.put("stroke", "black");
                         uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
 
@@ -920,15 +956,27 @@ public class GrahamScan {
                 }
                 // end points and numbers
 
-                // start stack
-                for (int j = 0; j < 12; j++) {
+                for (int j = 0; j < points.size(); j++) {
                     attributes = new HashMap<>();
                     strPoints = new ArrayList<>();
 
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 48), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf(j * 48), "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("stroke", "black");
+                    attributes.put("dash", "dashed");
+                    paths.add(new Path(strPoints, attributes));
+                }
+
+                // start stack
+                for (int j = 0; j < 18; j++) {
+                    attributes = new HashMap<>();
+                    strPoints = new ArrayList<>();
+
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
                     strPoints.add(new Ipe.Object.Point("h"));
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("stroke", "black");
@@ -940,9 +988,15 @@ public class GrahamScan {
                 for (int j = 0; j < hull.size(); j++) {
                     attributes = new HashMap<>();
 
+                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
+                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
+                    }
+                    else {
+                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
+                    }
+
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("transformations", "translations");
-                    attributes.put("pos", 16 + " " + (16 + (48 * j)));
                     attributes.put("stroke", "black");
                     attributes.put("type", "label");
                     attributes.put("width", "14.6575");
@@ -993,7 +1047,7 @@ public class GrahamScan {
                 }
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "blue");
-                attributes.put("pen", "fat (1.2)");
+                attributes.put("pen", "ultrafat (2.0)");
                 paths.add(new Path(strPoints, attributes));
                 // end blue
 
@@ -1017,7 +1071,7 @@ public class GrahamScan {
                         attributes.put("layer", String.valueOf(layers.size()));
                         attributes.put("name", "mark/disk(sx)");
                         attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "normal");
+                        attributes.put("size", "large (5.0)");
                         attributes.put("stroke", "black");
                         uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
 
@@ -1038,15 +1092,27 @@ public class GrahamScan {
                 }
                 // end points and numbers
 
-                // start stack
-                for (int j = 0; j < 12; j++) {
+                for (int j = 0; j < points.size(); j++) {
                     attributes = new HashMap<>();
                     strPoints = new ArrayList<>();
 
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 48), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf(j * 48), "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("stroke", "black");
+                    attributes.put("dash", "dashed");
+                    paths.add(new Path(strPoints, attributes));
+                }
+
+                // start stack
+                for (int j = 0; j < 18; j++) {
+                    attributes = new HashMap<>();
+                    strPoints = new ArrayList<>();
+
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
                     strPoints.add(new Ipe.Object.Point("h"));
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("stroke", "black");
@@ -1055,12 +1121,18 @@ public class GrahamScan {
                 // end stack
 
                 // start stack of hull -1
-                for (int j = 0; j < hull.size()-1; j++) {
+                for (int j = 0; j < hull.size(); j++) {
                     attributes = new HashMap<>();
+
+                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
+                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
+                    }
+                    else {
+                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
+                    }
 
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("transformations", "translations");
-                    attributes.put("pos", 16 + " " + (16 + (48 * j)));
                     attributes.put("stroke", "black");
                     attributes.put("type", "label");
                     attributes.put("width", "14.6575");
@@ -1111,7 +1183,7 @@ public class GrahamScan {
                 }
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "blue");
-                attributes.put("pen", "fat (1.2)");
+                attributes.put("pen", "ultrafat (2.0)");
                 paths.add(new Path(strPoints, attributes));
                 // end blue -1
 
@@ -1141,7 +1213,7 @@ public class GrahamScan {
                         attributes.put("layer", String.valueOf(layers.size()));
                         attributes.put("name", "mark/disk(sx)");
                         attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "normal");
+                        attributes.put("size", "large (5.0)");
                         attributes.put("stroke", "black");
                         uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
 
@@ -1162,15 +1234,27 @@ public class GrahamScan {
                 }
                 // end points and numbers
 
-                // start stack
-                for (int j = 0; j < 12; j++) {
+                for (int j = 0; j < points.size(); j++) {
                     attributes = new HashMap<>();
                     strPoints = new ArrayList<>();
 
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 48), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf(j * 48), "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("stroke", "black");
+                    attributes.put("dash", "dashed");
+                    paths.add(new Path(strPoints, attributes));
+                }
+
+                // start stack
+                for (int j = 0; j < 18; j++) {
+                    attributes = new HashMap<>();
+                    strPoints = new ArrayList<>();
+
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
                     strPoints.add(new Ipe.Object.Point("h"));
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("stroke", "black");
@@ -1179,12 +1263,18 @@ public class GrahamScan {
                 // end stack
 
                 // start stack of hull
-                for (int j = 0; j < hull.size()-1; j++) {
+                for (int j = 0; j < hull.size(); j++) {
                     attributes = new HashMap<>();
+
+                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
+                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
+                    }
+                    else {
+                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
+                    }
 
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("transformations", "translations");
-                    attributes.put("pos", 16 + " " + (16 + (48 * j)));
                     attributes.put("stroke", "black");
                     attributes.put("type", "label");
                     attributes.put("width", "14.6575");
@@ -1235,7 +1325,7 @@ public class GrahamScan {
                 }
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "blue");
-                attributes.put("pen", "fat (1.2)");
+                attributes.put("pen", "ultrafat (2.0)");
                 paths.add(new Path(strPoints, attributes));
                 // end blue -1
 
@@ -1247,7 +1337,7 @@ public class GrahamScan {
                 strPoints.add(new Ipe.Object.Point(String.valueOf(hull.peek().x), String.valueOf(hull.peek().y), "l"));
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "green");
-                attributes.put("pen", "fat (1.2)");
+                attributes.put("pen", "ultrafat (2.0)");
                 attributes.put("dash", "dashed");
                 paths.add(new Path(strPoints, attributes));
                 // end green dashed
@@ -1272,7 +1362,7 @@ public class GrahamScan {
                         attributes.put("layer", String.valueOf(layers.size()));
                         attributes.put("name", "mark/disk(sx)");
                         attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "normal");
+                        attributes.put("size", "large (5.0)");
                         attributes.put("stroke", "black");
                         uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
 
@@ -1293,15 +1383,27 @@ public class GrahamScan {
                 }
                 // end points and numbers
 
-                // start stack
-                for (int j = 0; j < 12; j++) {
+                for (int j = 0; j < points.size(); j++) {
                     attributes = new HashMap<>();
                     strPoints = new ArrayList<>();
 
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 48), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf((j + 1) * 48), "l"));
-                    strPoints.add(new Ipe.Object.Point("48", String.valueOf(j * 48), "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("stroke", "black");
+                    attributes.put("dash", "dashed");
+                    paths.add(new Path(strPoints, attributes));
+                }
+
+                // start stack
+                for (int j = 0; j < 18; j++) {
+                    attributes = new HashMap<>();
+                    strPoints = new ArrayList<>();
+
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
                     strPoints.add(new Ipe.Object.Point("h"));
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("stroke", "black");
@@ -1313,9 +1415,15 @@ public class GrahamScan {
                 for (int j = 0; j < hull.size(); j++) {
                     attributes = new HashMap<>();
 
+                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
+                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
+                    }
+                    else {
+                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
+                    }
+
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("transformations", "translations");
-                    attributes.put("pos", 16 + " " + (16 + (48 * j)));
                     attributes.put("stroke", "black");
                     attributes.put("type", "label");
                     attributes.put("width", "14.6575");
@@ -1366,7 +1474,7 @@ public class GrahamScan {
                 }
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "blue");
-                attributes.put("pen", "fat (1.2)");
+                attributes.put("pen", "ultrafat (2.0)");
                 paths.add(new Path(strPoints, attributes));
                 // end blue
 
@@ -1394,7 +1502,7 @@ public class GrahamScan {
                     attributes.put("layer", String.valueOf(layers.size()));
                     attributes.put("name", "mark/disk(sx)");
                     attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                    attributes.put("size", "normal");
+                    attributes.put("size", "large (5.0)");
                     attributes.put("stroke", "black");
                     uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
 
@@ -1415,15 +1523,27 @@ public class GrahamScan {
             }
             // end points and numbers
 
-            // start stack
-            for (int j = 0; j < 12; j++) {
+            for (int j = 0; j < points.size(); j++) {
                 attributes = new HashMap<>();
                 strPoints = new ArrayList<>();
 
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 48), "m"));
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 48), "l"));
-                strPoints.add(new Ipe.Object.Point("48", String.valueOf((j + 1) * 48), "l"));
-                strPoints.add(new Ipe.Object.Point("48", String.valueOf(j * 48), "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("stroke", "black");
+                attributes.put("dash", "dashed");
+                paths.add(new Path(strPoints, attributes));
+            }
+
+            // start stack
+            for (int j = 0; j < 18; j++) {
+                attributes = new HashMap<>();
+                strPoints = new ArrayList<>();
+
+                strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+                strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
                 strPoints.add(new Ipe.Object.Point("h"));
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "black");
@@ -1435,9 +1555,15 @@ public class GrahamScan {
             for (int j = 0; j < hull.size(); j++) {
                 attributes = new HashMap<>();
 
+                if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
+                    attributes.put("pos", 16 + " " + (8 + (32 * j)));
+                }
+                else {
+                    attributes.put("pos", 24 + " " + (8 + (32 * j)));
+                }
+
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("transformations", "translations");
-                attributes.put("pos", 16 + " " + (16 + (48 * j)));
                 attributes.put("stroke", "black");
                 attributes.put("type", "label");
                 attributes.put("width", "14.6575");
@@ -1462,7 +1588,7 @@ public class GrahamScan {
             }
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("stroke", "blue");
-            attributes.put("pen", "fat (1.2)");
+            attributes.put("pen", "ultrafat (2.0)");
             paths.add(new Path(strPoints, attributes));
             // end blue
 
@@ -1486,7 +1612,7 @@ public class GrahamScan {
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("name", "mark/disk(sx)");
                 attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                attributes.put("size", "normal");
+                attributes.put("size", "large (5.0)");
                 attributes.put("stroke", "black");
                 uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
 
@@ -1506,14 +1632,26 @@ public class GrahamScan {
             }
         }
 
-        for (int j = 0; j < 12; j++) {
+        for (int j = 0; j < points.size(); j++) {
             attributes = new HashMap<>();
             strPoints = new ArrayList<>();
 
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 48), "m"));
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 48), "l"));
-            strPoints.add(new Ipe.Object.Point("48", String.valueOf((j + 1) * 48), "l"));
-            strPoints.add(new Ipe.Object.Point("48", String.valueOf(j * 48), "l"));
+            strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+            strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "black");
+            attributes.put("dash", "dashed");
+            paths.add(new Path(strPoints, attributes));
+        }
+
+        for (int j = 0; j < 18; j++) {
+            attributes = new HashMap<>();
+            strPoints = new ArrayList<>();
+
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
             strPoints.add(new Ipe.Object.Point("h"));
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("stroke", "black");
@@ -1523,9 +1661,15 @@ public class GrahamScan {
         for (int j = 0; j < hull.size(); j++) {
             attributes = new HashMap<>();
 
+            if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
+                attributes.put("pos", 16 + " " + (8 + (32 * j)));
+            }
+            else {
+                attributes.put("pos", 24 + " " + (8 + (32 * j)));
+            }
+
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("transformations", "translations");
-            attributes.put("pos", 16 + " " + (16 + (48 * j)));
             attributes.put("stroke", "black");
             attributes.put("type", "label");
             attributes.put("width", "14.6575");
@@ -1550,7 +1694,7 @@ public class GrahamScan {
         strPoints.add(new Ipe.Object.Point("h"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "blue");
-        attributes.put("pen", "fat (1.2)");
+        attributes.put("pen", "ultrafat (2.0)");
         paths.add(new Path(strPoints, attributes));
 
         layers.add(new Layer(paths, uses, texts));
