@@ -32,130 +32,103 @@ public class GrahamScan {
         }
     }
 
-    public void setInitialLayers() {
-        HashMap<String, String> attributes = new HashMap<>();
+    public ArrayList<Use> setInitialPointsIpe() {
         ArrayList<Use> uses = new ArrayList<>();
-        ArrayList<Text> texts = new ArrayList<>();
 
-        initialPoints.addAll(points);
+        for (Point point : initialPoints) {
+            HashMap<String, String> attributes = new HashMap<>();
 
-        for (int i = 0; i < initialPoints.size(); i++) {
-
-            attributes = new HashMap<>();
-
-            // USE
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("name", "mark/disk(sx)");
-            attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
+            attributes.put("pos", (point.x) + " " + (point.y));
             attributes.put("size", "large (5.0)");
             attributes.put("stroke", "black");
-            uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
 
-            attributes = new HashMap<>();
-
-            // TEXT
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("transformations", "translations");
-            attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-            attributes.put("stroke", "black");
-            attributes.put("type", "label");
-            attributes.put("width", "14.6575");
-            attributes.put("height", "18.59");
-            attributes.put("depth", "0.0825");
-            attributes.put("valign", "baseline");
-            texts.add(new Text(String.valueOf(i+1), attributes));
+            uses.add(new Use(new Ipe.Object.Point(String.valueOf(point.x), String.valueOf(point.y)), attributes));
         }
-        layers.add(new Layer(null, uses, texts));
+
+        return uses;
     }
 
-    public void generateLayers() {
-
-        HashMap<String, String> attributes = new HashMap<>();
-        ArrayList<Path> paths = new ArrayList<>();
-        ArrayList<Use> uses = new ArrayList<>();
+    public ArrayList<Text> setInitialTextPointsIpe() {
         ArrayList<Text> texts = new ArrayList<>();
+
+        for (int i = 0; i < initialPoints.size(); i++) {
+            HashMap<String, String> attributes = new HashMap<>();
+
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("transformations", "translations");
+            attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
+            attributes.put("stroke", "black");
+            attributes.put("type", "label");
+            attributes.put("width", "14.6575");
+            attributes.put("height", "18.59");
+            attributes.put("depth", "0.0825");
+            attributes.put("valign", "baseline");
+            texts.add(new Text(String.valueOf(i+1), attributes));
+        }
+
+        return texts;
+    }
+    public ArrayList<Use> setPointsIpe() {
+        ArrayList<Use> uses = new ArrayList<>();
+
+        for (Point point : initialPoints) {
+            if (!duplicates.contains(point)) {
+                HashMap<String, String> attributes = new HashMap<>();
+
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("name", "mark/disk(sx)");
+                attributes.put("pos", (point.x) + " " + (point.y));
+                attributes.put("size", "large (5.0)");
+                attributes.put("stroke", "black");
+                uses.add(new Use(new Ipe.Object.Point(String.valueOf(point.x), String.valueOf(point.y)), attributes));
+            }
+        }
+
+        return uses;
+    }
+
+    public ArrayList<Text> setTextPointsIpe() {
+        ArrayList<Text> texts = new ArrayList<>();
+
+        for (int i = 0; i < initialPoints.size(); i++) {
+            if (!duplicates.contains(initialPoints.get(i))) {
+                HashMap<String, String> attributes = new HashMap<>();
+
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("transformations", "translations");
+                attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
+                attributes.put("stroke", "black");
+                attributes.put("type", "label");
+                attributes.put("width", "14.6575");
+                attributes.put("height", "18.59");
+                attributes.put("depth", "0.0825");
+                attributes.put("valign", "baseline");
+                texts.add(new Text(String.valueOf(i+1), attributes));
+            }
+        }
+
+        return texts;
+    }
+
+    public ArrayList<Path> setInitialCircleIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
         ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-        // Scenario (circle on initial points)
-        for (int i = 0; i < initialPoints.size(); i++) {
-
-            attributes = new HashMap<>();
-
-            // USE
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("name", "mark/disk(sx)");
-            attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-            attributes.put("size", "large (5.0)");
-            attributes.put("stroke", "black");
-            uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
-
-            attributes = new HashMap<>();
-
-            // TEXT
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("transformations", "translations");
-            attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-            attributes.put("stroke", "black");
-            attributes.put("type", "label");
-            attributes.put("width", "14.6575");
-            attributes.put("height", "18.59");
-            attributes.put("depth", "0.0825");
-            attributes.put("valign", "baseline");
-            texts.add(new Text(String.valueOf(i+1), attributes));
-        }
-
-        attributes = new HashMap<>();
-
         strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "e"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
         paths.add(new Path(strPoints, attributes));
 
-        layers.add(new Layer(paths, uses, texts));
+        return  paths;
+    }
 
-        attributes = new HashMap<>();
-        paths = new ArrayList<>();
-        uses = new ArrayList<>();
-        texts = new ArrayList<>();
-        strPoints = new ArrayList<>();
-
-        // Scenario (arc on initial point)
-        for (int i = 0; i < initialPoints.size(); i++) {
-
-            attributes = new HashMap<>();
-
-            // USE
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("name", "mark/disk(sx)");
-            attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-            attributes.put("size", "large (5.0)");
-            attributes.put("stroke", "black");
-            uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
-
-            attributes = new HashMap<>();
-
-            // TEXT
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("transformations", "translations");
-            attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-            attributes.put("stroke", "black");
-            attributes.put("type", "label");
-            attributes.put("width", "14.6575");
-            attributes.put("height", "18.59");
-            attributes.put("depth", "0.0825");
-            attributes.put("valign", "baseline");
-            texts.add(new Text(String.valueOf(i+1), attributes));
-        }
-
-        attributes = new HashMap<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "e"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
+    public ArrayList<Path> setArcIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
         strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
         strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "a"));
@@ -164,233 +137,50 @@ public class GrahamScan {
         attributes.put("arrow", "normal/normal");
         paths.add(new Path(strPoints, attributes));
 
-        layers.add(new Layer(paths, uses, texts));
+        return  paths;
+    }
 
-        attributes = new HashMap<>();
-        paths = new ArrayList<>();
-        uses = new ArrayList<>();
-        texts = new ArrayList<>();
-        strPoints = new ArrayList<>();
+    public ArrayList<Path> setDashedLineIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
 
-        // Scenario (dashed line to initial point)
-        for (int i = 0; i < initialPoints.size(); i++) {
+        if (duplicates.size() == 0) {
+            for (Point point : points) {
+                HashMap<String, String> attributes = new HashMap<>();
+                ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-            attributes = new HashMap<>();
-
-            // USE
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("name", "mark/disk(sx)");
-            attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-            attributes.put("size", "large (5.0)");
-            attributes.put("stroke", "black");
-            uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
-
-            attributes = new HashMap<>();
-
-            // TEXT
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("transformations", "translations");
-            attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-            attributes.put("stroke", "black");
-            attributes.put("type", "label");
-            attributes.put("width", "14.6575");
-            attributes.put("height", "18.59");
-            attributes.put("depth", "0.0825");
-            attributes.put("valign", "baseline");
-            texts.add(new Text(String.valueOf(i+1), attributes));
-        }
-
-        attributes = new HashMap<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "e"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "a"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        attributes.put("arrow", "normal/normal");
-        paths.add(new Path(strPoints, attributes));
-
-        for (int i = 0; i < points.size(); i++) {
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-            strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "l"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            attributes.put("dash", "dashed");
-            paths.add(new Path(strPoints, attributes));
-        }
-
-        layers.add(new Layer(paths, uses, texts));
-
-        attributes = new HashMap<>();
-        paths = new ArrayList<>();
-        uses = new ArrayList<>();
-        texts = new ArrayList<>();
-        strPoints = new ArrayList<>();
-
-        // Scenario (remove duplicates)
-        for (int i = 0; i < initialPoints.size(); i++) {
-
-            if (!duplicates.contains(initialPoints.get(i))) {
-                attributes = new HashMap<>();
-
-                // USE
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("name", "mark/disk(sx)");
-                attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                attributes.put("size", "large (5.0)");
-                attributes.put("stroke", "black");
-                uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
-
-                attributes = new HashMap<>();
-
-                // TEXT
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("transformations", "translations");
-                attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-                attributes.put("stroke", "black");
-                attributes.put("type", "label");
-                attributes.put("width", "14.6575");
-                attributes.put("height", "18.59");
-                attributes.put("depth", "0.0825");
-                attributes.put("valign", "baseline");
-                texts.add(new Text(String.valueOf(i+1), attributes));
-            }
-        }
-
-        attributes = new HashMap<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "e"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "a"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        attributes.put("arrow", "normal/normal");
-        paths.add(new Path(strPoints, attributes));
-
-        for (int i = 0; i < points.size(); i++) {
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-            strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "l"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            attributes.put("dash", "dashed");
-            paths.add(new Path(strPoints, attributes));
-        }
-
-        layers.add(new Layer(paths, uses, texts));
-
-        attributes = new HashMap<>();
-        paths = new ArrayList<>();
-        uses = new ArrayList<>();
-        texts = new ArrayList<>();
-        strPoints = new ArrayList<>();
-
-        // Scenario (stack on left side layer)
-        if (duplicates.size() > 0) {
-            for (int i = 0; i < initialPoints.size(); i++) {
-
-                if (!duplicates.contains(initialPoints.get(i))) {
-                    attributes = new HashMap<>();
-
-                    // USE
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("name", "mark/disk(sx)");
-                    attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                    attributes.put("size", "large (5.0)");
-                    attributes.put("stroke", "black");
-                    uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
-
-                    attributes = new HashMap<>();
-
-                    // TEXT
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("transformations", "translations");
-                    attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-                    attributes.put("stroke", "black");
-                    attributes.put("type", "label");
-                    attributes.put("width", "14.6575");
-                    attributes.put("height", "18.59");
-                    attributes.put("depth", "0.0825");
-                    attributes.put("valign", "baseline");
-                    texts.add(new Text(String.valueOf(i+1), attributes));
-                }
-            }
-
-            for (int i = 0; i < 18; i++) {
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("64", String.valueOf((i + 1) * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("64", String.valueOf(i * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("h"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(point.x), String.valueOf(point.y), "l"));
                 attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "black");
+                attributes.put("dash", "dashed");
                 paths.add(new Path(strPoints, attributes));
             }
-
-            layers.add(new Layer(paths, uses, texts));
-
-            attributes = new HashMap<>();
-            paths = new ArrayList<>();
-            uses = new ArrayList<>();
-            texts = new ArrayList<>();
-            strPoints = new ArrayList<>();
         }
+        else {
+            for (Point point : points) {
+                if (!duplicates.contains(point)) {
+                    HashMap<String, String> attributes = new HashMap<>();
+                    ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-        // Scenario (initial circles)
-        for (int i = 0; i < initialPoints.size(); i++) {
-
-            if (!duplicates.contains(initialPoints.get(i))) {
-                attributes = new HashMap<>();
-
-                // USE
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("name", "mark/disk(sx)");
-                attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                attributes.put("size", "large (5.0)");
-                attributes.put("stroke", "black");
-                uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
-
-                attributes = new HashMap<>();
-
-                // TEXT
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("transformations", "translations");
-                attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-                attributes.put("stroke", "black");
-                attributes.put("type", "label");
-                attributes.put("width", "14.6575");
-                attributes.put("height", "18.59");
-                attributes.put("depth", "0.0825");
-                attributes.put("valign", "baseline");
-                texts.add(new Text(String.valueOf(i+1), attributes));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(point.x), String.valueOf(point.y), "l"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("stroke", "black");
+                    attributes.put("dash", "dashed");
+                    paths.add(new Path(strPoints, attributes));
+                }
             }
         }
 
+        return paths;
+    }
+
+    public ArrayList<Path> setStackIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
+
         for (int i = 0; i < 18; i++) {
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
+            HashMap<String, String> attributes = new HashMap<>();
+            ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
             strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
             strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
@@ -402,116 +192,51 @@ public class GrahamScan {
             paths.add(new Path(strPoints, attributes));
         }
 
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
+        return paths;
+    }
+
+    public ArrayList<Path> setInitialCirclesIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
         strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "e"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
         paths.add(new Path(strPoints, attributes));
 
-        attributes = new HashMap<>();
         strPoints = new ArrayList<>();
-
         strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(0).x), String.valueOf(points.get(0).y), "e"));
+        attributes = new HashMap<>();
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
         paths.add(new Path(strPoints, attributes));
 
-        attributes = new HashMap<>();
         strPoints = new ArrayList<>();
-
         strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(1).x), String.valueOf(points.get(1).y), "e"));
+        attributes = new HashMap<>();
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
         paths.add(new Path(strPoints, attributes));
 
-        layers.add(new Layer(paths, uses, texts));
+        return paths;
+    }
 
-        attributes = new HashMap<>();
-        paths = new ArrayList<>();
-        uses = new ArrayList<>();
-        texts = new ArrayList<>();
-        strPoints = new ArrayList<>();
+    public ArrayList<Text> setHullsIpe(int val) {
+        ArrayList<Text> texts = new ArrayList<>();
 
-        // Scenario (initial blue lines)
-        for (int i = 0; i < initialPoints.size(); i++) {
+        for (int i = 0; i < hull.size() + val; i++) {
+            HashMap<String, String> attributes = new HashMap<>();
 
-            if (!duplicates.contains(initialPoints.get(i))) {
-                attributes = new HashMap<>();
-
-                // USE
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("name", "mark/disk(sx)");
-                attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                attributes.put("size", "large (5.0)");
-                attributes.put("stroke", "black");
-                uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
-
-                attributes = new HashMap<>();
-
-                // TEXT
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("transformations", "translations");
-                attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-                attributes.put("stroke", "black");
-                attributes.put("type", "label");
-                attributes.put("width", "14.6575");
-                attributes.put("height", "18.59");
-                attributes.put("depth", "0.0825");
-                attributes.put("valign", "baseline");
-                texts.add(new Text(String.valueOf(i+1), attributes));
+            if ((initialPoints.indexOf(hull.get(i)) + 1) > 9) {
+                attributes.put("pos", 16 + " " + (8 + (32 * i)));
             }
-        }
-
-        for (int i = 0; i < 18; i++) {
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("64", String.valueOf((i + 1) * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("64", String.valueOf(i * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("h"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            paths.add(new Path(strPoints, attributes));
-        }
-
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "e"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(0).x), String.valueOf(points.get(0).y), "e"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(1).x), String.valueOf(points.get(1).y), "e"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        hull.push(initialPoint);
-        hull.push(points.get(0));
-        hull.push(points.get(1));
-
-        for (int i = 0; i < hull.size(); i++) {
-            attributes = new HashMap<>();
+            else {
+                attributes.put("pos", 24 + " " + (8 + (32 * i)));
+            }
 
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("transformations", "translations");
-            attributes.put("pos", 24 + " " + (8 + (32 * i)));
             attributes.put("stroke", "black");
             attributes.put("type", "label");
             attributes.put("width", "14.6575");
@@ -521,8 +246,13 @@ public class GrahamScan {
             texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(i)) + 1), attributes));
         }
 
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
+        return texts;
+    }
+
+    public ArrayList<Path> setInitialLinesIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
         strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
         strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(0).x), String.valueOf(points.get(0).y), "l"));
@@ -532,1155 +262,93 @@ public class GrahamScan {
         attributes.put("pen", "ultrafat (2.0)");
         paths.add(new Path(strPoints, attributes));
 
-        layers.add(new Layer(paths, uses, texts));
+        return paths;
+    }
 
-        attributes = new HashMap<>();
-        paths = new ArrayList<>();
-        uses = new ArrayList<>();
-        texts = new ArrayList<>();
+    public ArrayList<Path> setCirclesIpe(int i) {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "e"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "black");
+        paths.add(new Path(strPoints, attributes));
+
         strPoints = new ArrayList<>();
+        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-1).x), String.valueOf(hull.get(hull.size()-1).y), "e"));
+        attributes = new HashMap<>();
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "black");
+        paths.add(new Path(strPoints, attributes));
 
-        // Scenario (remove circles)
-        for (int i = 0; i < initialPoints.size(); i++) {
+        strPoints = new ArrayList<>();
+        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "e"));
+        attributes = new HashMap<>();
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "black");
+        paths.add(new Path(strPoints, attributes));
 
-            if (!duplicates.contains(initialPoints.get(i))) {
-                attributes = new HashMap<>();
+        return paths;
+    }
 
-                // USE
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("name", "mark/disk(sx)");
-                attributes.put("pos", (initialPoints.get(i).x) + " " + (initialPoints.get(i).y));
-                attributes.put("size", "large (5.0)");
-                attributes.put("stroke", "black");
-                uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(i).x), String.valueOf(initialPoints.get(i).y)), attributes));
+    public ArrayList<Path> setLinesIpe(int val) {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-                attributes = new HashMap<>();
-
-                // TEXT
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("transformations", "translations");
-                attributes.put("pos", (initialPoints.get(i).x + 8) + " " + (initialPoints.get(i).y + 8));
-                attributes.put("stroke", "black");
-                attributes.put("type", "label");
-                attributes.put("width", "14.6575");
-                attributes.put("height", "18.59");
-                attributes.put("depth", "0.0825");
-                attributes.put("valign", "baseline");
-                texts.add(new Text(String.valueOf(i+1), attributes));
+        for (int j = 0; j < hull.size() + val; j++) {
+            if (j == 0) {
+                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
+            }
+            else {
+                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
             }
         }
-
-        for (int i = 0; i < 18; i++) {
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("64", String.valueOf((i + 1) * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("64", String.valueOf(i * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("h"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            paths.add(new Path(strPoints, attributes));
-        }
-
-        for (int i = 0; i < hull.size(); i++) {
-            attributes = new HashMap<>();
-
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("transformations", "translations");
-            attributes.put("pos", 24 + " " + (8 + (32 * i)));
-            attributes.put("stroke", "black");
-            attributes.put("type", "label");
-            attributes.put("width", "14.6575");
-            attributes.put("height", "18.59");
-            attributes.put("depth", "0.0825");
-            attributes.put("valign", "baseline");
-            texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(i)) + 1), attributes));
-        }
-
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(0).x), String.valueOf(points.get(0).y), "l"));
-        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(1).x), String.valueOf(points.get(1).y), "l"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "blue");
         attributes.put("pen", "ultrafat (2.0)");
         paths.add(new Path(strPoints, attributes));
 
-        layers.add(new Layer(paths, uses, texts));
-
-        attributes = new HashMap<>();
-        paths = new ArrayList<>();
-        uses = new ArrayList<>();
-        texts = new ArrayList<>();
-        strPoints = new ArrayList<>();
-
-        // Scenario (content)
-        int i = 2;
-        while (i < points.size()) {
-
-            attributes = new HashMap<>();
-            paths = new ArrayList<>();
-            uses = new ArrayList<>();
-            texts = new ArrayList<>();
-            strPoints = new ArrayList<>();
-
-            // start layer 0
-            // start points and numbers
-            for (int j = 0; j < initialPoints.size(); j++) {
-
-                if (!duplicates.contains(initialPoints.get(j))) {
-                    attributes = new HashMap<>();
-
-                    // USE
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("name", "mark/disk(sx)");
-                    attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                    attributes.put("size", "large (5.0)");
-                    attributes.put("stroke", "black");
-                    uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
-
-                    attributes = new HashMap<>();
-
-                    // TEXT
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("transformations", "translations");
-                    attributes.put("pos", (initialPoints.get(j).x + 8) + " " + (initialPoints.get(j).y + 8));
-                    attributes.put("stroke", "black");
-                    attributes.put("type", "label");
-                    attributes.put("width", "14.6575");
-                    attributes.put("height", "18.59");
-                    attributes.put("depth", "0.0825");
-                    attributes.put("valign", "baseline");
-                    texts.add(new Text(String.valueOf(j+1), attributes));
-                }
-            }
-            // end points and numbers
-
-            for (int j = 0; j < points.size(); j++) {
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-                strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                attributes.put("dash", "dashed");
-                paths.add(new Path(strPoints, attributes));
-            }
-
-            // start stack
-            for (int j = 0; j < 18; j++) {
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("h"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-            }
-            // end stack
-
-            // start stack of hull
-            for (int j = 0; j < hull.size(); j++) {
-                attributes = new HashMap<>();
-
-                if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
-                    attributes.put("pos", 16 + " " + (8 + (32 * j)));
-                }
-                else {
-                    attributes.put("pos", 24 + " " + (8 + (32 * j)));
-                }
-
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("transformations", "translations");
-                attributes.put("stroke", "black");
-                attributes.put("type", "label");
-                attributes.put("width", "14.6575");
-                attributes.put("height", "18.59");
-                attributes.put("depth", "0.0825");
-                attributes.put("valign", "baseline");
-                texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(j)) + 1), attributes));
-            }
-            // end stack of hull
-
-            // start circle
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "e"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            paths.add(new Path(strPoints, attributes));
-
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-1).x), String.valueOf(hull.get(hull.size()-1).y), "e"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            paths.add(new Path(strPoints, attributes));
-
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "e"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            paths.add(new Path(strPoints, attributes));
-            // end circle
-
-            // start blue
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            for (int j = 0; j < hull.size(); j++) {
-                if (j == 0) {
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-                }
-                else {
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-                }
-            }
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "blue");
-            attributes.put("pen", "ultrafat (2.0)");
-            paths.add(new Path(strPoints, attributes));
-            // end blue
-
-            layers.add(new Layer(paths, uses, texts));
-            // end layer 0
-
-            // start logic
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            Point p1 = new Point(hull.get(hull.size()-2).x, hull.get(hull.size()-2).y);
-            Point p2 = new Point(hull.get(hull.size()-1).x, hull.get(hull.size()-1).y);
-            Point p3 = new Point(points.get(i).x, points.get(i).y);
-            LineSegment lineSegment = new LineSegment(p1, p2);
-
-            if (lineSegment.crossProductToPoint(p3) < 0) {
-
-                // start red dashed layer //
-                attributes = new HashMap<>();
-                paths = new ArrayList<>();
-                uses = new ArrayList<>();
-                texts = new ArrayList<>();
-                strPoints = new ArrayList<>();
-
-                // start points and numbers
-                for (int j = 0; j < initialPoints.size(); j++) {
-
-                    if (!duplicates.contains(initialPoints.get(j))) {
-                        attributes = new HashMap<>();
-
-                        // USE
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("name", "mark/disk(sx)");
-                        attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "large (5.0)");
-                        attributes.put("stroke", "black");
-                        uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
-
-                        attributes = new HashMap<>();
-
-                        // TEXT
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("transformations", "translations");
-                        attributes.put("pos", (initialPoints.get(j).x + 8) + " " + (initialPoints.get(j).y + 8));
-                        attributes.put("stroke", "black");
-                        attributes.put("type", "label");
-                        attributes.put("width", "14.6575");
-                        attributes.put("height", "18.59");
-                        attributes.put("depth", "0.0825");
-                        attributes.put("valign", "baseline");
-                        texts.add(new Text(String.valueOf(j+1), attributes));
-                    }
-                }
-                // end points and numbers
-
-                for (int j = 0; j < points.size(); j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    attributes.put("dash", "dashed");
-                    paths.add(new Path(strPoints, attributes));
-                }
-
-                // start stack
-                for (int j = 0; j < 18; j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("h"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    paths.add(new Path(strPoints, attributes));
-                }
-                // end stack
-
-                // start stack of hull
-                for (int j = 0; j < hull.size(); j++) {
-                    attributes = new HashMap<>();
-
-                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
-                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
-                    }
-                    else {
-                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
-                    }
-
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("transformations", "translations");
-                    attributes.put("stroke", "black");
-                    attributes.put("type", "label");
-                    attributes.put("width", "14.6575");
-                    attributes.put("height", "18.59");
-                    attributes.put("depth", "0.0825");
-                    attributes.put("valign", "baseline");
-                    texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(j)) + 1), attributes));
-                }
-                // end stack of hull
-
-                // start circle
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-1).x), String.valueOf(hull.get(hull.size()-1).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-                // end circle
-
-                // start blue
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                for (int j = 0; j < hull.size(); j++) {
-                    if (j == 0) {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-                    }
-                    else {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-                    }
-                }
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "blue");
-                attributes.put("pen", "ultrafat (2.0)");
-                paths.add(new Path(strPoints, attributes));
-                // end blue
-
-                // start red dashed
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.peek().x), String.valueOf(hull.peek().y), "m"));
-                strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "l"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "red");
-                attributes.put("pen", "ultrafat (2.0)");
-                attributes.put("dash", "dashed");
-                paths.add(new Path(strPoints, attributes));
-                // end red dashed
-
-                layers.add(new Layer(paths, uses, texts));
-                // end red dashed layer //
-
-                // start remove red dashed layer //
-                attributes = new HashMap<>();
-                paths = new ArrayList<>();
-                uses = new ArrayList<>();
-                texts = new ArrayList<>();
-                strPoints = new ArrayList<>();
-
-                // start points and numbers
-                for (int j = 0; j < initialPoints.size(); j++) {
-
-                    if (!duplicates.contains(initialPoints.get(j))) {
-                        attributes = new HashMap<>();
-
-                        // USE
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("name", "mark/disk(sx)");
-                        attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "large (5.0)");
-                        attributes.put("stroke", "black");
-                        uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
-
-                        attributes = new HashMap<>();
-
-                        // TEXT
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("transformations", "translations");
-                        attributes.put("pos", (initialPoints.get(j).x + 8) + " " + (initialPoints.get(j).y + 8));
-                        attributes.put("stroke", "black");
-                        attributes.put("type", "label");
-                        attributes.put("width", "14.6575");
-                        attributes.put("height", "18.59");
-                        attributes.put("depth", "0.0825");
-                        attributes.put("valign", "baseline");
-                        texts.add(new Text(String.valueOf(j+1), attributes));
-                    }
-                }
-                // end points and numbers
-
-                for (int j = 0; j < points.size(); j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    attributes.put("dash", "dashed");
-                    paths.add(new Path(strPoints, attributes));
-                }
-
-                // start stack
-                for (int j = 0; j < 18; j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("h"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    paths.add(new Path(strPoints, attributes));
-                }
-                // end stack
-
-                // start stack of hull
-                for (int j = 0; j < hull.size(); j++) {
-                    attributes = new HashMap<>();
-
-                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
-                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
-                    }
-                    else {
-                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
-                    }
-
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("transformations", "translations");
-                    attributes.put("stroke", "black");
-                    attributes.put("type", "label");
-                    attributes.put("width", "14.6575");
-                    attributes.put("height", "18.59");
-                    attributes.put("depth", "0.0825");
-                    attributes.put("valign", "baseline");
-                    texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(j)) + 1), attributes));
-                }
-                // end stack of hull
-
-                // start circle
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-1).x), String.valueOf(hull.get(hull.size()-1).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-                // end circle
-
-                // start blue
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                for (int j = 0; j < hull.size(); j++) {
-                    if (j == 0) {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-                    }
-                    else {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-                    }
-                }
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "blue");
-                attributes.put("pen", "ultrafat (2.0)");
-                paths.add(new Path(strPoints, attributes));
-                // end blue
-
-                layers.add(new Layer(paths, uses, texts));
-                // end remove red dashed layer //
-
-                // start remove blue layer //
-                attributes = new HashMap<>();
-                paths = new ArrayList<>();
-                uses = new ArrayList<>();
-                texts = new ArrayList<>();
-                strPoints = new ArrayList<>();
-
-                // start points and numbers
-                for (int j = 0; j < initialPoints.size(); j++) {
-
-                    if (!duplicates.contains(initialPoints.get(j))) {
-                        attributes = new HashMap<>();
-
-                        // USE
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("name", "mark/disk(sx)");
-                        attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "large (5.0)");
-                        attributes.put("stroke", "black");
-                        uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
-
-                        attributes = new HashMap<>();
-
-                        // TEXT
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("transformations", "translations");
-                        attributes.put("pos", (initialPoints.get(j).x + 8) + " " + (initialPoints.get(j).y + 8));
-                        attributes.put("stroke", "black");
-                        attributes.put("type", "label");
-                        attributes.put("width", "14.6575");
-                        attributes.put("height", "18.59");
-                        attributes.put("depth", "0.0825");
-                        attributes.put("valign", "baseline");
-                        texts.add(new Text(String.valueOf(j+1), attributes));
-                    }
-                }
-                // end points and numbers
-
-                for (int j = 0; j < points.size(); j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    attributes.put("dash", "dashed");
-                    paths.add(new Path(strPoints, attributes));
-                }
-
-                // start stack
-                for (int j = 0; j < 18; j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("h"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    paths.add(new Path(strPoints, attributes));
-                }
-                // end stack
-
-                // start stack of hull -1
-                for (int j = 0; j < hull.size(); j++) {
-                    attributes = new HashMap<>();
-
-                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
-                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
-                    }
-                    else {
-                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
-                    }
-
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("transformations", "translations");
-                    attributes.put("stroke", "black");
-                    attributes.put("type", "label");
-                    attributes.put("width", "14.6575");
-                    attributes.put("height", "18.59");
-                    attributes.put("depth", "0.0825");
-                    attributes.put("valign", "baseline");
-                    texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(j)) + 1), attributes));
-                }
-                // end stack of hull -1
-
-                // start circle
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-1).x), String.valueOf(hull.get(hull.size()-1).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-                // end circle
-
-                // start blue -1
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                for (int j = 0; j < hull.size()-1; j++) {
-                    if (j == 0) {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-                    }
-                    else {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-                    }
-                }
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "blue");
-                attributes.put("pen", "ultrafat (2.0)");
-                paths.add(new Path(strPoints, attributes));
-                // end blue -1
-
-                layers.add(new Layer(paths, uses, texts));
-                // end remove blue layer //
-
-                hull.pop();
-
-            }
-            else {
-                hull.push(points.get(i));
-
-                // start green dashed layer //
-                attributes = new HashMap<>();
-                paths = new ArrayList<>();
-                uses = new ArrayList<>();
-                texts = new ArrayList<>();
-                strPoints = new ArrayList<>();
-
-                // start points and numbers
-                for (int j = 0; j < initialPoints.size(); j++) {
-
-                    if (!duplicates.contains(initialPoints.get(j))) {
-                        attributes = new HashMap<>();
-
-                        // USE
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("name", "mark/disk(sx)");
-                        attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "large (5.0)");
-                        attributes.put("stroke", "black");
-                        uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
-
-                        attributes = new HashMap<>();
-
-                        // TEXT
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("transformations", "translations");
-                        attributes.put("pos", (initialPoints.get(j).x + 8) + " " + (initialPoints.get(j).y + 8));
-                        attributes.put("stroke", "black");
-                        attributes.put("type", "label");
-                        attributes.put("width", "14.6575");
-                        attributes.put("height", "18.59");
-                        attributes.put("depth", "0.0825");
-                        attributes.put("valign", "baseline");
-                        texts.add(new Text(String.valueOf(j+1), attributes));
-                    }
-                }
-                // end points and numbers
-
-                for (int j = 0; j < points.size(); j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    attributes.put("dash", "dashed");
-                    paths.add(new Path(strPoints, attributes));
-                }
-
-                // start stack
-                for (int j = 0; j < 18; j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("h"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    paths.add(new Path(strPoints, attributes));
-                }
-                // end stack
-
-                // start stack of hull
-                for (int j = 0; j < hull.size(); j++) {
-                    attributes = new HashMap<>();
-
-                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
-                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
-                    }
-                    else {
-                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
-                    }
-
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("transformations", "translations");
-                    attributes.put("stroke", "black");
-                    attributes.put("type", "label");
-                    attributes.put("width", "14.6575");
-                    attributes.put("height", "18.59");
-                    attributes.put("depth", "0.0825");
-                    attributes.put("valign", "baseline");
-                    texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(j)) + 1), attributes));
-                }
-                // end stack of hull
-
-                // start circle
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-3).x), String.valueOf(hull.get(hull.size()-3).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-1).x), String.valueOf(hull.get(hull.size()-1).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-                // end circle
-
-                // start blue -1
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                for (int j = 0; j < hull.size()-1; j++) {
-                    if (j == 0) {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-                    }
-                    else {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-                    }
-                }
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "blue");
-                attributes.put("pen", "ultrafat (2.0)");
-                paths.add(new Path(strPoints, attributes));
-                // end blue -1
-
-                // start green dashed
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "m"));
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.peek().x), String.valueOf(hull.peek().y), "l"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "green");
-                attributes.put("pen", "ultrafat (2.0)");
-                attributes.put("dash", "dashed");
-                paths.add(new Path(strPoints, attributes));
-                // end green dashed
-
-                layers.add(new Layer(paths, uses, texts));
-                // end green dashed layer //
-
-                // start green to blue layer //
-                attributes = new HashMap<>();
-                paths = new ArrayList<>();
-                uses = new ArrayList<>();
-                texts = new ArrayList<>();
-                strPoints = new ArrayList<>();
-
-                // start points and numbers
-                for (int j = 0; j < initialPoints.size(); j++) {
-
-                    if (!duplicates.contains(initialPoints.get(j))) {
-                        attributes = new HashMap<>();
-
-                        // USE
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("name", "mark/disk(sx)");
-                        attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                        attributes.put("size", "large (5.0)");
-                        attributes.put("stroke", "black");
-                        uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
-
-                        attributes = new HashMap<>();
-
-                        // TEXT
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("transformations", "translations");
-                        attributes.put("pos", (initialPoints.get(j).x + 8) + " " + (initialPoints.get(j).y + 8));
-                        attributes.put("stroke", "black");
-                        attributes.put("type", "label");
-                        attributes.put("width", "14.6575");
-                        attributes.put("height", "18.59");
-                        attributes.put("depth", "0.0825");
-                        attributes.put("valign", "baseline");
-                        texts.add(new Text(String.valueOf(j+1), attributes));
-                    }
-                }
-                // end points and numbers
-
-                for (int j = 0; j < points.size(); j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    attributes.put("dash", "dashed");
-                    paths.add(new Path(strPoints, attributes));
-                }
-
-                // start stack
-                for (int j = 0; j < 18; j++) {
-                    attributes = new HashMap<>();
-                    strPoints = new ArrayList<>();
-
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
-                    strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
-                    strPoints.add(new Ipe.Object.Point("h"));
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("stroke", "black");
-                    paths.add(new Path(strPoints, attributes));
-                }
-                // end stack
-
-                // start stack of hull
-                for (int j = 0; j < hull.size(); j++) {
-                    attributes = new HashMap<>();
-
-                    if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
-                        attributes.put("pos", 16 + " " + (8 + (32 * j)));
-                    }
-                    else {
-                        attributes.put("pos", 24 + " " + (8 + (32 * j)));
-                    }
-
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("transformations", "translations");
-                    attributes.put("stroke", "black");
-                    attributes.put("type", "label");
-                    attributes.put("width", "14.6575");
-                    attributes.put("height", "18.59");
-                    attributes.put("depth", "0.0825");
-                    attributes.put("valign", "baseline");
-                    texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(j)) + 1), attributes));
-                }
-                // end stack of hull
-
-                // start circle
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-3).x), String.valueOf(hull.get(hull.size()-3).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-1).x), String.valueOf(hull.get(hull.size()-1).y), "e"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-                // end circle
-
-                // start blue
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                for (int j = 0; j < hull.size(); j++) {
-                    if (j == 0) {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-                    }
-                    else {
-                        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-                    }
-                }
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "blue");
-                attributes.put("pen", "ultrafat (2.0)");
-                paths.add(new Path(strPoints, attributes));
-                // end blue
-
-                layers.add(new Layer(paths, uses, texts));
-                // end green to blue layer //
-
-                i++;
-            }
-            // end logic
-
-            // start remove circle layer //
-            attributes = new HashMap<>();
-            paths = new ArrayList<>();
-            uses = new ArrayList<>();
-            texts = new ArrayList<>();
-            strPoints = new ArrayList<>();
-
-            // start points and numbers
-            for (int j = 0; j < initialPoints.size(); j++) {
-
-                if (!duplicates.contains(initialPoints.get(j))) {
-                    attributes = new HashMap<>();
-
-                    // USE
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("name", "mark/disk(sx)");
-                    attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                    attributes.put("size", "large (5.0)");
-                    attributes.put("stroke", "black");
-                    uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
-
-                    attributes = new HashMap<>();
-
-                    // TEXT
-                    attributes.put("layer", String.valueOf(layers.size()));
-                    attributes.put("transformations", "translations");
-                    attributes.put("pos", (initialPoints.get(j).x + 8) + " " + (initialPoints.get(j).y + 8));
-                    attributes.put("stroke", "black");
-                    attributes.put("type", "label");
-                    attributes.put("width", "14.6575");
-                    attributes.put("height", "18.59");
-                    attributes.put("depth", "0.0825");
-                    attributes.put("valign", "baseline");
-                    texts.add(new Text(String.valueOf(j+1), attributes));
-                }
-            }
-            // end points and numbers
-
-            for (int j = 0; j < points.size(); j++) {
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-                strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                attributes.put("dash", "dashed");
-                paths.add(new Path(strPoints, attributes));
-            }
-
-            // start stack
-            for (int j = 0; j < 18; j++) {
-                attributes = new HashMap<>();
-                strPoints = new ArrayList<>();
-
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
-                strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
-                strPoints.add(new Ipe.Object.Point("h"));
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("stroke", "black");
-                paths.add(new Path(strPoints, attributes));
-            }
-            // end stack
-
-            // start stack of hull
-            for (int j = 0; j < hull.size(); j++) {
-                attributes = new HashMap<>();
-
-                if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
-                    attributes.put("pos", 16 + " " + (8 + (32 * j)));
-                }
-                else {
-                    attributes.put("pos", 24 + " " + (8 + (32 * j)));
-                }
-
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("transformations", "translations");
-                attributes.put("stroke", "black");
-                attributes.put("type", "label");
-                attributes.put("width", "14.6575");
-                attributes.put("height", "18.59");
-                attributes.put("depth", "0.0825");
-                attributes.put("valign", "baseline");
-                texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(j)) + 1), attributes));
-            }
-            // end stack of hull
-
-            // start blue
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            for (int j = 0; j < hull.size(); j++) {
-                if (j == 0) {
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-                }
-                else {
-                    strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-                }
-            }
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "blue");
-            attributes.put("pen", "ultrafat (2.0)");
-            paths.add(new Path(strPoints, attributes));
-            // end blue
-
-            layers.add(new Layer(paths, uses, texts));
-            // end remove circle layer //
-        }
-
-        // Scenario (complete)
-        attributes = new HashMap<>();
-        paths = new ArrayList<>();
-        uses = new ArrayList<>();
-        texts = new ArrayList<>();
-        strPoints = new ArrayList<>();
-
-        for (int j = 0; j < initialPoints.size(); j++) {
-
-            if (!duplicates.contains(initialPoints.get(j))) {
-                attributes = new HashMap<>();
-
-                // USE
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("name", "mark/disk(sx)");
-                attributes.put("pos", (initialPoints.get(j).x) + " " + (initialPoints.get(j).y));
-                attributes.put("size", "large (5.0)");
-                attributes.put("stroke", "black");
-                uses.add(new Use(new Ipe.Object.Point(String.valueOf(initialPoints.get(j).x), String.valueOf(initialPoints.get(j).y)), attributes));
-
-                attributes = new HashMap<>();
-
-                // TEXT
-                attributes.put("layer", String.valueOf(layers.size()));
-                attributes.put("transformations", "translations");
-                attributes.put("pos", (initialPoints.get(j).x + 8) + " " + (initialPoints.get(j).y + 8));
-                attributes.put("stroke", "black");
-                attributes.put("type", "label");
-                attributes.put("width", "14.6575");
-                attributes.put("height", "18.59");
-                attributes.put("depth", "0.0825");
-                attributes.put("valign", "baseline");
-                texts.add(new Text(String.valueOf(j+1), attributes));
-            }
-        }
-
-        for (int j = 0; j < points.size(); j++) {
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-            strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(j).x), String.valueOf(points.get(j).y), "l"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            attributes.put("dash", "dashed");
-            paths.add(new Path(strPoints, attributes));
-        }
-
-        for (int j = 0; j < 18; j++) {
-            attributes = new HashMap<>();
-            strPoints = new ArrayList<>();
-
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("h"));
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("stroke", "black");
-            paths.add(new Path(strPoints, attributes));
-        }
-
-        for (int j = 0; j < hull.size(); j++) {
-            attributes = new HashMap<>();
-
-            if ((initialPoints.indexOf(hull.get(j)) + 1) > 9) {
-                attributes.put("pos", 16 + " " + (8 + (32 * j)));
-            }
-            else {
-                attributes.put("pos", 24 + " " + (8 + (32 * j)));
-            }
-
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("transformations", "translations");
-            attributes.put("stroke", "black");
-            attributes.put("type", "label");
-            attributes.put("width", "14.6575");
-            attributes.put("height", "18.59");
-            attributes.put("depth", "0.0825");
-            attributes.put("valign", "baseline");
-            texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(j)) + 1), attributes));
-        }
-
-        attributes = new HashMap<>();
-        strPoints = new ArrayList<>();
+        return paths;
+    }
+
+    public ArrayList<Path> setRedDashIpe(int i) {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.peek().x), String.valueOf(hull.peek().y), "m"));
+        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "l"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "red");
+        attributes.put("pen", "ultrafat (2.0)");
+        attributes.put("dash", "dashed");
+        paths.add(new Path(strPoints, attributes));
+
+        return paths;
+    }
+
+    public ArrayList<Path> setGreenDashIpe(int i) {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.peek().x), String.valueOf(hull.peek().y), "m"));
+        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(i).x), String.valueOf(points.get(i).y), "l"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "green");
+        attributes.put("pen", "ultrafat (2.0)");
+        attributes.put("dash", "dashed");
+        paths.add(new Path(strPoints, attributes));
+
+        return paths;
+    }
+
+    public ArrayList<Path> setHullPolygonIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
         for (int j = 0; j < hull.size(); j++) {
             if (j == 0) {
@@ -1690,13 +358,200 @@ public class GrahamScan {
                 strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
             }
         }
-
         strPoints.add(new Ipe.Object.Point("h"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "blue");
         attributes.put("pen", "ultrafat (2.0)");
         paths.add(new Path(strPoints, attributes));
 
+        return paths;
+    }
+
+    public void setInitialLayers() {
+        initialPoints.addAll(points);
+
+        ArrayList<Use> uses = setPointsIpe();
+        ArrayList<Text> texts = setTextPointsIpe();
+        layers.add(new Layer(null, uses, texts));
+    }
+
+    public void generateLayers() {
+        ArrayList<Use> uses = new ArrayList<>();
+        ArrayList<Text> texts = new ArrayList<>();
+        ArrayList<Path> paths = new ArrayList<>();
+
+        // Scenario (circle on initial points)
+        uses = new ArrayList<>(setInitialPointsIpe());
+        texts = new ArrayList<>(setInitialTextPointsIpe());
+        paths = new ArrayList<>(setInitialCircleIpe());
+        layers.add(new Layer(paths, uses, texts));
+
+        // Scenario (arc on initial point)
+        uses = new ArrayList<>(setInitialPointsIpe());
+        texts = new ArrayList<>(setInitialTextPointsIpe());
+        paths = new ArrayList<>(setInitialCircleIpe());
+        paths.addAll(setArcIpe());
+        layers.add(new Layer(paths, uses, texts));
+
+        // Scenario (dashed line to initial point)
+        uses = new ArrayList<>(setInitialPointsIpe());
+        texts = new ArrayList<>(setInitialTextPointsIpe());
+        paths = new ArrayList<>(setInitialCircleIpe());
+        paths.addAll(setArcIpe());
+        paths.addAll(setDashedLineIpe());
+        layers.add(new Layer(paths, uses, texts));
+
+        // Scenario (remove duplicates)
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setTextPointsIpe());
+        paths = new ArrayList<>(setInitialCircleIpe());
+        paths.addAll(setArcIpe());
+        paths.addAll(setDashedLineIpe());
+        layers.add(new Layer(paths, uses, texts));
+
+        // Scenario (stack on left side layer)
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setTextPointsIpe());
+        paths = new ArrayList<>(setDashedLineIpe());
+        paths.addAll(setStackIpe());
+        layers.add(new Layer(paths, uses, texts));
+
+        // Scenario (0: circles)
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setTextPointsIpe());
+        paths = new ArrayList<>(setDashedLineIpe());
+        paths.addAll(setStackIpe());
+        paths.addAll(setInitialCirclesIpe());
+        layers.add(new Layer(paths, uses, texts));
+
+        // Scenario (0: lines)
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setTextPointsIpe());
+        paths = new ArrayList<>(setDashedLineIpe());
+        paths.addAll(setStackIpe());
+        hull.push(initialPoint);
+        hull.push(points.get(0));
+        hull.push(points.get(1));
+        texts.addAll(setHullsIpe(0));
+        paths.addAll(setInitialCirclesIpe()); //
+        paths.addAll(setInitialLinesIpe()); //
+        layers.add(new Layer(paths, uses, texts));
+
+        // Scenario (0: removed circles)
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setTextPointsIpe());
+        paths = new ArrayList<>(setDashedLineIpe());
+        paths.addAll(setStackIpe());
+        texts.addAll(setHullsIpe(0));
+        paths.addAll(setInitialLinesIpe()); //
+        layers.add(new Layer(paths, uses, texts));
+
+        // start algorithm
+        int i = 2;
+        while (i < points.size()) {
+            // start add circle layer //
+            uses = new ArrayList<>(setPointsIpe());
+            texts = new ArrayList<>(setTextPointsIpe());
+            paths = new ArrayList<>(setDashedLineIpe());
+            paths.addAll(setStackIpe());
+            texts.addAll(setHullsIpe(0));
+            paths.addAll(setCirclesIpe(i));
+            paths.addAll(setLinesIpe(0));
+            layers.add(new Layer(paths, uses, texts));
+            // start add circle layer //
+
+            Point p1 = new Point(hull.get(hull.size()-2).x, hull.get(hull.size()-2).y);
+            Point p2 = new Point(hull.get(hull.size()-1).x, hull.get(hull.size()-1).y);
+            Point p3 = new Point(points.get(i).x, points.get(i).y);
+            LineSegment lineSegment = new LineSegment(p1, p2);
+
+            if (lineSegment.crossProductToPoint(p3) < 0) {
+
+                // start red dashed layer //
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setTextPointsIpe());
+                paths = new ArrayList<>(setDashedLineIpe());
+                paths.addAll(setStackIpe());
+                texts.addAll(setHullsIpe(0));
+                paths.addAll(setCirclesIpe(i));
+                paths.addAll(setLinesIpe(0));
+                paths.addAll(setRedDashIpe(i));
+                layers.add(new Layer(paths, uses, texts));
+                // end red dashed layer //
+
+                // start removed red dashed layer //
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setTextPointsIpe());
+                paths = new ArrayList<>(setDashedLineIpe());
+                paths.addAll(setStackIpe());
+                texts.addAll(setHullsIpe(0));
+                paths.addAll(setCirclesIpe(i));
+                paths.addAll(setLinesIpe(0));
+                layers.add(new Layer(paths, uses, texts));
+                // end removed red dashed layer //
+
+                // start removed blue layer //
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setTextPointsIpe());
+                paths = new ArrayList<>(setDashedLineIpe());
+                paths.addAll(setStackIpe());
+                texts.addAll(setHullsIpe(-1));
+                paths.addAll(setCirclesIpe(i));
+                paths.addAll(setLinesIpe(-1));
+                layers.add(new Layer(paths, uses, texts));
+                // end remove blue layer //
+
+                hull.pop();
+            }
+            else {
+
+                // start green dashed layer //
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setTextPointsIpe());
+                paths = new ArrayList<>(setDashedLineIpe());
+                paths.addAll(setStackIpe());
+                texts.addAll(setHullsIpe(0));
+                paths.addAll(setCirclesIpe(i));
+                paths.addAll(setLinesIpe(0));
+                paths.addAll(setGreenDashIpe(i));
+                layers.add(new Layer(paths, uses, texts));
+                // end green dashed layer //
+
+                hull.push(points.get(i));
+
+                // start green to blue layer //
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setTextPointsIpe());
+                paths = new ArrayList<>(setDashedLineIpe());
+                paths.addAll(setStackIpe());
+                texts.addAll(setHullsIpe(0));
+                paths.addAll(setCirclesIpe(i));
+                paths.addAll(setLinesIpe(0));
+                layers.add(new Layer(paths, uses, texts));
+                // end green to blue layer //
+
+                i++;
+            }
+
+            // start remove circle layer //
+            uses = new ArrayList<>(setPointsIpe());
+            texts = new ArrayList<>(setTextPointsIpe());
+            paths = new ArrayList<>(setDashedLineIpe());
+            paths.addAll(setStackIpe());
+            texts.addAll(setHullsIpe(0));
+            paths.addAll(setLinesIpe(0));
+            layers.add(new Layer(paths, uses, texts));
+            // end remove circle layer //
+        }
+        // end algorithm
+
+        // Scenario (end)
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setTextPointsIpe());
+        paths = new ArrayList<>(setDashedLineIpe());
+        paths.addAll(setStackIpe());
+        texts.addAll(setHullsIpe(0));
+        paths.addAll(setHullPolygonIpe());
         layers.add(new Layer(paths, uses, texts));
     }
 
