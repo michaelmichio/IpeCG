@@ -23,7 +23,6 @@ public class GrahamScan {
     public GrahamScan(ArrayList<Use> uses) {
         if(uses.size() > 2) {
             setPoints(uses);
-            setInitialLayers();
             sortPoints();
             generateLayers();
         }
@@ -367,18 +366,15 @@ public class GrahamScan {
         return paths;
     }
 
-    public void setInitialLayers() {
-        initialPoints.addAll(points);
-
-        ArrayList<Use> uses = setPointsIpe();
-        ArrayList<Text> texts = setTextPointsIpe();
-        layers.add(new Layer(null, uses, texts));
-    }
-
     public void generateLayers() {
         ArrayList<Use> uses = new ArrayList<>();
         ArrayList<Text> texts = new ArrayList<>();
         ArrayList<Path> paths = new ArrayList<>();
+
+        // Scenario (0)
+        uses = setInitialPointsIpe();
+        texts = setInitialTextPointsIpe();
+        layers.add(new Layer(null, uses, texts));
 
         // Scenario (circle on initial points)
         uses = new ArrayList<>(setInitialPointsIpe());
@@ -568,7 +564,6 @@ public class GrahamScan {
     }
 
     public void sortPoints() {
-
         int initialPointIndex = getInitialPointIndex();
         initialPoint = points.get(initialPointIndex);
         points.remove(initialPointIndex);
@@ -614,5 +609,7 @@ public class GrahamScan {
         for (Use u : uses) {
             points.add(new Point(Double.parseDouble(u.pos.x), Double.parseDouble(u.pos.y)));
         }
+
+        initialPoints.addAll(points);
     }
 }
