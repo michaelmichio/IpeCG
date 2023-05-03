@@ -9,7 +9,9 @@ import java.util.*;
 
 public class TriangulationMonotonePolygon {
     public ArrayList<Layer> layers = new ArrayList<>();
+    public ArrayList<Path> lineSegments = new ArrayList<>();
     public ArrayList<Point> points = new ArrayList<>();
+    public ArrayList<Ipe.Object.Point> strPolygons = new ArrayList<>();
     public Point top = new Point();
     public Point bottom = new Point();
     public Queue<Point> leftChain = new LinkedList<>();
@@ -27,19 +29,41 @@ public class TriangulationMonotonePolygon {
     }
 
     public void addLayer(Point p1, Point p2) {
-        HashMap<String, String> attributes = new HashMap<>();
         ArrayList<Path> paths = new ArrayList<>();
         ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "black");
+        attributes.put("pen", "ultrafat (2.0)");
+        paths.add(new Path(strPolygons, attributes));
+
+        attributes = new HashMap<>();
 
         strPoints.add(new Ipe.Object.Point(String.valueOf(p1.x), String.valueOf(p1.y), "m"));
         strPoints.add(new Ipe.Object.Point(String.valueOf(p2.x), String.valueOf(p2.y), "l"));
-        attributes.put("layer", String.valueOf(layers.size()+1));
+        attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
+        attributes.put("pen", "fat (1.2)");
+
+        lineSegments.add(new Path(strPoints));
+        for (Path ls : lineSegments) {
+            paths.add(new Path(ls.points, attributes));
+        }
+
         layers.add(new Layer(paths, null, null));
     }
 
     public void generateLayers() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "black");
+        attributes.put("pen", "ultrafat (2.0)");
+        paths.add(new Path(strPolygons, attributes));
+
+        layers.add(new Layer(paths, null, null));
 
         // System.out.println("top " + top);
         // System.out.println("bottom " + bottom);
@@ -305,6 +329,7 @@ public class TriangulationMonotonePolygon {
 
     public void setPoints(Path path) {
         for (Ipe.Object.Point point : path.points) {
+            strPolygons.add(point);
             if (point.type.equals("m") || point.type.equals("l")) {
                 try {
                     points.add(new Point(Double.parseDouble(point.x), Double.parseDouble(point.y)));

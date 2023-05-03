@@ -389,7 +389,7 @@ public class GrahamScan {
         paths.addAll(setArcIpe());
         layers.add(new Layer(paths, uses, texts));
 
-        // Scenario (dashed line to initial point)
+        // Scenario (initial dashed line)
         uses = new ArrayList<>(setInitialPointsIpe());
         texts = new ArrayList<>(setInitialTextPointsIpe());
         paths = new ArrayList<>(setInitialCircleIpe());

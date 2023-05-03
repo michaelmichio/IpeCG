@@ -25,21 +25,32 @@ public class BentleyOttmann {
         TreeMap<Double, Deque<Endpoint>> eventPoints = getEventPoints();
         TreeMap<Double, ArrayList<Integer>> status = new TreeMap<>();
 
+        ArrayList<Path> paths = new ArrayList<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+
+        for (LineSegment lineSegment : lineSegments) {
+            strPoints = new ArrayList<>();
+            attributes = new HashMap<>();
+
+            strPoints.add(new Ipe.Object.Point(String.valueOf(lineSegment.p1.x), String.valueOf(lineSegment.p1.y), "m"));
+            strPoints.add(new Ipe.Object.Point(String.valueOf(lineSegment.p2.x), String.valueOf(lineSegment.p2.y), "l"));
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "black");
+            attributes.put("pen", "fat (1.2)");
+            paths.add(new Path(strPoints, attributes));
+        }
+        layers.add(new Layer(paths, null, null));
+
         // status.put(eventPoints.firstEntry().getValue().getFirst().y, new ArrayList<>());
 
         int n = eventPoints.size();
         for (int i = 0; i < n; i++) {
-
-            HashMap<String, String> attributes = new HashMap<>();
-            ArrayList<Path> paths = new ArrayList<>();
-            ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
-
             int m = 0;
             if (eventPoints.firstEntry() != null) {
                 m = eventPoints.firstEntry().getValue().size();
             }
             for (int j = 0; j < m; j++) {
-
                 double x = eventPoints.firstEntry().getValue().getFirst().x;
                 double prev;
                 double y = eventPoints.firstEntry().getValue().getFirst().y;
@@ -50,7 +61,8 @@ public class BentleyOttmann {
                 boolean isIntersect;
                 Point intersectPoint;
 
-                if (type == 0) { // start
+                if (type == 0) {
+                    // start
 
                     // System.out.println("masuk " + segmentIndex);
 
@@ -152,7 +164,8 @@ public class BentleyOttmann {
                     }
 
                 }
-                else if (type == 1) { // end
+                else if (type == 1) {
+                    // end
 
                     // System.out.println("keluar " + segmentIndex);
 
@@ -219,8 +232,8 @@ public class BentleyOttmann {
                         status.remove(y);
                     }
                 }
-                else { // intersection
-
+                else {
+                    // intersect
                     n++;
 
                     // System.out.println("intersect " + segmentIndex);
@@ -287,12 +300,27 @@ public class BentleyOttmann {
 
                 // System.out.println("status " + status.values());
 
+                paths = new ArrayList<>();
+                // draw line segments
+                for (LineSegment lineSegment : lineSegments) {
+                    strPoints = new ArrayList<>();
+                    attributes = new HashMap<>();
+
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(lineSegment.p1.x), String.valueOf(lineSegment.p1.y), "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(lineSegment.p2.x), String.valueOf(lineSegment.p2.y), "l"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("stroke", "black");
+                    attributes.put("pen", "fat (1.2)");
+                    paths.add(new Path(strPoints, attributes));
+                }
+                strPoints = new ArrayList<>();
+                attributes = new HashMap<>();
                 // draw sweep line
                 strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.firstEntry().getValue().getFirst().x), String.valueOf(maxY), "m"));
                 strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.firstEntry().getValue().getFirst().x), String.valueOf(minY), "l"));
-                attributes.put("layer", String.valueOf(i+1));
+                attributes.put("layer", String.valueOf(layers.size()));
                 attributes.put("stroke", "red");
-                attributes.put("pen", "2");
+                attributes.put("pen", "ultrafat (2.0)");
                 paths.add(new Path(strPoints, attributes));
                 layers.add(new Layer(paths, null, null));
 
@@ -306,6 +334,20 @@ public class BentleyOttmann {
                 eventPoints.pollFirstEntry();
             }
         }
+
+        paths = new ArrayList<>();
+        for (LineSegment lineSegment : lineSegments) {
+            strPoints = new ArrayList<>();
+            attributes = new HashMap<>();
+
+            strPoints.add(new Ipe.Object.Point(String.valueOf(lineSegment.p1.x), String.valueOf(lineSegment.p1.y), "m"));
+            strPoints.add(new Ipe.Object.Point(String.valueOf(lineSegment.p2.x), String.valueOf(lineSegment.p2.y), "l"));
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "black");
+            attributes.put("pen", "fat (1.2)");
+            paths.add(new Path(strPoints, attributes));
+        }
+        layers.add(new Layer(paths, null, null));
     }
 
     public TreeMap<Double, Deque<Endpoint>> getEventPoints() {

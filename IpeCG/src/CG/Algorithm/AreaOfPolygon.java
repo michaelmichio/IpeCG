@@ -11,6 +11,7 @@ import java.util.HashMap;
 public class AreaOfPolygon {
     public ArrayList<Layer> layers = new ArrayList<>();
     public ArrayList<Point> vertices = new ArrayList<>();
+    public ArrayList<Ipe.Object.Point> strPolygons = new ArrayList<>();
 
     public AreaOfPolygon(Path path) {
         setVertices(path);
@@ -19,9 +20,19 @@ public class AreaOfPolygon {
     }
 
     public void generateLayer() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "black");
+        attributes.put("pen", "ultrafat (2.0)");
+        paths.add(new Path(strPolygons, attributes));
+
+        layers.add(new Layer(paths, null, null));
+
         for (int i = 0; i < vertices.size()-2; i++) {
-            HashMap<String, String> attributes = new HashMap<>();
-            ArrayList<Path> paths = new ArrayList<>();
+            attributes = new HashMap<>();
+            paths = new ArrayList<>();
             ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
             Point p1 = new Point(vertices.get(0).x, vertices.get(0).y);
@@ -30,6 +41,9 @@ public class AreaOfPolygon {
             LineSegment lineSegment = new LineSegment(p1, p2);
 
             if (lineSegment.crossProductToPoint(p3) < 0) {
+                attributes = new HashMap<>();
+                paths = new ArrayList<>();
+
                 strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(0).x), String.valueOf(vertices.get(0).y), "m"));
                 for (int j = 1; j <= i+2; j++) {
                     strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(j).x), String.valueOf(vertices.get(j).y), "l"));
@@ -37,8 +51,7 @@ public class AreaOfPolygon {
                 strPoints.add(new Ipe.Object.Point("h"));
                 attributes.put("fill", "green");
                 attributes.put("opacity", "50%");
-                attributes.put("layer", String.valueOf(layers.size()+1));
-
+                attributes.put("layer", String.valueOf(layers.size()));
                 paths.add(new Path(strPoints, attributes));
 
                 attributes = new HashMap<>();
@@ -50,16 +63,23 @@ public class AreaOfPolygon {
                 strPoints.add(new Ipe.Object.Point("h"));
                 attributes.put("fill", "red");
                 attributes.put("opacity", "50%");
-                attributes.put("layer", String.valueOf(layers.size()+1));
+                attributes.put("layer", String.valueOf(layers.size()));
 
                 paths.add(new Path(strPoints, attributes));
 
-                layers.add(new Layer(paths, null, null));
-            }
+                attributes = new HashMap<>();
 
-            attributes = new HashMap<>();
-            paths = new ArrayList<>();
-            strPoints = new ArrayList<>();
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("stroke", "black");
+                attributes.put("pen", "ultrafat (2.0)");
+                paths.add(new Path(strPolygons, attributes));
+
+                layers.add(new Layer(paths, null, null));
+
+                paths = new ArrayList<>();
+                attributes = new HashMap<>();
+                strPoints = new ArrayList<>();
+            }
 
             strPoints.add(new Ipe.Object.Point(String.valueOf(vertices.get(0).x), String.valueOf(vertices.get(0).y), "m"));
             for (int j = 1; j <= i+2; j++) {
@@ -68,9 +88,17 @@ public class AreaOfPolygon {
             strPoints.add(new Ipe.Object.Point("h"));
             attributes.put("fill", "green");
             attributes.put("opacity", "50%");
-            attributes.put("layer", String.valueOf(layers.size()+1));
+            attributes.put("layer", String.valueOf(layers.size()));
 
             paths.add(new Path(strPoints, attributes));
+
+            attributes = new HashMap<>();
+
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "black");
+            attributes.put("pen", "ultrafat (2.0)");
+            paths.add(new Path(strPolygons, attributes));
+
             layers.add(new Layer(paths, null, null));
         }
     }
@@ -118,6 +146,7 @@ public class AreaOfPolygon {
 
     public void setVertices(Path path) {
         for (Ipe.Object.Point point : path.points) {
+            strPolygons.add(point);
             if (point.type.equals("m") || point.type.equals("l")) {
                 try {
                     vertices.add(new Point(Double.parseDouble(point.x), Double.parseDouble(point.y)));
