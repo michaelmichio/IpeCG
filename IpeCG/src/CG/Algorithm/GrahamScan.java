@@ -250,10 +250,10 @@ public class GrahamScan {
         return paths;
     }
 
-    public ArrayList<Text> setStackValuesIpe(int val) {
+    public ArrayList<Text> setStackValuesIpe() {
         ArrayList<Text> texts = new ArrayList<>();
 
-        for (int i = 0; i < hull.size() + val; i++) {
+        for (int i = 0; i < hull.size(); i++) {
             HashMap<String, String> attributes = new HashMap<>();
 
             if ((initialPoints.indexOf(hull.get(i)) + 1) > 9) {
@@ -461,7 +461,7 @@ public class GrahamScan {
         paths.addAll(setStackFrameIpe());
         paths.addAll(setCirclesIpe(1));
         hull.push(points.get(1)); // Push stack index 2
-        texts.addAll(setStackValuesIpe(0));
+        texts.addAll(setStackValuesIpe());
         paths.addAll(setLinesIpe());
         layers.add(new Layer(paths, uses, texts));
 
@@ -470,7 +470,7 @@ public class GrahamScan {
         texts = new ArrayList<>(setTextPointsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
         paths.addAll(setStackFrameIpe());
-        texts.addAll(setStackValuesIpe(0));
+        texts.addAll(setStackValuesIpe());
         paths.addAll(setLinesIpe());
         layers.add(new Layer(paths, uses, texts));
 
@@ -483,7 +483,7 @@ public class GrahamScan {
             paths = new ArrayList<>(setDashedLineIpe());
             paths.addAll(setStackFrameIpe());
             paths.addAll(setPointerFrameIpe());
-            texts.addAll(setStackValuesIpe(0));
+            texts.addAll(setStackValuesIpe());
             texts.addAll(setPointerValueIpe(i));
             paths.addAll(setCirclesIpe(i));
             paths.addAll(setHighlightIpe());
@@ -503,7 +503,7 @@ public class GrahamScan {
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
-                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setStackValuesIpe());
                 texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setCirclesIpe(i));
                 paths.addAll(setHighlightIpe());
@@ -517,7 +517,7 @@ public class GrahamScan {
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
-                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setStackValuesIpe());
                 texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setCirclesIpe(i));
                 paths.addAll(setHighlightIpe());
@@ -530,10 +530,10 @@ public class GrahamScan {
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
-                texts.addAll(setStackValuesIpe(-1));
                 texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setCirclesIpe(i));
                 hull.pop(); // Pop stack
+                texts.addAll(setStackValuesIpe());
                 paths.addAll(setHighlightIpe());
                 paths.addAll(setLinesIpe());
                 layers.add(new Layer(paths, uses, texts));
@@ -544,7 +544,7 @@ public class GrahamScan {
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
-                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setStackValuesIpe());
                 texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setHighlightIpe());
                 paths.addAll(setLinesIpe());
@@ -557,7 +557,7 @@ public class GrahamScan {
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
-                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setStackValuesIpe());
                 texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setCirclesIpe(i));
                 paths.addAll(setHighlightIpe());
@@ -573,7 +573,7 @@ public class GrahamScan {
                 paths.addAll(setPointerFrameIpe());
                 paths.addAll(setCirclesIpe(i));
                 hull.push(points.get(i)); // Push stack
-                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setStackValuesIpe());
                 paths.addAll(setLinesIpe());
                 layers.add(new Layer(paths, uses, texts));
 
@@ -585,7 +585,7 @@ public class GrahamScan {
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
-                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setStackValuesIpe());
                 paths.addAll(setLinesIpe());
                 layers.add(new Layer(paths, uses, texts));
             }
@@ -596,7 +596,7 @@ public class GrahamScan {
         texts = new ArrayList<>(setTextPointsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
         paths.addAll(setStackFrameIpe());
-        texts.addAll(setStackValuesIpe(0));
+        texts.addAll(setStackValuesIpe());
         paths.addAll(setHullPolygonIpe());
         layers.add(new Layer(paths, uses, texts));
     }
