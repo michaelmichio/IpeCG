@@ -124,6 +124,7 @@ public class BentleyOttmann {
                             intersectPoint = lineSegments.get(segmentIndex).getIntersectPoint(lineSegments.get(intersectSegmentIndex));
 
                             if (isIntersect) {
+                                System.out.println(intersectPoint);
                                 Deque<Endpoint> ep = new ArrayDeque<>();
                                 ep.add(new Endpoint(intersectPoint.x, intersectPoint.y, intersectSegmentIndex, segmentIndex, 2));
                                 if (eventPoints.containsKey(intersectPoint.x)) {
@@ -144,6 +145,7 @@ public class BentleyOttmann {
                             intersectPoint = lineSegments.get(segmentIndex).getIntersectPoint(lineSegments.get(intersectSegmentIndex));
 
                             if (isIntersect) {
+                                System.out.println(intersectPoint);
                                 Deque<Endpoint> ep = new ArrayDeque<>();
                                 ep.add(new Endpoint(intersectPoint.x, intersectPoint.y, segmentIndex, intersectSegmentIndex, 2));
                                 if (eventPoints.containsKey(intersectPoint.x)) {

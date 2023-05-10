@@ -174,27 +174,65 @@ public class GrahamScan {
         return paths;
     }
 
-    public ArrayList<Path> setStackIpe() {
+    public ArrayList<Path> setStackFrameIpe() {
         ArrayList<Path> paths = new ArrayList<>();
 
-        for (int i = 0; i < 18; i++) {
+        for (int j = 0; j < 18; j++) {
             HashMap<String, String> attributes = new HashMap<>();
             ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf(i * 32), "m"));
-            strPoints.add(new Ipe.Object.Point("0", String.valueOf((i + 1) * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("64", String.valueOf((i + 1) * 32), "l"));
-            strPoints.add(new Ipe.Object.Point("64", String.valueOf(i * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+            strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
             strPoints.add(new Ipe.Object.Point("h"));
             attributes.put("layer", String.valueOf(layers.size()));
             attributes.put("stroke", "black");
+            attributes.put("pen", "fat (1.2)");
             paths.add(new Path(strPoints, attributes));
         }
 
         return paths;
     }
 
-    public ArrayList<Path> setPointerBoxIpe() {
+    public ArrayList<Path> setHighlightIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+        for (int j = 0; j < 18; j++) {
+            if (j == hull.size() - 1 || j == hull.size() - 2) {
+                strPoints.add(new Ipe.Object.Point("0", String.valueOf(j * 32), "m"));
+                strPoints.add(new Ipe.Object.Point("0", String.valueOf((j + 1) * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("64", String.valueOf((j + 1) * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("64", String.valueOf(j * 32), "l"));
+                strPoints.add(new Ipe.Object.Point("h"));
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("fill", "yellow");
+                attributes.put("opacity", "50%");
+                attributes.put("stroke-opacity", "opaque");
+                paths.add(new Path(strPoints, attributes));
+
+                attributes = new HashMap<>();
+                strPoints = new ArrayList<>();
+            }
+        }
+
+        strPoints.add(new Ipe.Object.Point("96", "544", "m"));
+        strPoints.add(new Ipe.Object.Point("96", "576", "l"));
+        strPoints.add(new Ipe.Object.Point("160", "576", "l"));
+        strPoints.add(new Ipe.Object.Point("160", "544", "l"));
+        strPoints.add(new Ipe.Object.Point("h"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("fill", "yellow");
+        attributes.put("opacity", "50%");
+        attributes.put("stroke-opacity", "opaque");
+        paths.add(new Path(strPoints, attributes));
+
+        return paths;
+    }
+
+    public ArrayList<Path> setPointerFrameIpe() {
         ArrayList<Path> paths = new ArrayList<>();
         HashMap<String, String> attributes = new HashMap<>();
         ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
@@ -206,41 +244,13 @@ public class GrahamScan {
         strPoints.add(new Ipe.Object.Point("h"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
+        attributes.put("pen", "fat (1.2)");
         paths.add(new Path(strPoints, attributes));
 
         return paths;
     }
 
-
-
-    public ArrayList<Path> setInitialCirclesIpe() {
-        ArrayList<Path> paths = new ArrayList<>();
-        HashMap<String, String> attributes = new HashMap<>();
-        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "e"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        strPoints = new ArrayList<>();
-        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(0).x), String.valueOf(points.get(0).y), "e"));
-        attributes = new HashMap<>();
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        strPoints = new ArrayList<>();
-        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(1).x), String.valueOf(points.get(1).y), "e"));
-        attributes = new HashMap<>();
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        paths.add(new Path(strPoints, attributes));
-
-        return paths;
-    }
-
-    public ArrayList<Text> setHullsIpe(int val) {
+    public ArrayList<Text> setStackValuesIpe(int val) {
         ArrayList<Text> texts = new ArrayList<>();
 
         for (int i = 0; i < hull.size() + val; i++) {
@@ -267,7 +277,7 @@ public class GrahamScan {
         return texts;
     }
 
-    public ArrayList<Text> setPointerNumberIpe(int i) {
+    public ArrayList<Text> setPointerValueIpe(int i) {
         ArrayList<Text> texts = new ArrayList<>();
         HashMap<String, String> attributes = new HashMap<>();
 
@@ -291,22 +301,6 @@ public class GrahamScan {
         texts.add(new Text(String.valueOf(num), attributes));
 
         return texts;
-    }
-
-    public ArrayList<Path> setInitialLinesIpe() {
-        ArrayList<Path> paths = new ArrayList<>();
-        HashMap<String, String> attributes = new HashMap<>();
-        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "m"));
-        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(0).x), String.valueOf(points.get(0).y), "l"));
-        strPoints.add(new Ipe.Object.Point(String.valueOf(points.get(1).x), String.valueOf(points.get(1).y), "l"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "blue");
-        attributes.put("pen", "ultrafat (2.0)");
-        paths.add(new Path(strPoints, attributes));
-
-        return paths;
     }
 
     public ArrayList<Path> setCirclesIpe(int i) {
@@ -336,18 +330,14 @@ public class GrahamScan {
         return paths;
     }
 
-    public ArrayList<Path> setLinesIpe(int val) {
+    public ArrayList<Path> setLinesIpe() {
         ArrayList<Path> paths = new ArrayList<>();
         HashMap<String, String> attributes = new HashMap<>();
         ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-        for (int j = 0; j < hull.size() + val; j++) {
-            if (j == 0) {
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-            }
-            else {
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-            }
+        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(0).x), String.valueOf(hull.get(0).y), "m"));
+        for (int i = 1; i < hull.size(); i++) {
+            strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(i).x), String.valueOf(hull.get(i).y), "l"));
         }
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "blue");
@@ -394,13 +384,9 @@ public class GrahamScan {
         HashMap<String, String> attributes = new HashMap<>();
         ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-        for (int j = 0; j < hull.size(); j++) {
-            if (j == 0) {
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "m"));
-            }
-            else {
-                strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
-            }
+        strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(0).x), String.valueOf(hull.get(0).y), "m"));
+        for (int j = 1; j < hull.size(); j++) {
+            strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(j).x), String.valueOf(hull.get(j).y), "l"));
         }
         strPoints.add(new Ipe.Object.Point("h"));
         attributes.put("layer", String.valueOf(layers.size()));
@@ -416,96 +402,93 @@ public class GrahamScan {
         ArrayList<Text> texts = new ArrayList<>();
         ArrayList<Path> paths = new ArrayList<>();
 
-        // Scenario (0)
+        // Layer 0 (Add points and labels)
         uses = setInitialPointsIpe();
         texts = setInitialTextPointsIpe();
         layers.add(new Layer(null, uses, texts));
 
-        // Scenario (circle on initial points)
+        // Layer 1 (Add circle)
         uses = new ArrayList<>(setInitialPointsIpe());
         texts = new ArrayList<>(setInitialTextPointsIpe());
         paths = new ArrayList<>(setInitialCircleIpe());
         layers.add(new Layer(paths, uses, texts));
 
-        // Scenario (arc on initial point)
-        uses = new ArrayList<>(setInitialPointsIpe());
-        texts = new ArrayList<>(setInitialTextPointsIpe());
-        paths = new ArrayList<>(setInitialCircleIpe());
-        paths.addAll(setArcIpe());
-        layers.add(new Layer(paths, uses, texts));
-
-        // Scenario (initial dashed line)
+        // Layer 2 (Add arch)
         uses = new ArrayList<>(setInitialPointsIpe());
         texts = new ArrayList<>(setInitialTextPointsIpe());
         paths = new ArrayList<>(setInitialCircleIpe());
         paths.addAll(setArcIpe());
-        paths.addAll(setDashedLineIpe());
         layers.add(new Layer(paths, uses, texts));
 
-        // Scenario (remove duplicates)
-        uses = new ArrayList<>(setPointsIpe());
-        texts = new ArrayList<>(setTextPointsIpe());
+        // Layer 3 (Add dashed line)
+        uses = new ArrayList<>(setInitialPointsIpe());
+        texts = new ArrayList<>(setInitialTextPointsIpe());
         paths = new ArrayList<>(setInitialCircleIpe());
         paths.addAll(setArcIpe());
         paths.addAll(setDashedLineIpe());
         layers.add(new Layer(paths, uses, texts));
 
-        // Scenario (stack on left side layer)
+        // Layer 4 (Remove duplicate points)
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setTextPointsIpe());
+        paths = new ArrayList<>(setInitialCircleIpe());
+        paths.addAll(setArcIpe());
+        paths.addAll(setDashedLineIpe());
+        layers.add(new Layer(paths, uses, texts));
+
+        // Layer 5 (Add stack frame)
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setTextPointsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
-        paths.addAll(setStackIpe());
-        paths.addAll(setPointerBoxIpe());
+        paths.addAll(setStackFrameIpe());
         layers.add(new Layer(paths, uses, texts));
 
-        // Scenario (0: circles)
+        hull.push(initialPoint); // Push stack index 0
+        hull.push(points.get(0)); // Push stack index 1
+
+        // Layer 6 (Add circles)
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setTextPointsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
-        paths.addAll(setStackIpe());
-        paths.addAll(setPointerBoxIpe());
-        paths.addAll(setInitialCirclesIpe());
+        paths.addAll(setStackFrameIpe());
+        paths.addAll(setCirclesIpe(1));
         layers.add(new Layer(paths, uses, texts));
 
-        // Scenario (0: lines)
+        // Layer 7 (Add lines)
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setTextPointsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
-        paths.addAll(setStackIpe());
-        paths.addAll(setPointerBoxIpe());
-        hull.push(initialPoint);
-        hull.push(points.get(0));
-        hull.push(points.get(1));
-        texts.addAll(setHullsIpe(0));
-        paths.addAll(setInitialCirclesIpe()); //
-        paths.addAll(setInitialLinesIpe()); //
+        paths.addAll(setStackFrameIpe());
+        paths.addAll(setCirclesIpe(1));
+        hull.push(points.get(1)); // Push stack index 2
+        texts.addAll(setStackValuesIpe(0));
+        paths.addAll(setLinesIpe());
         layers.add(new Layer(paths, uses, texts));
 
-        // Scenario (0: removed circles)
+        // Layer 8 (Remove circles)
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setTextPointsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
-        paths.addAll(setStackIpe());
-        paths.addAll(setPointerBoxIpe());
-        texts.addAll(setHullsIpe(0));
-        paths.addAll(setInitialLinesIpe()); //
+        paths.addAll(setStackFrameIpe());
+        texts.addAll(setStackValuesIpe(0));
+        paths.addAll(setLinesIpe());
         layers.add(new Layer(paths, uses, texts));
 
-        // start algorithm
+        // Layers of push and pop scenario
         int i = 2;
         while (i < points.size()) {
-            // start add circle layer //
+            // Layer (Add circle)
             uses = new ArrayList<>(setPointsIpe());
             texts = new ArrayList<>(setTextPointsIpe());
             paths = new ArrayList<>(setDashedLineIpe());
-            paths.addAll(setStackIpe());
-            paths.addAll(setPointerBoxIpe());
-            texts.addAll(setHullsIpe(0));
-            texts.addAll(setPointerNumberIpe(i));
+            paths.addAll(setStackFrameIpe());
+            paths.addAll(setPointerFrameIpe());
+            texts.addAll(setStackValuesIpe(0));
+            texts.addAll(setPointerValueIpe(i));
             paths.addAll(setCirclesIpe(i));
-            paths.addAll(setLinesIpe(0));
+            paths.addAll(setHighlightIpe());
+            paths.addAll(setLinesIpe());
             layers.add(new Layer(paths, uses, texts));
-            // start add circle layer //
 
             Point p1 = new Point(hull.get(hull.size()-2).x, hull.get(hull.size()-2).y);
             Point p2 = new Point(hull.get(hull.size()-1).x, hull.get(hull.size()-1).y);
@@ -514,113 +497,106 @@ public class GrahamScan {
 
             if (lineSegment.crossProductToPoint(p3) < 0) {
 
-                // start red dashed layer //
+                // Layer (Add red dashed line)
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setTextPointsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
-                paths.addAll(setStackIpe());
-                paths.addAll(setPointerBoxIpe());
-                texts.addAll(setHullsIpe(0));
-                texts.addAll(setPointerNumberIpe(i));
+                paths.addAll(setStackFrameIpe());
+                paths.addAll(setPointerFrameIpe());
+                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setCirclesIpe(i));
-                paths.addAll(setLinesIpe(0));
+                paths.addAll(setHighlightIpe());
+                paths.addAll(setLinesIpe());
                 paths.addAll(setRedDashIpe(i));
                 layers.add(new Layer(paths, uses, texts));
-                // end red dashed layer //
 
-                // start removed red dashed layer //
+                // Layer (Remove red dashed line)
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setTextPointsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
-                paths.addAll(setStackIpe());
-                paths.addAll(setPointerBoxIpe());
-                texts.addAll(setHullsIpe(0));
-                texts.addAll(setPointerNumberIpe(i));
+                paths.addAll(setStackFrameIpe());
+                paths.addAll(setPointerFrameIpe());
+                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setCirclesIpe(i));
-                paths.addAll(setLinesIpe(0));
+                paths.addAll(setHighlightIpe());
+                paths.addAll(setLinesIpe());
                 layers.add(new Layer(paths, uses, texts));
-                // end removed red dashed layer //
 
-                // start removed blue layer //
+                // Layer (Remove line)
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setTextPointsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
-                paths.addAll(setStackIpe());
-                paths.addAll(setPointerBoxIpe());
-                texts.addAll(setHullsIpe(-1));
-                texts.addAll(setPointerNumberIpe(i));
+                paths.addAll(setStackFrameIpe());
+                paths.addAll(setPointerFrameIpe());
+                texts.addAll(setStackValuesIpe(-1));
+                texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setCirclesIpe(i));
-                paths.addAll(setLinesIpe(-1));
+                hull.pop(); // Pop stack
+                paths.addAll(setHighlightIpe());
+                paths.addAll(setLinesIpe());
                 layers.add(new Layer(paths, uses, texts));
-                // end remove blue layer //
 
-                hull.pop();
-
-                // start remove circle layer //
+                // Layer (Remove circle)
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setTextPointsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
-                paths.addAll(setStackIpe());
-                paths.addAll(setPointerBoxIpe());
-                texts.addAll(setHullsIpe(0));
-                texts.addAll(setPointerNumberIpe(i));
-                paths.addAll(setLinesIpe(0));
+                paths.addAll(setStackFrameIpe());
+                paths.addAll(setPointerFrameIpe());
+                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setPointerValueIpe(i));
+                paths.addAll(setHighlightIpe());
+                paths.addAll(setLinesIpe());
                 layers.add(new Layer(paths, uses, texts));
-                // end remove circle layer //
             }
             else {
-
-                // start green dashed layer //
+                // Layer (Add green dashed line)
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setTextPointsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
-                paths.addAll(setStackIpe());
-                paths.addAll(setPointerBoxIpe());
-                texts.addAll(setHullsIpe(0));
-                texts.addAll(setPointerNumberIpe(i));
+                paths.addAll(setStackFrameIpe());
+                paths.addAll(setPointerFrameIpe());
+                texts.addAll(setStackValuesIpe(0));
+                texts.addAll(setPointerValueIpe(i));
                 paths.addAll(setCirclesIpe(i));
-                paths.addAll(setLinesIpe(0));
+                paths.addAll(setHighlightIpe());
+                paths.addAll(setLinesIpe());
                 paths.addAll(setGreenDashIpe(i));
                 layers.add(new Layer(paths, uses, texts));
-                // end green dashed layer //
 
-                hull.push(points.get(i));
-
-                // start green to blue layer //
+                // Layer (Add line)
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setTextPointsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
-                paths.addAll(setStackIpe());
-                paths.addAll(setPointerBoxIpe());
-                texts.addAll(setHullsIpe(0));
+                paths.addAll(setStackFrameIpe());
+                paths.addAll(setPointerFrameIpe());
                 paths.addAll(setCirclesIpe(i));
-                paths.addAll(setLinesIpe(0));
+                hull.push(points.get(i)); // Push stack
+                texts.addAll(setStackValuesIpe(0));
+                paths.addAll(setLinesIpe());
                 layers.add(new Layer(paths, uses, texts));
-                // end green to blue layer //
 
-                i++;
+                i++; // Go to the next point index
 
-                // start remove circle layer //
+                // Layer (Remove circle)
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setTextPointsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
-                paths.addAll(setStackIpe());
-                paths.addAll(setPointerBoxIpe());
-                texts.addAll(setHullsIpe(0));
-                paths.addAll(setLinesIpe(0));
+                paths.addAll(setStackFrameIpe());
+                paths.addAll(setPointerFrameIpe());
+                texts.addAll(setStackValuesIpe(0));
+                paths.addAll(setLinesIpe());
                 layers.add(new Layer(paths, uses, texts));
-                // end remove circle layer //
             }
         }
-        // end algorithm
 
-        // Scenario (end)
+        // Layer (Hull polygon)
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setTextPointsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
-        paths.addAll(setStackIpe());
-        paths.addAll(setPointerBoxIpe());
-        texts.addAll(setHullsIpe(0));
+        paths.addAll(setStackFrameIpe());
+        texts.addAll(setStackValuesIpe(0));
         paths.addAll(setHullPolygonIpe());
         layers.add(new Layer(paths, uses, texts));
     }
