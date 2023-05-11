@@ -3,22 +3,37 @@ package CG.Object;
 public class Endpoint {
     public double x;
     public double y;
-    public int segmenIdx;
+    public int status; // -1 (intersect point), 0 (start point), 1 (end point)
+    public int segmentIndex;
     public int intersectSegmentIndex;
-    public int type;
 
-    public Endpoint(double x, double y, int segmenIdx, int type) {
+    public Endpoint(double x, double y, int status, int segmentIndex) {
         this.x = x;
         this.y = y;
-        this.segmenIdx = segmenIdx;
-        this.type = type;
+        this.status = status;
+        this.segmentIndex = segmentIndex;
     }
 
-    public Endpoint(double x, double y, int segmenIdx, int intersectSegmentIndex, int type) {
+    public Endpoint(double x, double y, int status, int segmentIndex, int intersectSegmentIndex) {
         this.x = x;
         this.y = y;
-        this.segmenIdx = segmenIdx;
+        this.status = status;
+        this.segmentIndex = segmentIndex;
         this.intersectSegmentIndex = intersectSegmentIndex;
-        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        String str;
+        if (status == 0) {
+            str = "$p_{" + segmentIndex + "}$";
+        }
+        else if (status == 1) {
+            str = "$q_{" + segmentIndex + "}$";
+        }
+        else {
+            str = "$e_{" + segmentIndex + "," + intersectSegmentIndex + "}$";
+        }
+        return str;
     }
 }
