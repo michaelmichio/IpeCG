@@ -177,15 +177,8 @@ public class BentleyOttmann {
                 int leftNeighbourLineSegmentIndex = -1;
                 int rightNeighbourLineSegmentIndex = -1;
 
-                System.out.println();
-                System.out.println("event points: " + eventPoints);
-                System.out.println("active line segments: " + activeLines);
-
-                System.out.println("AAA0 " + eventPoints.firstEntry().getValue());
-
                 // Start point
                 if (endpoint.status == 0) {
-                    System.out.println("start point: " + endpoint.toString());
                     // Add line segment to activeLines
                     if (activeLines.containsKey(endpoint.y)) {
                         leftNeighbourLineSegmentIndex = activeLines.get(endpoint.y).get(activeLines.get(endpoint.y).size() - 1);
@@ -214,10 +207,7 @@ public class BentleyOttmann {
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
-                                System.out.println(intersectionPointsOutput);
-                                System.out.println("new: " + ep.toString());
                                 intersectionPointsOutput.add(ep.toString());
-                                System.out.println("EP " + endpoints);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -234,10 +224,7 @@ public class BentleyOttmann {
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
-                                System.out.println(intersectionPointsOutput);
-                                System.out.println("new: " + ep.toString());
                                 intersectionPointsOutput.add(ep.toString());
-                                System.out.println("EP " + endpoints);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -253,9 +240,29 @@ public class BentleyOttmann {
                 }
                 // End point
                 else if (endpoint.status == 1) {
-                    System.out.println("end point: " + endpoint.toString());
 
-                    // ...
+                    if (activeLines.lowerKey(endpoint.y) != null) {
+                        leftNeighbourLineSegmentIndex = activeLines.get(activeLines.lowerKey(endpoint.y)).get(activeLines.get(activeLines.lowerKey(endpoint.y)).size()-1);
+                    }
+                    if (activeLines.higherKey(endpoint.y) != null) {
+                        rightNeighbourLineSegmentIndex = activeLines.get(activeLines.higherKey(endpoint.y)).get(0);
+                    }
+
+                    if (leftNeighbourLineSegmentIndex > -1 && rightNeighbourLineSegmentIndex > -1) {
+                        if (lineSegments.get(leftNeighbourLineSegmentIndex).isIntersect(lineSegments.get(rightNeighbourLineSegmentIndex))) {
+                            Point intersectionPoint = lineSegments.get(leftNeighbourLineSegmentIndex).getIntersectPoint(lineSegments.get(rightNeighbourLineSegmentIndex));
+                            Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, leftNeighbourLineSegmentIndex, rightNeighbourLineSegmentIndex);
+                            if (!intersectionPointsOutput.contains(ep.toString())) {
+                                Deque<Endpoint> endpoints = new ArrayDeque<>();
+                                endpoints.add(ep);
+                                if (eventPoints.containsKey(intersectionPoint.x)) {
+                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                }
+                                intersectionPointsOutput.add(ep.toString());
+                                eventPoints.put(intersectionPoint.x, endpoints);
+                            }
+                        }
+                    }
 
                     // Remove line segment from activeLines
                     int endLineSegmentIndex = endpoint.segmentIndex;
@@ -278,7 +285,6 @@ public class BentleyOttmann {
                 }
                 // Intersection point
                 else if (endpoint.status == -1) {
-                    System.out.println("intersection point: " + endpoint.toString());
                     // Swap
                     int lineSegmentIndex1 = eventPoints.firstEntry().getValue().getFirst().segmentIndex;
                     int lineSegmentIndex2 = eventPoints.firstEntry().getValue().getFirst().intersectSegmentIndex;
@@ -381,10 +387,7 @@ public class BentleyOttmann {
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
-                                System.out.println(intersectionPointsOutput);
-                                System.out.println("new: " + ep.toString());
                                 intersectionPointsOutput.add(ep.toString());
-                                System.out.println("EP " + endpoints);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -399,10 +402,7 @@ public class BentleyOttmann {
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
-                                System.out.println(intersectionPointsOutput);
-                                System.out.println("new: " + ep.toString());
                                 intersectionPointsOutput.add(ep.toString());
-                                System.out.println("EP " + endpoints);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -417,10 +417,7 @@ public class BentleyOttmann {
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
-                                System.out.println(intersectionPointsOutput);
-                                System.out.println("new: " + ep.toString());
                                 intersectionPointsOutput.add(ep.toString());
-                                System.out.println("EP " + endpoints);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -435,10 +432,7 @@ public class BentleyOttmann {
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
-                                System.out.println(intersectionPointsOutput);
-                                System.out.println("new: " + ep.toString());
                                 intersectionPointsOutput.add(ep.toString());
-                                System.out.println("EP " + endpoints);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -452,10 +446,8 @@ public class BentleyOttmann {
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setLabelsIpe());
                 layers.add(new Layer(paths, uses, texts));
-
-                System.out.println("AAA " + eventPoints.firstEntry().getValue());
+                
                 eventPoints.firstEntry().getValue().removeFirst();
-                System.out.println("BBB " + eventPoints.firstEntry().getValue());
             }
 
             eventPoints.pollFirstEntry();
