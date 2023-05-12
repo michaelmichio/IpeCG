@@ -24,23 +24,20 @@ public class Endpoint {
 
     @Override
     public String toString() {
-        String str;
         if (status == 0) {
-            str = "$p_{" + segmentIndex + "}$";
+            return "$p_{" + segmentIndex + "}$";
         }
         else if (status == 1) {
-            str = "$q_{" + segmentIndex + "}$";
+            return "$q_{" + segmentIndex + "}$";
         }
         else {
             if (segmentIndex <= intersectSegmentIndex) {
-                str = "$e_{" + segmentIndex + "," + intersectSegmentIndex + "}$";
+                return "$e_{" + segmentIndex + "," + intersectSegmentIndex + "}$";
             }
             else {
-                str = "$e_{" + intersectSegmentIndex + "," + segmentIndex + "}$";
+                return "$e_{" + intersectSegmentIndex + "," + segmentIndex + "}$";
             }
         }
-        return str;
     }
-
 
 }
