@@ -32,8 +32,15 @@ public class Endpoint {
             str = "$q_{" + segmentIndex + "}$";
         }
         else {
-            str = "$e_{" + segmentIndex + "," + intersectSegmentIndex + "}$";
+            if (segmentIndex <= intersectSegmentIndex) {
+                str = "$e_{" + segmentIndex + "," + intersectSegmentIndex + "}$";
+            }
+            else {
+                str = "$e_{" + intersectSegmentIndex + "," + segmentIndex + "}$";
+            }
         }
         return str;
     }
+
+
 }

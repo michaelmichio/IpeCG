@@ -15,6 +15,7 @@ public class BentleyOttmann {
     public ArrayList<LineSegment> lineSegments = new ArrayList<>();
     public TreeMap<Double, Deque<Endpoint>> eventPoints = new TreeMap<>();
     public TreeMap<Double, ArrayList<Integer>> activeLines = new TreeMap<>();
+    public ArrayList<String> intersectionPointsOutput = new ArrayList<>();
     public double sweepLineMaxY;
     public double sweepLineMinY;
 
@@ -126,6 +127,22 @@ public class BentleyOttmann {
 
     public ArrayList<Path> setDataFramesIpe() {
         ArrayList<Path> paths = new ArrayList<>();
+
+        for (int j = 0; j < 9; j++) {
+            HashMap<String, String> attributes = new HashMap<>();
+            ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf((j * 48) + 80), "m"));
+            strPoints.add(new Ipe.Object.Point("0", String.valueOf(((j + 1) * 48) + 80), "l"));
+            strPoints.add(new Ipe.Object.Point("48", String.valueOf(((j + 1) * 48) + 80), "l"));
+            strPoints.add(new Ipe.Object.Point("48", String.valueOf((j * 48) + 80), "l"));
+            strPoints.add(new Ipe.Object.Point("h"));
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "black");
+            attributes.put("pen", "fat (1.2)");
+            paths.add(new Path(strPoints, attributes));
+        }
+
         return  paths;
     }
 
@@ -154,18 +171,21 @@ public class BentleyOttmann {
         texts = new ArrayList<>(setLabelsIpe());
         layers.add(new Layer(paths, uses, texts));
 
-        int n = eventPoints.size();
-        for (int i = 0; i < n; i++) {
-            if (eventPoints.firstEntry() == null) {
-                break;
-            }
-            int m = eventPoints.firstEntry().getValue().size();
-            for (int j = 0; j < m; j++) {
+        while (eventPoints.size() > 0) {
+            while (eventPoints.firstEntry().getValue().size() > 0) {
                 Endpoint endpoint = eventPoints.firstEntry().getValue().getFirst();
                 int leftNeighbourLineSegmentIndex = -1;
                 int rightNeighbourLineSegmentIndex = -1;
+
+                System.out.println();
+                System.out.println("event points: " + eventPoints);
+                System.out.println("active line segments: " + activeLines);
+
+                System.out.println("AAA0 " + eventPoints.firstEntry().getValue());
+
                 // Start point
                 if (endpoint.status == 0) {
+                    System.out.println("start point: " + endpoint.toString());
                     // Add line segment to activeLines
                     if (activeLines.containsKey(endpoint.y)) {
                         leftNeighbourLineSegmentIndex = activeLines.get(endpoint.y).get(activeLines.get(endpoint.y).size() - 1);
@@ -187,13 +207,19 @@ public class BentleyOttmann {
                         // Check the intersection with left neighbour
                         if (lineSegments.get(endpoint.segmentIndex).isIntersect(lineSegments.get(leftNeighbourLineSegmentIndex))) {
                             Point intersectionPoint = lineSegments.get(endpoint.segmentIndex).getIntersectPoint(lineSegments.get(leftNeighbourLineSegmentIndex));
-                            Deque<Endpoint> endpoints = new ArrayDeque<>();
-                            if (eventPoints.containsKey(intersectionPoint.x)) {
-                                endpoints = eventPoints.get(intersectionPoint.x);
+                            Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, endpoint.segmentIndex, leftNeighbourLineSegmentIndex);
+                            if (!intersectionPointsOutput.contains(ep.toString())) {
+                                Deque<Endpoint> endpoints = new ArrayDeque<>();
+                                endpoints.add(ep);
+                                if (eventPoints.containsKey(intersectionPoint.x)) {
+                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                }
+                                System.out.println(intersectionPointsOutput);
+                                System.out.println("new: " + ep.toString());
+                                intersectionPointsOutput.add(ep.toString());
+                                System.out.println("EP " + endpoints);
+                                eventPoints.put(intersectionPoint.x, endpoints);
                             }
-                            endpoints.add(new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, endpoint.segmentIndex, leftNeighbourLineSegmentIndex));
-                            eventPoints.put(intersectionPoint.x, endpoints);
-                            n++;
                         }
                     }
                     // Check right neighbour if exist
@@ -201,13 +227,19 @@ public class BentleyOttmann {
                         // Check the intersection with right neighbour
                         if (lineSegments.get(endpoint.segmentIndex).isIntersect(lineSegments.get(rightNeighbourLineSegmentIndex))) {
                             Point intersectionPoint = lineSegments.get(endpoint.segmentIndex).getIntersectPoint(lineSegments.get(rightNeighbourLineSegmentIndex));
-                            Deque<Endpoint> endpoints = new ArrayDeque<>();
-                            if (eventPoints.containsKey(intersectionPoint.x)) {
-                                endpoints = eventPoints.get(intersectionPoint.x);
+                            Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, endpoint.segmentIndex, rightNeighbourLineSegmentIndex);
+                            if (!intersectionPointsOutput.contains(ep.toString())) {
+                                Deque<Endpoint> endpoints = new ArrayDeque<>();
+                                endpoints.add(ep);
+                                if (eventPoints.containsKey(intersectionPoint.x)) {
+                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                }
+                                System.out.println(intersectionPointsOutput);
+                                System.out.println("new: " + ep.toString());
+                                intersectionPointsOutput.add(ep.toString());
+                                System.out.println("EP " + endpoints);
+                                eventPoints.put(intersectionPoint.x, endpoints);
                             }
-                            endpoints.add(new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, endpoint.segmentIndex, rightNeighbourLineSegmentIndex));
-                            eventPoints.put(intersectionPoint.x, endpoints);
-                            n++;
                         }
                     }
 
@@ -221,10 +253,32 @@ public class BentleyOttmann {
                 }
                 // End point
                 else if (endpoint.status == 1) {
-                    //
+                    System.out.println("end point: " + endpoint.toString());
+
+                    // ...
+
+                    // Remove line segment from activeLines
+                    int endLineSegmentIndex = endpoint.segmentIndex;
+                    ArrayList<Integer> endLineSegmentList = new ArrayList<>();
+                    double removeKey = -1;
+                    for (Map.Entry<Double, ArrayList<Integer>> entry : activeLines.entrySet()) {
+                        if (entry.getValue().contains(endLineSegmentIndex)) {
+                            endLineSegmentList.addAll(entry.getValue());
+                            removeKey = entry.getKey();
+                            break;
+                        }
+                    }
+                    endLineSegmentList.remove(endLineSegmentList.indexOf(endLineSegmentIndex));
+                    if (endLineSegmentList.size() > 0) {
+                        activeLines.put(removeKey, endLineSegmentList);
+                    }
+                    else {
+                        activeLines.remove(removeKey);
+                    }
                 }
                 // Intersection point
                 else if (endpoint.status == -1) {
+                    System.out.println("intersection point: " + endpoint.toString());
                     // Swap
                     int lineSegmentIndex1 = eventPoints.firstEntry().getValue().getFirst().segmentIndex;
                     int lineSegmentIndex2 = eventPoints.firstEntry().getValue().getFirst().intersectSegmentIndex;
@@ -234,8 +288,18 @@ public class BentleyOttmann {
                     int leftNeighbourLineSegmentIndex2 = -1;
                     int rightNeighbourLineSegmentIndex2 = -1;
 
-                    ArrayList<Integer> lineSegmentList1 = activeLines.get(lineSegments.get(lineSegmentIndex1).p1.y);
-                    ArrayList<Integer> lineSegmentList2 = activeLines.get(lineSegments.get(lineSegmentIndex1).p1.y);
+                    ArrayList<Integer> lineSegmentList1 = new ArrayList<>();
+                    for (Map.Entry<Double, ArrayList<Integer>> entry : activeLines.entrySet()) {
+                        if (entry.getValue().contains(lineSegmentIndex1)) {
+                            lineSegmentList1 = entry.getValue();
+                        }
+                    }
+                    ArrayList<Integer> lineSegmentList2 = new ArrayList<>();
+                    for (Map.Entry<Double, ArrayList<Integer>> entry : activeLines.entrySet()) {
+                        if (entry.getValue().contains(lineSegmentIndex2)) {
+                            lineSegmentList2 = entry.getValue();
+                        }
+                    }
 
                     // cara swap untuk menghindari jika nilai y sama dengan menambahkan (-) sementara
                     for (int k = 0; k < lineSegmentList1.size(); k++) {
@@ -254,7 +318,7 @@ public class BentleyOttmann {
                         if (lineSegmentList1.get(k) == -lineSegmentIndex2) {
                             lineSegmentList1.set(k, lineSegmentIndex2);
 
-                            // Set neighbour
+                            // Set neighbour for lineSegmentIndex2
                             if (k == 0) {
                                 if (activeLines.lowerKey(lineSegments.get(lineSegmentIndex1).p1.y) != null) {
                                     leftNeighbourLineSegmentIndex1 = activeLines.get(activeLines.lowerKey(lineSegments.get(lineSegmentIndex1).p1.y)).get(activeLines.get(activeLines.lowerKey(lineSegments.get(lineSegmentIndex1).p1.y)).size()-1);
@@ -282,7 +346,7 @@ public class BentleyOttmann {
                         if (lineSegmentList2.get(k) == -lineSegmentIndex1) {
                             lineSegmentList2.set(k, lineSegmentIndex1);
 
-                            // Set neighbour
+                            // Set neighbour for lineSegmentIndex1
                             if (k == 0) {
                                 if (activeLines.lowerKey(lineSegments.get(lineSegmentIndex2).p1.y) != null) {
                                     leftNeighbourLineSegmentIndex2 = activeLines.get(activeLines.lowerKey(lineSegments.get(lineSegmentIndex2).p1.y)).get(activeLines.get(activeLines.lowerKey(lineSegments.get(lineSegmentIndex2).p1.y)).size()-1);
@@ -307,52 +371,76 @@ public class BentleyOttmann {
                         }
                     }
 
-                    if (leftNeighbourLineSegmentIndex1 > -1) {
+                    if (leftNeighbourLineSegmentIndex1 > -1 && leftNeighbourLineSegmentIndex1 != lineSegmentIndex2) {
                         if (lineSegments.get(lineSegmentIndex2).isIntersect(lineSegments.get(leftNeighbourLineSegmentIndex1))) {
                             Point intersectionPoint = lineSegments.get(lineSegmentIndex2).getIntersectPoint(lineSegments.get(leftNeighbourLineSegmentIndex1));
-                            Deque<Endpoint> endpoints = new ArrayDeque<>();
-                            if (eventPoints.containsKey(intersectionPoint.x)) {
-                                endpoints = eventPoints.get(intersectionPoint.x);
+                            Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex1, leftNeighbourLineSegmentIndex1);
+                            if (!intersectionPointsOutput.contains(ep.toString())) {
+                                Deque<Endpoint> endpoints = new ArrayDeque<>();
+                                endpoints.add(ep);
+                                if (eventPoints.containsKey(intersectionPoint.x)) {
+                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                }
+                                System.out.println(intersectionPointsOutput);
+                                System.out.println("new: " + ep.toString());
+                                intersectionPointsOutput.add(ep.toString());
+                                System.out.println("EP " + endpoints);
+                                eventPoints.put(intersectionPoint.x, endpoints);
                             }
-                            endpoints.add(new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex2, leftNeighbourLineSegmentIndex1));
-                            eventPoints.put(intersectionPoint.x, endpoints);
-                            n++;
                         }
                     }
-                    if (rightNeighbourLineSegmentIndex1 > -1 && rightNeighbourLineSegmentIndex1 != lineSegmentIndex1) {
+                    if (rightNeighbourLineSegmentIndex1 > -1 && rightNeighbourLineSegmentIndex1 != lineSegmentIndex2) {
                         if (lineSegments.get(lineSegmentIndex2).isIntersect(lineSegments.get(rightNeighbourLineSegmentIndex1))) {
                             Point intersectionPoint = lineSegments.get(lineSegmentIndex2).getIntersectPoint(lineSegments.get(rightNeighbourLineSegmentIndex1));
-                            Deque<Endpoint> endpoints = new ArrayDeque<>();
-                            if (eventPoints.containsKey(intersectionPoint.x)) {
-                                endpoints = eventPoints.get(intersectionPoint.x);
+                            Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex2, rightNeighbourLineSegmentIndex1);
+                            if (!intersectionPointsOutput.contains(ep.toString())) {
+                                Deque<Endpoint> endpoints = new ArrayDeque<>();
+                                endpoints.add(ep);
+                                if (eventPoints.containsKey(intersectionPoint.x)) {
+                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                }
+                                System.out.println(intersectionPointsOutput);
+                                System.out.println("new: " + ep.toString());
+                                intersectionPointsOutput.add(ep.toString());
+                                System.out.println("EP " + endpoints);
+                                eventPoints.put(intersectionPoint.x, endpoints);
                             }
-                            endpoints.add(new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex2, rightNeighbourLineSegmentIndex1));
-                            eventPoints.put(intersectionPoint.x, endpoints);
-                            n++;
                         }
                     }
-                    if (leftNeighbourLineSegmentIndex2 > -1 && leftNeighbourLineSegmentIndex2 != lineSegmentIndex2) {
+                    if (leftNeighbourLineSegmentIndex2 > -1 && leftNeighbourLineSegmentIndex2 != lineSegmentIndex1) {
                         if (lineSegments.get(lineSegmentIndex1).isIntersect(lineSegments.get(leftNeighbourLineSegmentIndex2))) {
                             Point intersectionPoint = lineSegments.get(lineSegmentIndex1).getIntersectPoint(lineSegments.get(leftNeighbourLineSegmentIndex2));
-                            Deque<Endpoint> endpoints = new ArrayDeque<>();
-                            if (eventPoints.containsKey(intersectionPoint.x)) {
-                                endpoints = eventPoints.get(intersectionPoint.x);
+                            Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex1, leftNeighbourLineSegmentIndex2);
+                            if (!intersectionPointsOutput.contains(ep.toString())) {
+                                Deque<Endpoint> endpoints = new ArrayDeque<>();
+                                endpoints.add(ep);
+                                if (eventPoints.containsKey(intersectionPoint.x)) {
+                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                }
+                                System.out.println(intersectionPointsOutput);
+                                System.out.println("new: " + ep.toString());
+                                intersectionPointsOutput.add(ep.toString());
+                                System.out.println("EP " + endpoints);
+                                eventPoints.put(intersectionPoint.x, endpoints);
                             }
-                            endpoints.add(new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex1, leftNeighbourLineSegmentIndex2));
-                            eventPoints.put(intersectionPoint.x, endpoints);
-                            n++;
                         }
                     }
-                    if (rightNeighbourLineSegmentIndex2 > -1) {
+                    if (rightNeighbourLineSegmentIndex2 > -1 && rightNeighbourLineSegmentIndex2 != lineSegmentIndex1) {
                         if (lineSegments.get(lineSegmentIndex1).isIntersect(lineSegments.get(rightNeighbourLineSegmentIndex2))) {
                             Point intersectionPoint = lineSegments.get(lineSegmentIndex1).getIntersectPoint(lineSegments.get(rightNeighbourLineSegmentIndex2));
-                            Deque<Endpoint> endpoints = new ArrayDeque<>();
-                            if (eventPoints.containsKey(intersectionPoint.x)) {
-                                endpoints = eventPoints.get(intersectionPoint.x);
+                            Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex1, rightNeighbourLineSegmentIndex2);
+                            if (!intersectionPointsOutput.contains(ep.toString())) {
+                                Deque<Endpoint> endpoints = new ArrayDeque<>();
+                                endpoints.add(ep);
+                                if (eventPoints.containsKey(intersectionPoint.x)) {
+                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                }
+                                System.out.println(intersectionPointsOutput);
+                                System.out.println("new: " + ep.toString());
+                                intersectionPointsOutput.add(ep.toString());
+                                System.out.println("EP " + endpoints);
+                                eventPoints.put(intersectionPoint.x, endpoints);
                             }
-                            endpoints.add(new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex1, rightNeighbourLineSegmentIndex2));
-                            eventPoints.put(intersectionPoint.x, endpoints);
-                            n++;
                         }
                     }
                 }
@@ -360,18 +448,17 @@ public class BentleyOttmann {
                 // Layer
                 paths = new ArrayList<>(setLineSegmentsIpe());
                 paths.addAll(setSweepLineIpe());
+                paths.addAll(setDataFramesIpe());
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setLabelsIpe());
                 layers.add(new Layer(paths, uses, texts));
 
-                if (eventPoints.firstEntry() != null) {
-                    eventPoints.firstEntry().getValue().removeFirst();
-                }
+                System.out.println("AAA " + eventPoints.firstEntry().getValue());
+                eventPoints.firstEntry().getValue().removeFirst();
+                System.out.println("BBB " + eventPoints.firstEntry().getValue());
             }
 
-            if (eventPoints.firstEntry() != null) {
-                eventPoints.pollFirstEntry();
-            }
+            eventPoints.pollFirstEntry();
         }
 
         // Layer

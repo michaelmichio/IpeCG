@@ -2549,10 +2549,6 @@ h
 <layer name="9"/>
 <layer name="10"/>
 <layer name="11"/>
-<layer name="12"/>
-<layer name="13"/>
-<layer name="14"/>
-<layer name="15"/>
 <view layers="0"/>
 <view layers="1"/>
 <view layers="2"/>
@@ -2565,10 +2561,6 @@ h
 <view layers="9"/>
 <view layers="10"/>
 <view layers="11"/>
-<view layers="12"/>
-<view layers="13"/>
-<view layers="14"/>
-<view layers="15"/>
 <path layer="0" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -2605,6 +2597,69 @@ h
 128.0 496.0 m
 128.0 112.0 l
 </path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="1" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
+</path>
 <path layer="2" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -2624,6 +2679,69 @@ h
 <path layer="2" pen="ultrafat (2.0)" stroke="red">
 192.0 496.0 m
 192.0 112.0 l
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="2" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
 </path>
 <path layer="3" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
@@ -2645,6 +2763,69 @@ h
 256.0 496.0 m
 256.0 112.0 l
 </path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="3" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
+</path>
 <path layer="4" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -2664,6 +2845,69 @@ h
 <path layer="4" pen="ultrafat (2.0)" stroke="red">
 384.0 496.0 m
 384.0 112.0 l
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="4" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
 </path>
 <path layer="5" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
@@ -2685,6 +2929,69 @@ h
 448.0 496.0 m
 448.0 112.0 l
 </path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="5" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
+</path>
 <path layer="6" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -2704,6 +3011,69 @@ h
 <path layer="6" pen="ultrafat (2.0)" stroke="red">
 512.0 496.0 m
 512.0 112.0 l
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="6" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
 </path>
 <path layer="7" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
@@ -2725,6 +3095,69 @@ h
 585.1428571428571 496.0 m
 585.1428571428571 112.0 l
 </path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="7" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
+</path>
 <path layer="8" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -2742,8 +3175,71 @@ h
 640.0 192.0 l
 </path>
 <path layer="8" pen="ultrafat (2.0)" stroke="red">
-585.1428571428571 496.0 m
-585.1428571428571 112.0 l
+640.0 496.0 m
+640.0 112.0 l
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="8" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
 </path>
 <path layer="9" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
@@ -2762,8 +3258,71 @@ h
 640.0 192.0 l
 </path>
 <path layer="9" pen="ultrafat (2.0)" stroke="red">
-640.0 496.0 m
-640.0 112.0 l
+768.0 496.0 m
+768.0 112.0 l
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="9" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
 </path>
 <path layer="10" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
@@ -2782,102 +3341,85 @@ h
 640.0 192.0 l
 </path>
 <path layer="10" pen="ultrafat (2.0)" stroke="red">
-768.0 496.0 m
-768.0 112.0 l
-</path>
-<path layer="11" pen="fat (1.2)" stroke="black">
-128.0 448.0 m
-768.0 320.0 l
-</path>
-<path layer="11" pen="fat (1.2)" stroke="black">
-192.0 160.0 m
-832.0 480.0 l
-</path>
-<path layer="11" pen="fat (1.2)" stroke="black">
-256.0 320.0 m
-512.0 192.0 l
-</path>
-<path layer="11" pen="fat (1.2)" stroke="black">
-448.0 128.0 m
-640.0 192.0 l
-</path>
-<path layer="11" pen="ultrafat (2.0)" stroke="red">
 832.0 496.0 m
 832.0 112.0 l
 </path>
-<path layer="12" pen="fat (1.2)" stroke="black">
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 80 m
+0 128 l
+48 128 l
+48 80 l
+h
+</path>
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 128 m
+0 176 l
+48 176 l
+48 128 l
+h
+</path>
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 176 m
+0 224 l
+48 224 l
+48 176 l
+h
+</path>
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 224 m
+0 272 l
+48 272 l
+48 224 l
+h
+</path>
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 272 m
+0 320 l
+48 320 l
+48 272 l
+h
+</path>
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 320 m
+0 368 l
+48 368 l
+48 320 l
+h
+</path>
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 368 m
+0 416 l
+48 416 l
+48 368 l
+h
+</path>
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 416 m
+0 464 l
+48 464 l
+48 416 l
+h
+</path>
+<path layer="10" pen="fat (1.2)" stroke="black">
+0 464 m
+0 512 l
+48 512 l
+48 464 l
+h
+</path>
+<path layer="11" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
 </path>
-<path layer="12" pen="fat (1.2)" stroke="black">
+<path layer="11" pen="fat (1.2)" stroke="black">
 192.0 160.0 m
 832.0 480.0 l
 </path>
-<path layer="12" pen="fat (1.2)" stroke="black">
+<path layer="11" pen="fat (1.2)" stroke="black">
 256.0 320.0 m
 512.0 192.0 l
 </path>
-<path layer="12" pen="fat (1.2)" stroke="black">
-448.0 128.0 m
-640.0 192.0 l
-</path>
-<path layer="12" pen="ultrafat (2.0)" stroke="red">
-NaN 496.0 m
-NaN 112.0 l
-</path>
-<path layer="13" pen="fat (1.2)" stroke="black">
-128.0 448.0 m
-768.0 320.0 l
-</path>
-<path layer="13" pen="fat (1.2)" stroke="black">
-192.0 160.0 m
-832.0 480.0 l
-</path>
-<path layer="13" pen="fat (1.2)" stroke="black">
-256.0 320.0 m
-512.0 192.0 l
-</path>
-<path layer="13" pen="fat (1.2)" stroke="black">
-448.0 128.0 m
-640.0 192.0 l
-</path>
-<path layer="13" pen="ultrafat (2.0)" stroke="red">
-NaN 496.0 m
-NaN 112.0 l
-</path>
-<path layer="14" pen="fat (1.2)" stroke="black">
-128.0 448.0 m
-768.0 320.0 l
-</path>
-<path layer="14" pen="fat (1.2)" stroke="black">
-192.0 160.0 m
-832.0 480.0 l
-</path>
-<path layer="14" pen="fat (1.2)" stroke="black">
-256.0 320.0 m
-512.0 192.0 l
-</path>
-<path layer="14" pen="fat (1.2)" stroke="black">
-448.0 128.0 m
-640.0 192.0 l
-</path>
-<path layer="14" pen="ultrafat (2.0)" stroke="red">
-NaN 496.0 m
-NaN 112.0 l
-</path>
-<path layer="15" pen="fat (1.2)" stroke="black">
-128.0 448.0 m
-768.0 320.0 l
-</path>
-<path layer="15" pen="fat (1.2)" stroke="black">
-192.0 160.0 m
-832.0 480.0 l
-</path>
-<path layer="15" pen="fat (1.2)" stroke="black">
-256.0 320.0 m
-512.0 192.0 l
-</path>
-<path layer="15" pen="fat (1.2)" stroke="black">
+<path layer="11" pen="fat (1.2)" stroke="black">
 448.0 128.0 m
 640.0 192.0 l
 </path>
@@ -2977,38 +3519,6 @@ NaN 112.0 l
 <use layer="11" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
 <use layer="11" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
 <use layer="11" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="12" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
-<use layer="12" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="12" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
-<use layer="12" name="mark/disk(sx)" pos="832.0 480.0" size="large (5.0)" stroke="black"/>
-<use layer="12" name="mark/disk(sx)" pos="256.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="12" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="12" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
-<use layer="12" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="13" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
-<use layer="13" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="13" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
-<use layer="13" name="mark/disk(sx)" pos="832.0 480.0" size="large (5.0)" stroke="black"/>
-<use layer="13" name="mark/disk(sx)" pos="256.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="13" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="13" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
-<use layer="13" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="14" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
-<use layer="14" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="14" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
-<use layer="14" name="mark/disk(sx)" pos="832.0 480.0" size="large (5.0)" stroke="black"/>
-<use layer="14" name="mark/disk(sx)" pos="256.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="14" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="14" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
-<use layer="14" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="15" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
-<use layer="15" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="15" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
-<use layer="15" name="mark/disk(sx)" pos="832.0 480.0" size="large (5.0)" stroke="black"/>
-<use layer="15" name="mark/disk(sx)" pos="256.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="15" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="15" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
-<use layer="15" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
 <text depth="0.0825" height="18.59" layer="0" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="0" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="0" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
@@ -3105,38 +3615,6 @@ NaN 112.0 l
 <text depth="0.0825" height="18.59" layer="11" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
 <text depth="0.0825" height="18.59" layer="11" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
 <text depth="0.0825" height="18.59" layer="11" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="12" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
-<text depth="0.0825" height="18.59" layer="12" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="12" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
-<text depth="0.0825" height="18.59" layer="12" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
-<text depth="0.0825" height="18.59" layer="12" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="12" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="12" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="12" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="13" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
-<text depth="0.0825" height="18.59" layer="13" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="13" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
-<text depth="0.0825" height="18.59" layer="13" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
-<text depth="0.0825" height="18.59" layer="13" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="13" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="13" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="13" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="14" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
-<text depth="0.0825" height="18.59" layer="14" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="14" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
-<text depth="0.0825" height="18.59" layer="14" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
-<text depth="0.0825" height="18.59" layer="14" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="14" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="14" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="14" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
 </page>
 
 </ipe>
