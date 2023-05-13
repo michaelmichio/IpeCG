@@ -7,6 +7,7 @@ import Ipe.Object.Layer;
 import Ipe.Object.Path;
 import Ipe.Object.Text;
 import Ipe.Object.Use;
+import com.sun.source.tree.Tree;
 
 import java.util.*;
 
@@ -16,6 +17,7 @@ public class BentleyOttmann {
     public TreeMap<Double, Deque<Endpoint>> eventPoints = new TreeMap<>();
     public TreeMap<Double, ArrayList<Integer>> activeLines = new TreeMap<>();
     public ArrayList<String> intersectionPointsOutput = new ArrayList<>();
+    public ArrayList<Endpoint> intersectionPoints = new ArrayList<>();
     public double sweepLineMaxY;
     public double sweepLineMinY;
 
@@ -44,9 +46,11 @@ public class BentleyOttmann {
 
     public ArrayList<Use> setPointsIpe() {
         ArrayList<Use> uses = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        int n;
 
         for (LineSegment lineSegment : lineSegments) {
-            HashMap<String, String> attributes = new HashMap<>();
+            attributes = new HashMap<>();
 
             double startX = lineSegment.p1.x;
             double startY = lineSegment.p1.y;
@@ -67,6 +71,16 @@ public class BentleyOttmann {
             attributes.put("size", "large (5.0)");
             attributes.put("stroke", "black");
             uses.add(new Use(new Ipe.Object.Point(String.valueOf(endX), String.valueOf(endY)), attributes));
+        }
+
+        for (Endpoint endpoint : intersectionPoints) {
+            attributes = new HashMap<>();
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("name", "mark/disk(sx)");
+            attributes.put("pos", endpoint.x + " " + endpoint.y);
+            attributes.put("size", "larger (8.0)");
+            attributes.put("stroke", "red");
+            uses.add(new Use(new Ipe.Object.Point(String.valueOf(endpoint.x), String.valueOf(endpoint.x)), attributes));
         }
 
         return uses;
@@ -105,6 +119,18 @@ public class BentleyOttmann {
             attributes.put("depth", "0.0825");
             attributes.put("valign", "baseline");
             texts.add(new Text("$q_{" + i + "}$", attributes));
+
+            attributes = new HashMap<>();
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("transformations", "translations");
+            attributes.put("pos", ((startX + endX) / 2) + " " + ((startY + endY) / 2 + 8));
+            attributes.put("stroke", "black");
+            attributes.put("type", "label");
+            attributes.put("width", "14.6575");
+            attributes.put("height", "18.59");
+            attributes.put("depth", "0.0825");
+            attributes.put("valign", "baseline");
+            texts.add(new Text("$\\ell_{" + i + "}$", attributes));
         }
 
         return texts;
@@ -128,6 +154,21 @@ public class BentleyOttmann {
     public ArrayList<Path> setDataFramesIpe() {
         ArrayList<Path> paths = new ArrayList<>();
 
+        for (int j = 0; j < 16; j++) {
+            HashMap<String, String> attributes = new HashMap<>();
+            ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+            strPoints.add(new Ipe.Object.Point(String.valueOf((j * 48) + 80), "544", "m"));
+            strPoints.add(new Ipe.Object.Point(String.valueOf(((j + 1) * 48) + 80), "544", "l"));
+            strPoints.add(new Ipe.Object.Point(String.valueOf(((j + 1) * 48) + 80), "592", "l"));
+            strPoints.add(new Ipe.Object.Point(String.valueOf((j * 48) + 80), "592", "l"));
+            strPoints.add(new Ipe.Object.Point("h"));
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "black");
+            attributes.put("pen", "fat (1.2)");
+            paths.add(new Path(strPoints, attributes));
+        }
+
         for (int j = 0; j < 9; j++) {
             HashMap<String, String> attributes = new HashMap<>();
             ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
@@ -148,11 +189,93 @@ public class BentleyOttmann {
 
     public ArrayList<Text> setDataTextIpe() {
         ArrayList<Text> texts = new ArrayList<>();
-        return texts;
-    }
+        HashMap<String, String> attributes = new HashMap<>();
+        int n;
 
-    public ArrayList<Text> setOutputTextIpe() {
-        ArrayList<Text> texts = new ArrayList<>();
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("transformations", "translations");
+        attributes.put("pos", 48 + " " + 560);
+        attributes.put("stroke", "black");
+        attributes.put("type", "label");
+        attributes.put("width", "14.6575");
+        attributes.put("height", "18.59");
+        attributes.put("depth", "0.0825");
+        attributes.put("valign", "baseline");
+        texts.add(new Text("{\\bf E}", attributes));
+
+        n = 0;
+        for (Map.Entry<Double, Deque<Endpoint>> entry : eventPoints.entrySet()) {
+            ArrayList<Endpoint> eventPointList = new ArrayList<>(entry.getValue());
+            for (Endpoint endpoint : eventPointList) {
+                attributes = new HashMap<>();
+
+                if (endpoint.status == -1) {
+                    attributes.put("pos", (48 * (n + 1)) + 36 + " " + 560);
+                }
+                else {
+                    attributes.put("pos", (48 * (n + 1)) + 44 + " " + 560);
+                }
+
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("transformations", "translations");
+                attributes.put("stroke", "black");
+                attributes.put("type", "label");
+                attributes.put("width", "14.6575");
+                attributes.put("height", "18.59");
+                attributes.put("depth", "0.0825");
+                attributes.put("valign", "baseline");
+                texts.add(new Text(endpoint.toString(), attributes));
+
+                n++;
+            }
+        }
+
+        attributes = new HashMap<>();
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("transformations", "translations");
+        attributes.put("pos", 16 + " " + 528);
+        attributes.put("stroke", "black");
+        attributes.put("type", "label");
+        attributes.put("width", "14.6575");
+        attributes.put("height", "18.59");
+        attributes.put("depth", "0.0825");
+        attributes.put("valign", "baseline");
+        texts.add(new Text("{\\bf L}", attributes));
+
+        n = 0;
+        TreeMap<Double, ArrayList<Integer>> activeLinesReversed = new TreeMap<>(Collections.reverseOrder());
+        activeLinesReversed.putAll(activeLines);
+        for (Map.Entry<Double, ArrayList<Integer>> entry : activeLinesReversed.entrySet()) {
+            for (int i = entry.getValue().size() - 1; i >= 0; i--) {
+                attributes = new HashMap<>();
+
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("transformations", "translations");
+                attributes.put("pos", 12 + " " + (480 - (n * 48)));
+                attributes.put("stroke", "black");
+                attributes.put("type", "label");
+                attributes.put("width", "14.6575");
+                attributes.put("height", "18.59");
+                attributes.put("depth", "0.0825");
+                attributes.put("valign", "baseline");
+                texts.add(new Text("$\\ell_{" + entry.getValue().get(i) + "}$", attributes));
+
+                n++;
+            }
+        }
+
+        attributes = new HashMap<>();
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("transformations", "translations");
+        attributes.put("pos", 80 + " " + 16);
+        attributes.put("stroke", "black");
+        attributes.put("type", "label");
+        attributes.put("width", "14.6575");
+        attributes.put("height", "18.59");
+        attributes.put("depth", "0.0825");
+        attributes.put("valign", "baseline");
+        texts.add(new Text("{\\bf Output: }" + intersectionPointsOutput, attributes));
+
         return texts;
     }
 
@@ -167,8 +290,10 @@ public class BentleyOttmann {
 
         // Layer 0
         paths = new ArrayList<>(setLineSegmentsIpe());
+        paths.addAll(setDataFramesIpe());
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setLabelsIpe());
+        texts.addAll(setDataTextIpe());
         layers.add(new Layer(paths, uses, texts));
 
         while (eventPoints.size() > 0) {
@@ -208,6 +333,7 @@ public class BentleyOttmann {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
                                 intersectionPointsOutput.add(ep.toString());
+                                intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -225,6 +351,7 @@ public class BentleyOttmann {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
                                 intersectionPointsOutput.add(ep.toString());
+                                intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -259,6 +386,7 @@ public class BentleyOttmann {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
                                 intersectionPointsOutput.add(ep.toString());
+                                intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -388,6 +516,7 @@ public class BentleyOttmann {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
                                 intersectionPointsOutput.add(ep.toString());
+                                intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -403,6 +532,7 @@ public class BentleyOttmann {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
                                 intersectionPointsOutput.add(ep.toString());
+                                intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -418,6 +548,7 @@ public class BentleyOttmann {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
                                 intersectionPointsOutput.add(ep.toString());
+                                intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -433,6 +564,7 @@ public class BentleyOttmann {
                                     endpoints = eventPoints.get(intersectionPoint.x);
                                 }
                                 intersectionPointsOutput.add(ep.toString());
+                                intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
                             }
                         }
@@ -445,8 +577,9 @@ public class BentleyOttmann {
                 paths.addAll(setDataFramesIpe());
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setLabelsIpe());
+                texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
-                
+
                 eventPoints.firstEntry().getValue().removeFirst();
             }
 
@@ -455,8 +588,10 @@ public class BentleyOttmann {
 
         // Layer
         paths = new ArrayList<>(setLineSegmentsIpe());
+        paths.addAll(setDataFramesIpe());
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setLabelsIpe());
+        texts.addAll(setDataTextIpe());
         layers.add(new Layer(paths, uses, texts));
 
     }
