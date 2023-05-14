@@ -7,7 +7,6 @@ import Ipe.Object.Layer;
 import Ipe.Object.Path;
 import Ipe.Object.Text;
 import Ipe.Object.Use;
-import com.sun.source.tree.Tree;
 
 import java.util.*;
 
@@ -46,8 +45,7 @@ public class BentleyOttmann {
 
     public ArrayList<Use> setPointsIpe() {
         ArrayList<Use> uses = new ArrayList<>();
-        HashMap<String, String> attributes = new HashMap<>();
-        int n;
+        HashMap<String, String> attributes;
 
         for (LineSegment lineSegment : lineSegments) {
             attributes = new HashMap<>();
@@ -131,6 +129,20 @@ public class BentleyOttmann {
             attributes.put("depth", "0.0825");
             attributes.put("valign", "baseline");
             texts.add(new Text("$\\ell_{" + i + "}$", attributes));
+
+            for (Endpoint endpoint : intersectionPoints) {
+                attributes = new HashMap<>();
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("transformations", "translations");
+                attributes.put("pos", endpoint.x + " " + (endpoint.y - 24));
+                attributes.put("stroke", "black");
+                attributes.put("type", "label");
+                attributes.put("width", "14.6575");
+                attributes.put("height", "18.59");
+                attributes.put("depth", "0.0825");
+                attributes.put("valign", "baseline");
+                texts.add(new Text(endpoint.toString(), attributes));
+            }
         }
 
         return texts;
@@ -146,6 +158,34 @@ public class BentleyOttmann {
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "red");
         attributes.put("pen", "ultrafat (2.0)");
+        paths.add(new Path(strPoints, attributes));
+
+        strPoints = new ArrayList<>();
+        attributes = new HashMap<>();
+        strPoints.add(new Ipe.Object.Point(String.valueOf((eventPoints.firstEntry().getValue().getFirst().x - 16)), String.valueOf((sweepLineMaxY + 16)), "m"));
+        strPoints.add(new Ipe.Object.Point(String.valueOf((eventPoints.firstEntry().getValue().getFirst().x + 16)), String.valueOf((sweepLineMaxY + 16)), "l"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "red");
+        attributes.put("pen", "ultrafat (2.0)");
+        attributes.put("arrow", "normal/normal");
+        paths.add(new Path(strPoints, attributes));
+
+        strPoints = new ArrayList<>();
+        attributes = new HashMap<>();
+        strPoints.add(new Ipe.Object.Point(String.valueOf((eventPoints.firstEntry().getValue().getFirst().x - 16)), String.valueOf((sweepLineMinY - 16)), "m"));
+        strPoints.add(new Ipe.Object.Point(String.valueOf((eventPoints.firstEntry().getValue().getFirst().x + 16)), String.valueOf((sweepLineMinY - 16)), "l"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "red");
+        attributes.put("pen", "ultrafat (2.0)");
+        attributes.put("arrow", "normal/normal");
+        paths.add(new Path(strPoints, attributes));
+
+        strPoints = new ArrayList<>();
+        attributes = new HashMap<>();
+        strPoints.add(new Ipe.Object.Point(String.valueOf(eventPoints.firstEntry().getValue().getFirst().x), String.valueOf(eventPoints.firstEntry().getValue().getFirst().y), "e"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "red");
+        attributes.put("pen", "fat (1.2)");
         paths.add(new Path(strPoints, attributes));
 
         return  paths;
