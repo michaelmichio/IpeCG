@@ -619,9 +619,18 @@ public class BentleyOttmann {
                             if (!intersectionPointsOutput.contains(ep.toString())) {
                                 Deque<Endpoint> endpoints = new ArrayDeque<>();
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
-                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                    boolean isAdd = false;
+                                    for (Endpoint e : eventPoints.get(intersectionPoint.x)) {
+                                        if (!isAdd && e.status == 1 && e.segmentIndex == ep.segmentIndex || !isAdd && e.status == 1 && e.segmentIndex == ep.intersectSegmentIndex) {
+                                            endpoints.add(ep);
+                                            isAdd = true;
+                                        }
+                                        endpoints.add(e);
+                                    }
                                 }
-                                endpoints.add(ep);
+                                else {
+                                    endpoints.add(ep);
+                                }
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
@@ -639,9 +648,18 @@ public class BentleyOttmann {
                             if (!intersectionPointsOutput.contains(ep.toString())) {
                                 Deque<Endpoint> endpoints = new ArrayDeque<>();
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
-                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                    boolean isAdd = false;
+                                    for (Endpoint e : eventPoints.get(intersectionPoint.x)) {
+                                        if (!isAdd && e.status == 1 && e.segmentIndex == ep.segmentIndex || !isAdd && e.status == 1 && e.segmentIndex == ep.intersectSegmentIndex) {
+                                            endpoints.add(ep);
+                                            isAdd = true;
+                                        }
+                                        endpoints.add(e);
+                                    }
                                 }
-                                endpoints.add(ep);
+                                else {
+                                    endpoints.add(ep);
+                                }
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
@@ -770,9 +788,18 @@ public class BentleyOttmann {
                             if (!intersectionPointsOutput.contains(ep.toString())) {
                                 Deque<Endpoint> endpoints = new ArrayDeque<>();
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
-                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                    boolean isAdd = false;
+                                    for (Endpoint e : eventPoints.get(intersectionPoint.x)) {
+                                        if (!isAdd && e.status == 1 && e.segmentIndex == ep.segmentIndex || !isAdd && e.status == 1 && e.segmentIndex == ep.intersectSegmentIndex) {
+                                            endpoints.add(ep);
+                                            isAdd = true;
+                                        }
+                                        endpoints.add(e);
+                                    }
                                 }
-                                endpoints.add(ep);
+                                else {
+                                    endpoints.add(ep);
+                                }
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
@@ -980,9 +1007,18 @@ public class BentleyOttmann {
                             if (!intersectionPointsOutput.contains(ep.toString())) {
                                 Deque<Endpoint> endpoints = new ArrayDeque<>();
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
-                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                    boolean isAdd = false;
+                                    for (Endpoint e : eventPoints.get(intersectionPoint.x)) {
+                                        if (!isAdd && e.status == 1 && e.segmentIndex == ep.segmentIndex || !isAdd && e.status == 1 && e.segmentIndex == ep.intersectSegmentIndex) {
+                                            endpoints.add(ep);
+                                            isAdd = true;
+                                        }
+                                        endpoints.add(e);
+                                    }
                                 }
-                                endpoints.add(ep);
+                                else {
+                                    endpoints.add(ep);
+                                }
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
@@ -1006,9 +1042,18 @@ public class BentleyOttmann {
                             if (!intersectionPointsOutput.contains(ep.toString())) {
                                 Deque<Endpoint> endpoints = new ArrayDeque<>();
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
-                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                    boolean isAdd = false;
+                                    for (Endpoint e : eventPoints.get(intersectionPoint.x)) {
+                                        if (!isAdd && e.status == 1 && e.segmentIndex == ep.segmentIndex || !isAdd && e.status == 1 && e.segmentIndex == ep.intersectSegmentIndex) {
+                                            endpoints.add(ep);
+                                            isAdd = true;
+                                        }
+                                        endpoints.add(e);
+                                    }
                                 }
-                                endpoints.add(ep);
+                                else {
+                                    endpoints.add(ep);
+                                }
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
@@ -1032,9 +1077,18 @@ public class BentleyOttmann {
                             if (!intersectionPointsOutput.contains(ep.toString())) {
                                 Deque<Endpoint> endpoints = new ArrayDeque<>();
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
-                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                    boolean isAdd = false;
+                                    for (Endpoint e : eventPoints.get(intersectionPoint.x)) {
+                                        if (!isAdd && e.status == 1 && e.segmentIndex == ep.segmentIndex || !isAdd && e.status == 1 && e.segmentIndex == ep.intersectSegmentIndex) {
+                                            endpoints.add(ep);
+                                            isAdd = true;
+                                        }
+                                        endpoints.add(e);
+                                    }
                                 }
-                                endpoints.add(ep);
+                                else {
+                                    endpoints.add(ep);
+                                }
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
@@ -1058,9 +1112,18 @@ public class BentleyOttmann {
                             if (!intersectionPointsOutput.contains(ep.toString())) {
                                 Deque<Endpoint> endpoints = new ArrayDeque<>();
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
-                                    endpoints = eventPoints.get(intersectionPoint.x);
+                                    boolean isAdd = false;
+                                    for (Endpoint e : eventPoints.get(intersectionPoint.x)) {
+                                        if (!isAdd && e.status == 1 && e.segmentIndex == ep.segmentIndex || !isAdd && e.status == 1 && e.segmentIndex == ep.intersectSegmentIndex) {
+                                            endpoints.add(ep);
+                                            isAdd = true;
+                                        }
+                                        endpoints.add(e);
+                                    }
                                 }
-                                endpoints.add(ep);
+                                else {
+                                    endpoints.add(ep);
+                                }
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
