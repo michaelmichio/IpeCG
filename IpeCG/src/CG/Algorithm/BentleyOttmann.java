@@ -319,7 +319,63 @@ public class BentleyOttmann {
         return texts;
     }
 
-    public ArrayList<Path> setStartHighlightsIpe(int segmentIndex, boolean l, boolean r) {
+    public ArrayList<Path> setEventPointHighlightsIpe(int color) {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+        if (color == 0) {
+            attributes.put("fill", "yellow");
+        }
+        else {
+            attributes.put("fill", "red");
+        }
+
+        strPoints.add(new Ipe.Object.Point("80", "544", "m"));
+        strPoints.add(new Ipe.Object.Point("128", "544", "l"));
+        strPoints.add(new Ipe.Object.Point("128", "592", "l"));
+        strPoints.add(new Ipe.Object.Point("80", "592", "l"));
+        strPoints.add(new Ipe.Object.Point("h"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("opacity", "50%");
+        attributes.put("stroke-opacity", "opaque");
+        paths.add(new Path(strPoints, attributes));
+
+        return  paths;
+    }
+
+    public ArrayList<Path> setNewEventPointHighlightsIpe(Endpoint newEventPoint) {
+        ArrayList<Path> paths = new ArrayList<>();
+        int n = 0;
+
+        for (Map.Entry<Double, Deque<Endpoint>> entry : eventPoints.entrySet()) {
+            for (Endpoint endpoint : entry.getValue()) {
+                if (newEventPoint != null && endpoint.toString().equals(newEventPoint.toString())) {
+                    HashMap<String, String> attributes = new HashMap<>();
+                    ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+                    strPoints.add(new Ipe.Object.Point(String.valueOf((n * 48) + 80), "544", "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(((n + 1) * 48) + 80), "544", "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(((n + 1) * 48) + 80), "592", "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf((n * 48) + 80), "592", "l"));
+                    strPoints.add(new Ipe.Object.Point("h"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("fill", "green");
+                    attributes.put("opacity", "50%");
+                    attributes.put("stroke-opacity", "opaque");
+                    paths.add(new Path(strPoints, attributes));
+
+                    break;
+                }
+
+                n++;
+            }
+        }
+
+        return  paths;
+    }
+
+    public ArrayList<Path> setStartHighlightsIpe(int segmentIndex, boolean r, boolean l) {
         ArrayList<Path> paths = new ArrayList<>();
         int n = 0;
 
@@ -331,29 +387,7 @@ public class BentleyOttmann {
                     HashMap<String, String> attributes = new HashMap<>();
                     ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-                    if (l) {
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("fill", "yellow");
-                        attributes.put("opacity", "50%");
-                        attributes.put("stroke-opacity", "opaque");
-
-                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - (n * 48)), "m"));
-                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n + 1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - (n + 1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - (n * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("h"));
-                        paths.add(new Path(strPoints, attributes));
-
-                        strPoints = new ArrayList<>();
-
-                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n+1) * 48)), "m"));
-                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - (((n+1) + 1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - ((n+1) + 1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - ((n+1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("h"));
-                        paths.add(new Path(strPoints, attributes));
-                    }
-                    else if (r) {
+                    if (r) {
                         attributes.put("layer", String.valueOf(layers.size()));
                         attributes.put("fill", "yellow");
                         attributes.put("opacity", "50%");
@@ -372,6 +406,28 @@ public class BentleyOttmann {
                         strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n + 1) * 48)), "l"));
                         strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - (n + 1) * 48)), "l"));
                         strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - (n * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("h"));
+                        paths.add(new Path(strPoints, attributes));
+                    }
+                    else if (l) {
+                        attributes.put("layer", String.valueOf(layers.size()));
+                        attributes.put("fill", "yellow");
+                        attributes.put("opacity", "50%");
+                        attributes.put("stroke-opacity", "opaque");
+
+                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - (n * 48)), "m"));
+                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n + 1) * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - (n + 1) * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - (n * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("h"));
+                        paths.add(new Path(strPoints, attributes));
+
+                        strPoints = new ArrayList<>();
+
+                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n+1) * 48)), "m"));
+                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - (((n+1) + 1) * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - ((n+1) + 1) * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - ((n+1) * 48)), "l"));
                         strPoints.add(new Ipe.Object.Point("h"));
                         paths.add(new Path(strPoints, attributes));
                     }
@@ -397,7 +453,7 @@ public class BentleyOttmann {
         return paths;
     }
 
-    public ArrayList<Path> setStartIntersectHighlightsIpe(int segmentIndex, boolean l, boolean r) {
+    public ArrayList<Path> setStartIntersectHighlightsIpe(int segmentIndex, boolean r, boolean l) {
         ArrayList<Path> paths = new ArrayList<>();
         int n = 0;
 
@@ -409,29 +465,7 @@ public class BentleyOttmann {
                     HashMap<String, String> attributes = new HashMap<>();
                     ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
 
-                    if (l) {
-                        attributes.put("layer", String.valueOf(layers.size()));
-                        attributes.put("fill", "red");
-                        attributes.put("opacity", "50%");
-                        attributes.put("stroke-opacity", "opaque");
-
-                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - (n * 48)), "m"));
-                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n + 1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - (n + 1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - (n * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("h"));
-                        paths.add(new Path(strPoints, attributes));
-
-                        strPoints = new ArrayList<>();
-
-                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n+1) * 48)), "m"));
-                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - (((n+1) + 1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - ((n+1) + 1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - ((n+1) * 48)), "l"));
-                        strPoints.add(new Ipe.Object.Point("h"));
-                        paths.add(new Path(strPoints, attributes));
-                    }
-                    else if (r) {
+                    if (r) {
                         attributes.put("layer", String.valueOf(layers.size()));
                         attributes.put("fill", "red");
                         attributes.put("opacity", "50%");
@@ -450,6 +484,28 @@ public class BentleyOttmann {
                         strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n + 1) * 48)), "l"));
                         strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - (n + 1) * 48)), "l"));
                         strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - (n * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("h"));
+                        paths.add(new Path(strPoints, attributes));
+                    }
+                    else if (l) {
+                        attributes.put("layer", String.valueOf(layers.size()));
+                        attributes.put("fill", "red");
+                        attributes.put("opacity", "50%");
+                        attributes.put("stroke-opacity", "opaque");
+
+                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - (n * 48)), "m"));
+                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n + 1) * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - (n + 1) * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - (n * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("h"));
+                        paths.add(new Path(strPoints, attributes));
+
+                        strPoints = new ArrayList<>();
+
+                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - ((n+1) * 48)), "m"));
+                        strPoints.add(new Ipe.Object.Point("0", String.valueOf(512 - (((n+1) + 1) * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("48", String.valueOf((512 - ((n+1) + 1) * 48)), "l"));
+                        strPoints.add(new Ipe.Object.Point("48", String.valueOf(512 - ((n+1) * 48)), "l"));
                         strPoints.add(new Ipe.Object.Point("h"));
                         paths.add(new Path(strPoints, attributes));
                     }
@@ -589,30 +645,69 @@ public class BentleyOttmann {
                 Endpoint endpoint = eventPoints.firstEntry().getValue().getFirst();
                 int leftNeighbourLineSegmentIndex = -1;
                 int rightNeighbourLineSegmentIndex = -1;
-                boolean intersectLeft = false;
-                boolean intersectRight = false;
 
                 // Start point
                 if (endpoint.status == 0) {
-
-                    // Check the left neighbour, if there is already active line with the same key or y value
+                    // Add new active line
+                    ArrayList<Integer> lineSegmentList = new ArrayList<>();
                     if (activeLines.containsKey(endpoint.y)) {
-                        leftNeighbourLineSegmentIndex = activeLines.get(endpoint.y).get(activeLines.get(endpoint.y).size() - 1);
+                        lineSegmentList = activeLines.get(endpoint.y);
                     }
-                    // Check the left neighbour to the lower key or y value
+                    lineSegmentList.add(endpoint.segmentIndex);
+                    activeLines.put(endpoint.y, lineSegmentList);
+
+                    // Layer
+                    paths = new ArrayList<>(setLineSegmentsIpe());
+                    paths.addAll(setSweepLineIpe());
+                    paths.addAll(setDataFramesIpe());
+                    paths.addAll(setEventPointHighlightsIpe(0));
+                    paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, false, false));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+
+                    if (lineSegmentList.size() > 1) {
+                        rightNeighbourLineSegmentIndex = lineSegmentList.get(lineSegmentList.size() - 2);
+                    }
                     else {
                         if (activeLines.lowerKey(endpoint.y) != null) {
-                            leftNeighbourLineSegmentIndex = activeLines.get(activeLines.lowerKey(endpoint.y)).get(activeLines.get(activeLines.lowerKey(endpoint.y)).size() - 1);
+                            rightNeighbourLineSegmentIndex = activeLines.get(activeLines.lowerKey(endpoint.y)).get(activeLines.get(activeLines.lowerKey(endpoint.y)).size()-1);
                         }
                     }
-
-                    // Check the right neighbour to the higher key or y value
                     if (activeLines.higherKey(endpoint.y) != null) {
-                        rightNeighbourLineSegmentIndex = activeLines.get(activeLines.higherKey(endpoint.y)).get(0);
+                        leftNeighbourLineSegmentIndex = activeLines.get(activeLines.higherKey(endpoint.y)).get(0);
                     }
+
+//                    // Check the left neighbour, if there is already active line with the same key or y value
+//                    if (activeLines.containsKey(endpoint.y)) {
+//                        leftNeighbourLineSegmentIndex = activeLines.get(endpoint.y).get(activeLines.get(endpoint.y).size() - 1);
+//                    }
+//                    // Check the left neighbour to the lower key or y value
+//                    else {
+//                        if (activeLines.lowerKey(endpoint.y) != null) {
+//                            leftNeighbourLineSegmentIndex = activeLines.get(activeLines.lowerKey(endpoint.y)).get(activeLines.get(activeLines.lowerKey(endpoint.y)).size() - 1);
+//                        }
+//                    }
+//
+//                    // Check the right neighbour to the higher key or y value
+//                    if (activeLines.higherKey(endpoint.y) != null) {
+//                        rightNeighbourLineSegmentIndex = activeLines.get(activeLines.higherKey(endpoint.y)).get(0);
+//                    }
 
                     // Check the intersection with left neighbour
                     if (leftNeighbourLineSegmentIndex > -1) {
+                        // Layer
+                        paths = new ArrayList<>(setLineSegmentsIpe());
+                        paths.addAll(setSweepLineIpe());
+                        paths.addAll(setDataFramesIpe());
+                        paths.addAll(setEventPointHighlightsIpe(0));
+                        paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, true, false));
+                        uses = new ArrayList<>(setPointsIpe());
+                        texts = new ArrayList<>(setLabelsIpe());
+                        texts.addAll(setDataTextIpe());
+                        layers.add(new Layer(paths, uses, texts));
+
                         if (lineSegments.get(endpoint.segmentIndex).isIntersect(lineSegments.get(leftNeighbourLineSegmentIndex))) {
                             Point intersectionPoint = lineSegments.get(endpoint.segmentIndex).getIntersectPoint(lineSegments.get(leftNeighbourLineSegmentIndex));
                             Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, endpoint.segmentIndex, leftNeighbourLineSegmentIndex);
@@ -635,13 +730,33 @@ public class BentleyOttmann {
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
 
-                                intersectLeft = true;
+                                // Layer
+                                paths = new ArrayList<>(setLineSegmentsIpe());
+                                paths.addAll(setSweepLineIpe());
+                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setEventPointHighlightsIpe(0));
+                                paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
+                                paths.addAll(setStartIntersectHighlightsIpe(endpoint.segmentIndex, true, false));
+                                uses = new ArrayList<>(setPointsIpe());
+                                texts = new ArrayList<>(setLabelsIpe());
+                                texts.addAll(setDataTextIpe());
+                                layers.add(new Layer(paths, uses, texts));
                             }
                         }
                     }
-
                     // Check the intersection with right neighbour
                     if (rightNeighbourLineSegmentIndex > -1) {
+                        // Layer
+                        paths = new ArrayList<>(setLineSegmentsIpe());
+                        paths.addAll(setSweepLineIpe());
+                        paths.addAll(setDataFramesIpe());
+                        paths.addAll(setEventPointHighlightsIpe(0));
+                        paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, false, true));
+                        uses = new ArrayList<>(setPointsIpe());
+                        texts = new ArrayList<>(setLabelsIpe());
+                        texts.addAll(setDataTextIpe());
+                        layers.add(new Layer(paths, uses, texts));
+
                         if (lineSegments.get(endpoint.segmentIndex).isIntersect(lineSegments.get(rightNeighbourLineSegmentIndex))) {
                             Point intersectionPoint = lineSegments.get(endpoint.segmentIndex).getIntersectPoint(lineSegments.get(rightNeighbourLineSegmentIndex));
                             Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, endpoint.segmentIndex, rightNeighbourLineSegmentIndex);
@@ -664,74 +779,18 @@ public class BentleyOttmann {
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
 
-                                intersectRight = true;
+                                // Layer
+                                paths = new ArrayList<>(setLineSegmentsIpe());
+                                paths.addAll(setSweepLineIpe());
+                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setEventPointHighlightsIpe(0));
+                                paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
+                                paths.addAll(setStartIntersectHighlightsIpe(endpoint.segmentIndex, false, true));
+                                uses = new ArrayList<>(setPointsIpe());
+                                texts = new ArrayList<>(setLabelsIpe());
+                                texts.addAll(setDataTextIpe());
+                                layers.add(new Layer(paths, uses, texts));
                             }
-                        }
-                    }
-
-                    // Add new active line
-                    ArrayList<Integer> lineSegmentList = new ArrayList<>();
-                    if (activeLines.containsKey(endpoint.y)) {
-                        lineSegmentList = activeLines.get(endpoint.y);
-                    }
-                    lineSegmentList.add(endpoint.segmentIndex);
-                    activeLines.put(endpoint.y, lineSegmentList);
-
-                    // Layer
-                    paths = new ArrayList<>(setLineSegmentsIpe());
-                    paths.addAll(setSweepLineIpe());
-                    paths.addAll(setDataFramesIpe());
-                    paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, false, false));
-                    uses = new ArrayList<>(setPointsIpe());
-                    texts = new ArrayList<>(setLabelsIpe());
-                    texts.addAll(setDataTextIpe());
-                    layers.add(new Layer(paths, uses, texts));
-
-                    if (rightNeighbourLineSegmentIndex > -1) {
-                        // Layer
-                        paths = new ArrayList<>(setLineSegmentsIpe());
-                        paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
-                        paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, false, true));
-                        uses = new ArrayList<>(setPointsIpe());
-                        texts = new ArrayList<>(setLabelsIpe());
-                        texts.addAll(setDataTextIpe());
-                        layers.add(new Layer(paths, uses, texts));
-
-                        if (intersectRight) {
-                            // Layer
-                            paths = new ArrayList<>(setLineSegmentsIpe());
-                            paths.addAll(setSweepLineIpe());
-                            paths.addAll(setDataFramesIpe());
-                            paths.addAll(setStartIntersectHighlightsIpe(endpoint.segmentIndex, false, true));
-                            uses = new ArrayList<>(setPointsIpe());
-                            texts = new ArrayList<>(setLabelsIpe());
-                            texts.addAll(setDataTextIpe());
-                            layers.add(new Layer(paths, uses, texts));
-                        }
-                    }
-
-                    if (leftNeighbourLineSegmentIndex > -1) {
-                        // Layer
-                        paths = new ArrayList<>(setLineSegmentsIpe());
-                        paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
-                        paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, true, false));
-                        uses = new ArrayList<>(setPointsIpe());
-                        texts = new ArrayList<>(setLabelsIpe());
-                        texts.addAll(setDataTextIpe());
-                        layers.add(new Layer(paths, uses, texts));
-
-                        if (intersectLeft) {
-                            // Layer
-                            paths = new ArrayList<>(setLineSegmentsIpe());
-                            paths.addAll(setSweepLineIpe());
-                            paths.addAll(setDataFramesIpe());
-                            paths.addAll(setStartIntersectHighlightsIpe(endpoint.segmentIndex, true, false));
-                            uses = new ArrayList<>(setPointsIpe());
-                            texts = new ArrayList<>(setLabelsIpe());
-                            texts.addAll(setDataTextIpe());
-                            layers.add(new Layer(paths, uses, texts));
                         }
                     }
 
@@ -742,6 +801,7 @@ public class BentleyOttmann {
                     paths = new ArrayList<>(setLineSegmentsIpe());
                     paths.addAll(setSweepLineIpe());
                     paths.addAll(setDataFramesIpe());
+                    paths.addAll(setEventPointHighlightsIpe(0));
                     paths.addAll(setEndHighlightsIpe(endpoint.segmentIndex));
                     uses = new ArrayList<>(setPointsIpe());
                     texts = new ArrayList<>(setLabelsIpe());
@@ -781,10 +841,11 @@ public class BentleyOttmann {
                         }
                     }
 
+                    Endpoint ep = null;
                     if (leftNeighbourLineSegmentIndex > -1 && rightNeighbourLineSegmentIndex > -1) {
                         if (lineSegments.get(leftNeighbourLineSegmentIndex).isIntersect(lineSegments.get(rightNeighbourLineSegmentIndex))) {
                             Point intersectionPoint = lineSegments.get(leftNeighbourLineSegmentIndex).getIntersectPoint(lineSegments.get(rightNeighbourLineSegmentIndex));
-                            Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, leftNeighbourLineSegmentIndex, rightNeighbourLineSegmentIndex);
+                            ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, leftNeighbourLineSegmentIndex, rightNeighbourLineSegmentIndex);
                             if (!intersectionPointsOutput.contains(ep.toString())) {
                                 Deque<Endpoint> endpoints = new ArrayDeque<>();
                                 if (eventPoints.containsKey(intersectionPoint.x)) {
@@ -803,9 +864,6 @@ public class BentleyOttmann {
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
-
-                                intersectLeft = true;
-                                intersectRight = true;
                             }
                         }
                     }
@@ -834,17 +892,20 @@ public class BentleyOttmann {
                         paths = new ArrayList<>(setLineSegmentsIpe());
                         paths.addAll(setSweepLineIpe());
                         paths.addAll(setDataFramesIpe());
+                        paths.addAll(setEventPointHighlightsIpe(0));
                         paths.addAll(setEndIntersectHighlightsIpe(0, leftNeighbourLineSegmentIndex, rightNeighbourLineSegmentIndex));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setLabelsIpe());
                         texts.addAll(setDataTextIpe());
                         layers.add(new Layer(paths, uses, texts));
 
-                        if (intersectLeft && intersectRight) {
+                        if (ep != null) {
                             // Layer
                             paths = new ArrayList<>(setLineSegmentsIpe());
                             paths.addAll(setSweepLineIpe());
                             paths.addAll(setDataFramesIpe());
+                            paths.addAll(setEventPointHighlightsIpe(0));
+                            paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
                             paths.addAll(setEndIntersectHighlightsIpe(1, leftNeighbourLineSegmentIndex, rightNeighbourLineSegmentIndex));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setLabelsIpe());
@@ -863,6 +924,7 @@ public class BentleyOttmann {
                     paths = new ArrayList<>(setLineSegmentsIpe());
                     paths.addAll(setSweepLineIpe());
                     paths.addAll(setDataFramesIpe());
+                    paths.addAll(setEventPointHighlightsIpe(0));
                     paths.addAll(setSwapHighlightsIpe(0, lineSegmentIndex1, lineSegmentIndex2));
                     uses = new ArrayList<>(setPointsIpe());
                     texts = new ArrayList<>(setLabelsIpe());
@@ -915,6 +977,7 @@ public class BentleyOttmann {
                     paths = new ArrayList<>(setLineSegmentsIpe());
                     paths.addAll(setSweepLineIpe());
                     paths.addAll(setDataFramesIpe());
+                    paths.addAll(setEventPointHighlightsIpe(0));
                     paths.addAll(setSwapHighlightsIpe(0, lineSegmentIndex1, lineSegmentIndex2));
                     uses = new ArrayList<>(setPointsIpe());
                     texts = new ArrayList<>(setLabelsIpe());
@@ -991,16 +1054,6 @@ public class BentleyOttmann {
                     }
 
                     if (rightNeighbourLineSegmentIndex1 > -1 && rightNeighbourLineSegmentIndex1 != lineSegmentIndex2) {
-                        // Layer
-                        paths = new ArrayList<>(setLineSegmentsIpe());
-                        paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
-                        paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex1, rightNeighbourLineSegmentIndex1));
-                        uses = new ArrayList<>(setPointsIpe());
-                        texts = new ArrayList<>(setLabelsIpe());
-                        texts.addAll(setDataTextIpe());
-                        layers.add(new Layer(paths, uses, texts));
-
                         if (lineSegments.get(lineSegmentIndex1).isIntersect(lineSegments.get(rightNeighbourLineSegmentIndex1))) {
                             Point intersectionPoint = lineSegments.get(lineSegmentIndex1).getIntersectPoint(lineSegments.get(rightNeighbourLineSegmentIndex1));
                             Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex1, rightNeighbourLineSegmentIndex1);
@@ -1022,20 +1075,22 @@ public class BentleyOttmann {
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
+
+                                // Layer
+                                paths = new ArrayList<>(setLineSegmentsIpe());
+                                paths.addAll(setSweepLineIpe());
+                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setEventPointHighlightsIpe(0));
+                                paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
+                                paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex1, rightNeighbourLineSegmentIndex1));
+                                uses = new ArrayList<>(setPointsIpe());
+                                texts = new ArrayList<>(setLabelsIpe());
+                                texts.addAll(setDataTextIpe());
+                                layers.add(new Layer(paths, uses, texts));
                             }
                         }
                     }
                     if (leftNeighbourLineSegmentIndex1 > -1 && leftNeighbourLineSegmentIndex1 != lineSegmentIndex2) {
-                        // Layer
-                        paths = new ArrayList<>(setLineSegmentsIpe());
-                        paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
-                        paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex1, leftNeighbourLineSegmentIndex1));
-                        uses = new ArrayList<>(setPointsIpe());
-                        texts = new ArrayList<>(setLabelsIpe());
-                        texts.addAll(setDataTextIpe());
-                        layers.add(new Layer(paths, uses, texts));
-
                         if (lineSegments.get(lineSegmentIndex1).isIntersect(lineSegments.get(leftNeighbourLineSegmentIndex1))) {
                             Point intersectionPoint = lineSegments.get(lineSegmentIndex1).getIntersectPoint(lineSegments.get(leftNeighbourLineSegmentIndex1));
                             Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex1, leftNeighbourLineSegmentIndex1);
@@ -1057,20 +1112,22 @@ public class BentleyOttmann {
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
+
+                                // Layer
+                                paths = new ArrayList<>(setLineSegmentsIpe());
+                                paths.addAll(setSweepLineIpe());
+                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setEventPointHighlightsIpe(0));
+                                paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
+                                paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex1, leftNeighbourLineSegmentIndex1));
+                                uses = new ArrayList<>(setPointsIpe());
+                                texts = new ArrayList<>(setLabelsIpe());
+                                texts.addAll(setDataTextIpe());
+                                layers.add(new Layer(paths, uses, texts));
                             }
                         }
                     }
                     if (rightNeighbourLineSegmentIndex2 > -1 && rightNeighbourLineSegmentIndex2 != lineSegmentIndex1) {
-                        // Layer
-                        paths = new ArrayList<>(setLineSegmentsIpe());
-                        paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
-                        paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex2, rightNeighbourLineSegmentIndex2));
-                        uses = new ArrayList<>(setPointsIpe());
-                        texts = new ArrayList<>(setLabelsIpe());
-                        texts.addAll(setDataTextIpe());
-                        layers.add(new Layer(paths, uses, texts));
-
                         if (lineSegments.get(lineSegmentIndex2).isIntersect(lineSegments.get(rightNeighbourLineSegmentIndex2))) {
                             Point intersectionPoint = lineSegments.get(lineSegmentIndex2).getIntersectPoint(lineSegments.get(rightNeighbourLineSegmentIndex2));
                             Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex2, rightNeighbourLineSegmentIndex2);
@@ -1092,20 +1149,22 @@ public class BentleyOttmann {
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
+
+                                // Layer
+                                paths = new ArrayList<>(setLineSegmentsIpe());
+                                paths.addAll(setSweepLineIpe());
+                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setEventPointHighlightsIpe(0));
+                                paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
+                                paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex2, rightNeighbourLineSegmentIndex2));
+                                uses = new ArrayList<>(setPointsIpe());
+                                texts = new ArrayList<>(setLabelsIpe());
+                                texts.addAll(setDataTextIpe());
+                                layers.add(new Layer(paths, uses, texts));
                             }
                         }
                     }
                     if (leftNeighbourLineSegmentIndex2 > -1 && leftNeighbourLineSegmentIndex2 != lineSegmentIndex1) {
-                        // Layer
-                        paths = new ArrayList<>(setLineSegmentsIpe());
-                        paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
-                        paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex2, leftNeighbourLineSegmentIndex2));
-                        uses = new ArrayList<>(setPointsIpe());
-                        texts = new ArrayList<>(setLabelsIpe());
-                        texts.addAll(setDataTextIpe());
-                        layers.add(new Layer(paths, uses, texts));
-
                         if (lineSegments.get(lineSegmentIndex2).isIntersect(lineSegments.get(leftNeighbourLineSegmentIndex2))) {
                             Point intersectionPoint = lineSegments.get(lineSegmentIndex2).getIntersectPoint(lineSegments.get(leftNeighbourLineSegmentIndex2));
                             Endpoint ep = new Endpoint(intersectionPoint.x, intersectionPoint.y, -1, lineSegmentIndex2, leftNeighbourLineSegmentIndex2);
@@ -1127,6 +1186,18 @@ public class BentleyOttmann {
                                 intersectionPointsOutput.add(ep.toString());
                                 intersectionPoints.add(ep);
                                 eventPoints.put(intersectionPoint.x, endpoints);
+
+                                // Layer
+                                paths = new ArrayList<>(setLineSegmentsIpe());
+                                paths.addAll(setSweepLineIpe());
+                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setEventPointHighlightsIpe(0));
+                                paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
+                                paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex2, leftNeighbourLineSegmentIndex2));
+                                uses = new ArrayList<>(setPointsIpe());
+                                texts = new ArrayList<>(setLabelsIpe());
+                                texts.addAll(setDataTextIpe());
+                                layers.add(new Layer(paths, uses, texts));
                             }
                         }
                     }
@@ -1137,6 +1208,7 @@ public class BentleyOttmann {
                 paths = new ArrayList<>(setLineSegmentsIpe());
                 paths.addAll(setSweepLineIpe());
                 paths.addAll(setDataFramesIpe());
+                paths.addAll(setEventPointHighlightsIpe(1));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setLabelsIpe());
                 texts.addAll(setDataTextIpe());
