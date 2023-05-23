@@ -2568,8 +2568,6 @@ h
 <layer name="28"/>
 <layer name="29"/>
 <layer name="30"/>
-<layer name="31"/>
-<layer name="32"/>
 <view layers="0"/>
 <view layers="1"/>
 <view layers="2"/>
@@ -2601,8 +2599,6 @@ h
 <view layers="28"/>
 <view layers="29"/>
 <view layers="30"/>
-<view layers="31"/>
-<view layers="32"/>
 <path layer="0" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -3000,6 +2996,13 @@ h
 48 128 l
 h
 </path>
+<path fill="yellow" layer="1" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
 <path fill="green" layer="1" opacity="50%" stroke-opacity="opaque">
 0 512 m
 0 464 l
@@ -3213,6 +3216,13 @@ h
 48 128 l
 h
 </path>
+<path fill="red" layer="2" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
 <path layer="3" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -3417,6 +3427,13 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="3" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path fill="green" layer="3" opacity="50%" stroke-opacity="opaque">
@@ -3630,6 +3647,13 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="4" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path fill="yellow" layer="4" opacity="50%" stroke-opacity="opaque">
@@ -3852,6 +3876,20 @@ h
 48 128 l
 h
 </path>
+<path fill="yellow" layer="5" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
+<path fill="green" layer="5" opacity="50%" stroke-opacity="opaque">
+272 544 m
+320 544 l
+320 592 l
+272 592 l
+h
+</path>
 <path fill="red" layer="5" opacity="50%" stroke-opacity="opaque">
 0 512 m
 0 464 l
@@ -4072,6 +4110,13 @@ h
 48 128 l
 h
 </path>
+<path fill="red" layer="6" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
 <path layer="7" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -4276,6 +4321,13 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="7" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path fill="green" layer="7" opacity="50%" stroke-opacity="opaque">
@@ -4489,6 +4541,13 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="8" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path fill="yellow" layer="8" opacity="50%" stroke-opacity="opaque">
@@ -4712,6 +4771,13 @@ h
 h
 </path>
 <path fill="yellow" layer="9" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
+<path fill="yellow" layer="9" opacity="50%" stroke-opacity="opaque">
 0 464 m
 0 416 l
 48 416 l
@@ -4929,6 +4995,20 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="10" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
+<path fill="green" layer="10" opacity="50%" stroke-opacity="opaque">
+128 544 m
+176 544 l
+176 592 l
+128 592 l
 h
 </path>
 <path fill="red" layer="10" opacity="50%" stroke-opacity="opaque">
@@ -5151,6 +5231,13 @@ h
 48 128 l
 h
 </path>
+<path fill="red" layer="11" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
 <path layer="12" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
@@ -5355,6 +5442,13 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="12" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path fill="purple" layer="12" opacity="50%" stroke-opacity="opaque">
@@ -5577,6 +5671,13 @@ h
 48 128 l
 h
 </path>
+<path fill="yellow" layer="13" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
 <path fill="purple" layer="13" opacity="50%" stroke-opacity="opaque">
 0 464 m
 0 416 l
@@ -5797,18 +5898,11 @@ h
 48 128 l
 h
 </path>
-<path fill="yellow" layer="14" opacity="50%" stroke-opacity="opaque">
-0 512 m
-0 464 l
-48 464 l
-48 512 l
-h
-</path>
-<path fill="yellow" layer="14" opacity="50%" stroke-opacity="opaque">
-0 464 m
-0 416 l
-48 416 l
-48 464 l
+<path fill="red" layer="14" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path layer="15" pen="fat (1.2)" stroke="black">
@@ -5828,19 +5922,19 @@ h
 640.0 192.0 l
 </path>
 <path layer="15" pen="ultrafat (2.0)" stroke="red">
-384.0 496.0 m
-384.0 112.0 l
+448.0 496.0 m
+448.0 112.0 l
 </path>
 <path arrow="normal/normal" layer="15" pen="ultrafat (2.0)" stroke="red">
-368.0 512.0 m
-400.0 512.0 l
+432.0 512.0 m
+464.0 512.0 l
 </path>
 <path arrow="normal/normal" layer="15" pen="ultrafat (2.0)" stroke="red">
-368.0 96.0 m
-400.0 96.0 l
+432.0 96.0 m
+464.0 96.0 l
 </path>
 <path layer="15" pen="fat (1.2)" stroke="red">
-16 0 0 16 384.0 256.0 e
+16 0 0 16 448.0 128.0 e
 </path>
 <path layer="15" pen="fat (1.2)" stroke="black">
 80 544 m
@@ -6015,6 +6109,20 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="15" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
+<path fill="green" layer="15" opacity="50%" stroke-opacity="opaque">
+0 368 m
+0 320 l
+48 320 l
+48 368 l
 h
 </path>
 <path layer="16" pen="fat (1.2)" stroke="black">
@@ -6223,7 +6331,21 @@ h
 48 128 l
 h
 </path>
-<path fill="green" layer="16" opacity="50%" stroke-opacity="opaque">
+<path fill="yellow" layer="16" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
+<path fill="yellow" layer="16" opacity="50%" stroke-opacity="opaque">
+0 416 m
+0 368 l
+48 368 l
+48 416 l
+h
+</path>
+<path fill="yellow" layer="16" opacity="50%" stroke-opacity="opaque">
 0 368 m
 0 320 l
 48 320 l
@@ -6436,18 +6558,11 @@ h
 48 128 l
 h
 </path>
-<path fill="yellow" layer="17" opacity="50%" stroke-opacity="opaque">
-0 416 m
-0 368 l
-48 368 l
-48 416 l
-h
-</path>
-<path fill="yellow" layer="17" opacity="50%" stroke-opacity="opaque">
-0 368 m
-0 320 l
-48 320 l
-48 368 l
+<path fill="red" layer="17" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path layer="18" pen="fat (1.2)" stroke="black">
@@ -6467,19 +6582,19 @@ h
 640.0 192.0 l
 </path>
 <path layer="18" pen="ultrafat (2.0)" stroke="red">
-448.0 496.0 m
-448.0 112.0 l
+512.0 496.0 m
+512.0 112.0 l
 </path>
 <path arrow="normal/normal" layer="18" pen="ultrafat (2.0)" stroke="red">
-432.0 512.0 m
-464.0 512.0 l
+496.0 512.0 m
+528.0 512.0 l
 </path>
 <path arrow="normal/normal" layer="18" pen="ultrafat (2.0)" stroke="red">
-432.0 96.0 m
-464.0 96.0 l
+496.0 96.0 m
+528.0 96.0 l
 </path>
 <path layer="18" pen="fat (1.2)" stroke="red">
-16 0 0 16 448.0 128.0 e
+16 0 0 16 512.0 192.0 e
 </path>
 <path layer="18" pen="fat (1.2)" stroke="black">
 80 544 m
@@ -6654,6 +6769,20 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="18" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
+<path fill="red" layer="18" opacity="50%" stroke-opacity="opaque">
+0 416 m
+0 368 l
+48 368 l
+48 416 l
 h
 </path>
 <path layer="19" pen="fat (1.2)" stroke="black">
@@ -6862,7 +6991,21 @@ h
 48 128 l
 h
 </path>
-<path fill="red" layer="19" opacity="50%" stroke-opacity="opaque">
+<path fill="yellow" layer="19" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
+<path fill="yellow" layer="19" opacity="50%" stroke-opacity="opaque">
+0 464 m
+0 416 l
+48 416 l
+48 464 l
+h
+</path>
+<path fill="yellow" layer="19" opacity="50%" stroke-opacity="opaque">
 0 416 m
 0 368 l
 48 368 l
@@ -7075,18 +7218,11 @@ h
 48 128 l
 h
 </path>
-<path fill="yellow" layer="20" opacity="50%" stroke-opacity="opaque">
-0 464 m
-0 416 l
-48 416 l
-48 464 l
-h
-</path>
-<path fill="yellow" layer="20" opacity="50%" stroke-opacity="opaque">
-0 416 m
-0 368 l
-48 368 l
-48 416 l
+<path fill="red" layer="20" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path layer="21" pen="fat (1.2)" stroke="black">
@@ -7106,19 +7242,19 @@ h
 640.0 192.0 l
 </path>
 <path layer="21" pen="ultrafat (2.0)" stroke="red">
-512.0 496.0 m
-512.0 112.0 l
+585.1428571428571 496.0 m
+585.1428571428571 112.0 l
 </path>
 <path arrow="normal/normal" layer="21" pen="ultrafat (2.0)" stroke="red">
-496.0 512.0 m
-528.0 512.0 l
+569.1428571428571 512.0 m
+601.1428571428571 512.0 l
 </path>
 <path arrow="normal/normal" layer="21" pen="ultrafat (2.0)" stroke="red">
-496.0 96.0 m
-528.0 96.0 l
+569.1428571428571 96.0 m
+601.1428571428571 96.0 l
 </path>
 <path layer="21" pen="fat (1.2)" stroke="red">
-16 0 0 16 512.0 192.0 e
+16 0 0 16 585.1428571428571 356.57142857142856 e
 </path>
 <path layer="21" pen="fat (1.2)" stroke="black">
 80 544 m
@@ -7293,6 +7429,27 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="21" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
+<path fill="purple" layer="21" opacity="50%" stroke-opacity="opaque">
+0 512 m
+0 464 l
+48 464 l
+48 512 l
+h
+</path>
+<path fill="purple" layer="21" opacity="50%" stroke-opacity="opaque">
+0 464 m
+0 416 l
+48 416 l
+48 464 l
 h
 </path>
 <path layer="22" pen="fat (1.2)" stroke="black">
@@ -7499,6 +7656,13 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="yellow" layer="22" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path fill="purple" layer="22" opacity="50%" stroke-opacity="opaque">
@@ -7721,18 +7885,11 @@ h
 48 128 l
 h
 </path>
-<path fill="purple" layer="23" opacity="50%" stroke-opacity="opaque">
-0 512 m
-0 464 l
-48 464 l
-48 512 l
-h
-</path>
-<path fill="purple" layer="23" opacity="50%" stroke-opacity="opaque">
-0 464 m
-0 416 l
-48 416 l
-48 464 l
+<path fill="red" layer="23" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path layer="24" pen="fat (1.2)" stroke="black">
@@ -7752,19 +7909,19 @@ h
 640.0 192.0 l
 </path>
 <path layer="24" pen="ultrafat (2.0)" stroke="red">
-585.1428571428571 496.0 m
-585.1428571428571 112.0 l
+640.0 496.0 m
+640.0 112.0 l
 </path>
 <path arrow="normal/normal" layer="24" pen="ultrafat (2.0)" stroke="red">
-569.1428571428571 512.0 m
-601.1428571428571 512.0 l
+624.0 512.0 m
+656.0 512.0 l
 </path>
 <path arrow="normal/normal" layer="24" pen="ultrafat (2.0)" stroke="red">
-569.1428571428571 96.0 m
-601.1428571428571 96.0 l
+624.0 96.0 m
+656.0 96.0 l
 </path>
 <path layer="24" pen="fat (1.2)" stroke="red">
-16 0 0 16 585.1428571428571 356.57142857142856 e
+16 0 0 16 640.0 192.0 e
 </path>
 <path layer="24" pen="fat (1.2)" stroke="black">
 80 544 m
@@ -7942,13 +8099,13 @@ h
 h
 </path>
 <path fill="yellow" layer="24" opacity="50%" stroke-opacity="opaque">
-0 464 m
-0 416 l
-48 416 l
-48 464 l
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
-<path fill="yellow" layer="24" opacity="50%" stroke-opacity="opaque">
+<path fill="red" layer="24" opacity="50%" stroke-opacity="opaque">
 0 416 m
 0 368 l
 48 368 l
@@ -7972,19 +8129,19 @@ h
 640.0 192.0 l
 </path>
 <path layer="25" pen="ultrafat (2.0)" stroke="red">
-585.1428571428571 496.0 m
-585.1428571428571 112.0 l
+640.0 496.0 m
+640.0 112.0 l
 </path>
 <path arrow="normal/normal" layer="25" pen="ultrafat (2.0)" stroke="red">
-569.1428571428571 512.0 m
-601.1428571428571 512.0 l
+624.0 512.0 m
+656.0 512.0 l
 </path>
 <path arrow="normal/normal" layer="25" pen="ultrafat (2.0)" stroke="red">
-569.1428571428571 96.0 m
-601.1428571428571 96.0 l
+624.0 96.0 m
+656.0 96.0 l
 </path>
 <path layer="25" pen="fat (1.2)" stroke="red">
-16 0 0 16 585.1428571428571 356.57142857142856 e
+16 0 0 16 640.0 192.0 e
 </path>
 <path layer="25" pen="fat (1.2)" stroke="black">
 80 544 m
@@ -8159,6 +8316,13 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="red" layer="25" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path layer="26" pen="fat (1.2)" stroke="black">
@@ -8178,19 +8342,19 @@ h
 640.0 192.0 l
 </path>
 <path layer="26" pen="ultrafat (2.0)" stroke="red">
-640.0 496.0 m
-640.0 112.0 l
+768.0 496.0 m
+768.0 112.0 l
 </path>
 <path arrow="normal/normal" layer="26" pen="ultrafat (2.0)" stroke="red">
-624.0 512.0 m
-656.0 512.0 l
+752.0 512.0 m
+784.0 512.0 l
 </path>
 <path arrow="normal/normal" layer="26" pen="ultrafat (2.0)" stroke="red">
-624.0 96.0 m
-656.0 96.0 l
+752.0 96.0 m
+784.0 96.0 l
 </path>
 <path layer="26" pen="fat (1.2)" stroke="red">
-16 0 0 16 640.0 192.0 e
+16 0 0 16 768.0 320.0 e
 </path>
 <path layer="26" pen="fat (1.2)" stroke="black">
 80 544 m
@@ -8367,11 +8531,18 @@ h
 48 128 l
 h
 </path>
+<path fill="yellow" layer="26" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
 <path fill="red" layer="26" opacity="50%" stroke-opacity="opaque">
-0 416 m
-0 368 l
-48 368 l
+0 464 m
+0 416 l
 48 416 l
+48 464 l
 h
 </path>
 <path layer="27" pen="fat (1.2)" stroke="black">
@@ -8391,19 +8562,19 @@ h
 640.0 192.0 l
 </path>
 <path layer="27" pen="ultrafat (2.0)" stroke="red">
-640.0 496.0 m
-640.0 112.0 l
+768.0 496.0 m
+768.0 112.0 l
 </path>
 <path arrow="normal/normal" layer="27" pen="ultrafat (2.0)" stroke="red">
-624.0 512.0 m
-656.0 512.0 l
+752.0 512.0 m
+784.0 512.0 l
 </path>
 <path arrow="normal/normal" layer="27" pen="ultrafat (2.0)" stroke="red">
-624.0 96.0 m
-656.0 96.0 l
+752.0 96.0 m
+784.0 96.0 l
 </path>
 <path layer="27" pen="fat (1.2)" stroke="red">
-16 0 0 16 640.0 192.0 e
+16 0 0 16 768.0 320.0 e
 </path>
 <path layer="27" pen="fat (1.2)" stroke="black">
 80 544 m
@@ -8578,6 +8749,13 @@ h
 0 80 l
 48 80 l
 48 128 l
+h
+</path>
+<path fill="red" layer="27" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
 h
 </path>
 <path layer="28" pen="fat (1.2)" stroke="black">
@@ -8597,19 +8775,19 @@ h
 640.0 192.0 l
 </path>
 <path layer="28" pen="ultrafat (2.0)" stroke="red">
-768.0 496.0 m
-768.0 112.0 l
+832.0 496.0 m
+832.0 112.0 l
 </path>
 <path arrow="normal/normal" layer="28" pen="ultrafat (2.0)" stroke="red">
-752.0 512.0 m
-784.0 512.0 l
+816.0 512.0 m
+848.0 512.0 l
 </path>
 <path arrow="normal/normal" layer="28" pen="ultrafat (2.0)" stroke="red">
-752.0 96.0 m
-784.0 96.0 l
+816.0 96.0 m
+848.0 96.0 l
 </path>
 <path layer="28" pen="fat (1.2)" stroke="red">
-16 0 0 16 768.0 320.0 e
+16 0 0 16 832.0 480.0 e
 </path>
 <path layer="28" pen="fat (1.2)" stroke="black">
 80 544 m
@@ -8786,11 +8964,18 @@ h
 48 128 l
 h
 </path>
+<path fill="yellow" layer="28" opacity="50%" stroke-opacity="opaque">
+80 544 m
+128 544 l
+128 592 l
+80 592 l
+h
+</path>
 <path fill="red" layer="28" opacity="50%" stroke-opacity="opaque">
-0 464 m
-0 416 l
-48 416 l
+0 512 m
+0 464 l
 48 464 l
+48 512 l
 h
 </path>
 <path layer="29" pen="fat (1.2)" stroke="black">
@@ -8810,799 +8995,387 @@ h
 640.0 192.0 l
 </path>
 <path layer="29" pen="ultrafat (2.0)" stroke="red">
-768.0 496.0 m
-768.0 112.0 l
+832.0 496.0 m
+832.0 112.0 l
 </path>
 <path arrow="normal/normal" layer="29" pen="ultrafat (2.0)" stroke="red">
-752.0 512.0 m
-784.0 512.0 l
+816.0 512.0 m
+848.0 512.0 l
 </path>
 <path arrow="normal/normal" layer="29" pen="ultrafat (2.0)" stroke="red">
-752.0 96.0 m
-784.0 96.0 l
+816.0 96.0 m
+848.0 96.0 l
 </path>
 <path layer="29" pen="fat (1.2)" stroke="red">
-16 0 0 16 768.0 320.0 e
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-80 544 m
-128 544 l
-128 592 l
-80 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-128 544 m
-176 544 l
-176 592 l
-128 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-176 544 m
-224 544 l
-224 592 l
-176 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-224 544 m
-272 544 l
-272 592 l
-224 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-272 544 m
-320 544 l
-320 592 l
-272 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-320 544 m
-368 544 l
-368 592 l
-320 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-368 544 m
-416 544 l
-416 592 l
-368 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-416 544 m
-464 544 l
-464 592 l
-416 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-464 544 m
-512 544 l
-512 592 l
-464 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-512 544 m
-560 544 l
-560 592 l
-512 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-560 544 m
-608 544 l
-608 592 l
-560 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-608 544 m
-656 544 l
-656 592 l
-608 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-656 544 m
-704 544 l
-704 592 l
-656 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-704 544 m
-752 544 l
-752 592 l
-704 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-752 544 m
-800 544 l
-800 592 l
-752 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-800 544 m
-848 544 l
-848 592 l
-800 592 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 512 m
-0 464 l
-48 464 l
-48 512 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 464 m
-0 416 l
-48 416 l
-48 464 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 416 m
-0 368 l
-48 368 l
-48 416 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 368 m
-0 320 l
-48 320 l
-48 368 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 320 m
-0 272 l
-48 272 l
-48 320 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 272 m
-0 224 l
-48 224 l
-48 272 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 224 m
-0 176 l
-48 176 l
-48 224 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 176 m
-0 128 l
-48 128 l
-48 176 l
-h
-</path>
-<path layer="29" pen="fat (1.2)" stroke="black">
-0 128 m
-0 80 l
-48 80 l
-48 128 l
-h
-</path>
-<path layer="30" pen="fat (1.2)" stroke="black">
-128.0 448.0 m
-768.0 320.0 l
-</path>
-<path layer="30" pen="fat (1.2)" stroke="black">
-192.0 160.0 m
-832.0 480.0 l
-</path>
-<path layer="30" pen="fat (1.2)" stroke="black">
-256.0 320.0 m
-512.0 192.0 l
-</path>
-<path layer="30" pen="fat (1.2)" stroke="black">
-448.0 128.0 m
-640.0 192.0 l
-</path>
-<path layer="30" pen="ultrafat (2.0)" stroke="red">
-832.0 496.0 m
-832.0 112.0 l
-</path>
-<path arrow="normal/normal" layer="30" pen="ultrafat (2.0)" stroke="red">
-816.0 512.0 m
-848.0 512.0 l
-</path>
-<path arrow="normal/normal" layer="30" pen="ultrafat (2.0)" stroke="red">
-816.0 96.0 m
-848.0 96.0 l
-</path>
-<path layer="30" pen="fat (1.2)" stroke="red">
 16 0 0 16 832.0 480.0 e
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 80 544 m
 128 544 l
 128 592 l
 80 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 128 544 m
 176 544 l
 176 592 l
 128 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 176 544 m
 224 544 l
 224 592 l
 176 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 224 544 m
 272 544 l
 272 592 l
 224 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 272 544 m
 320 544 l
 320 592 l
 272 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 320 544 m
 368 544 l
 368 592 l
 320 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 368 544 m
 416 544 l
 416 592 l
 368 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 416 544 m
 464 544 l
 464 592 l
 416 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 464 544 m
 512 544 l
 512 592 l
 464 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 512 544 m
 560 544 l
 560 592 l
 512 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 560 544 m
 608 544 l
 608 592 l
 560 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 608 544 m
 656 544 l
 656 592 l
 608 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 656 544 m
 704 544 l
 704 592 l
 656 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 704 544 m
 752 544 l
 752 592 l
 704 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 752 544 m
 800 544 l
 800 592 l
 752 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 800 544 m
 848 544 l
 848 592 l
 800 592 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 512 m
 0 464 l
 48 464 l
 48 512 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 464 m
 0 416 l
 48 416 l
 48 464 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 416 m
 0 368 l
 48 368 l
 48 416 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 368 m
 0 320 l
 48 320 l
 48 368 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 320 m
 0 272 l
 48 272 l
 48 320 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 272 m
 0 224 l
 48 224 l
 48 272 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 224 m
 0 176 l
 48 176 l
 48 224 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 176 m
 0 128 l
 48 128 l
 48 176 l
 h
 </path>
-<path layer="30" pen="fat (1.2)" stroke="black">
+<path layer="29" pen="fat (1.2)" stroke="black">
 0 128 m
 0 80 l
 48 80 l
 48 128 l
 h
 </path>
-<path fill="red" layer="30" opacity="50%" stroke-opacity="opaque">
-0 512 m
-0 464 l
-48 464 l
-48 512 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-128.0 448.0 m
-768.0 320.0 l
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-192.0 160.0 m
-832.0 480.0 l
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-256.0 320.0 m
-512.0 192.0 l
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-448.0 128.0 m
-640.0 192.0 l
-</path>
-<path layer="31" pen="ultrafat (2.0)" stroke="red">
-832.0 496.0 m
-832.0 112.0 l
-</path>
-<path arrow="normal/normal" layer="31" pen="ultrafat (2.0)" stroke="red">
-816.0 512.0 m
-848.0 512.0 l
-</path>
-<path arrow="normal/normal" layer="31" pen="ultrafat (2.0)" stroke="red">
-816.0 96.0 m
-848.0 96.0 l
-</path>
-<path layer="31" pen="fat (1.2)" stroke="red">
-16 0 0 16 832.0 480.0 e
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
+<path fill="red" layer="29" opacity="50%" stroke-opacity="opaque">
 80 544 m
 128 544 l
 128 592 l
 80 592 l
 h
 </path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-128 544 m
-176 544 l
-176 592 l
-128 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-176 544 m
-224 544 l
-224 592 l
-176 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-224 544 m
-272 544 l
-272 592 l
-224 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-272 544 m
-320 544 l
-320 592 l
-272 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-320 544 m
-368 544 l
-368 592 l
-320 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-368 544 m
-416 544 l
-416 592 l
-368 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-416 544 m
-464 544 l
-464 592 l
-416 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-464 544 m
-512 544 l
-512 592 l
-464 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-512 544 m
-560 544 l
-560 592 l
-512 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-560 544 m
-608 544 l
-608 592 l
-560 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-608 544 m
-656 544 l
-656 592 l
-608 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-656 544 m
-704 544 l
-704 592 l
-656 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-704 544 m
-752 544 l
-752 592 l
-704 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-752 544 m
-800 544 l
-800 592 l
-752 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-800 544 m
-848 544 l
-848 592 l
-800 592 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 512 m
-0 464 l
-48 464 l
-48 512 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 464 m
-0 416 l
-48 416 l
-48 464 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 416 m
-0 368 l
-48 368 l
-48 416 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 368 m
-0 320 l
-48 320 l
-48 368 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 320 m
-0 272 l
-48 272 l
-48 320 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 272 m
-0 224 l
-48 224 l
-48 272 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 224 m
-0 176 l
-48 176 l
-48 224 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 176 m
-0 128 l
-48 128 l
-48 176 l
-h
-</path>
-<path layer="31" pen="fat (1.2)" stroke="black">
-0 128 m
-0 80 l
-48 80 l
-48 128 l
-h
-</path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 128.0 448.0 m
 768.0 320.0 l
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 192.0 160.0 m
 832.0 480.0 l
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 256.0 320.0 m
 512.0 192.0 l
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 448.0 128.0 m
 640.0 192.0 l
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 80 544 m
 128 544 l
 128 592 l
 80 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 128 544 m
 176 544 l
 176 592 l
 128 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 176 544 m
 224 544 l
 224 592 l
 176 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 224 544 m
 272 544 l
 272 592 l
 224 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 272 544 m
 320 544 l
 320 592 l
 272 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 320 544 m
 368 544 l
 368 592 l
 320 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 368 544 m
 416 544 l
 416 592 l
 368 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 416 544 m
 464 544 l
 464 592 l
 416 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 464 544 m
 512 544 l
 512 592 l
 464 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 512 544 m
 560 544 l
 560 592 l
 512 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 560 544 m
 608 544 l
 608 592 l
 560 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 608 544 m
 656 544 l
 656 592 l
 608 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 656 544 m
 704 544 l
 704 592 l
 656 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 704 544 m
 752 544 l
 752 592 l
 704 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 752 544 m
 800 544 l
 800 592 l
 752 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 800 544 m
 848 544 l
 848 592 l
 800 592 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 512 m
 0 464 l
 48 464 l
 48 512 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 464 m
 0 416 l
 48 416 l
 48 464 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 416 m
 0 368 l
 48 368 l
 48 416 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 368 m
 0 320 l
 48 320 l
 48 368 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 320 m
 0 272 l
 48 272 l
 48 320 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 272 m
 0 224 l
 48 224 l
 48 272 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 224 m
 0 176 l
 48 176 l
 48 224 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 176 m
 0 128 l
 48 128 l
 48 176 l
 h
 </path>
-<path layer="32" pen="fat (1.2)" stroke="black">
+<path layer="30" pen="fat (1.2)" stroke="black">
 0 128 m
 0 80 l
 48 80 l
@@ -9641,7 +9414,6 @@ h
 <use layer="3" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
 <use layer="3" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
 <use layer="3" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="3" name="mark/disk(sx)" pos="585.1428571428571 356.57142857142856" size="larger (8.0)" stroke="red"/>
 <use layer="4" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
 <use layer="4" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
 <use layer="4" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
@@ -9650,7 +9422,6 @@ h
 <use layer="4" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
 <use layer="4" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
 <use layer="4" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="4" name="mark/disk(sx)" pos="585.1428571428571 356.57142857142856" size="larger (8.0)" stroke="red"/>
 <use layer="5" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
 <use layer="5" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
 <use layer="5" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
@@ -9678,7 +9449,6 @@ h
 <use layer="7" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
 <use layer="7" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
 <use layer="7" name="mark/disk(sx)" pos="585.1428571428571 356.57142857142856" size="larger (8.0)" stroke="red"/>
-<use layer="7" name="mark/disk(sx)" pos="384.0 256.0" size="larger (8.0)" stroke="red"/>
 <use layer="8" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
 <use layer="8" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
 <use layer="8" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
@@ -9688,7 +9458,6 @@ h
 <use layer="8" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
 <use layer="8" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
 <use layer="8" name="mark/disk(sx)" pos="585.1428571428571 356.57142857142856" size="larger (8.0)" stroke="red"/>
-<use layer="8" name="mark/disk(sx)" pos="384.0 256.0" size="larger (8.0)" stroke="red"/>
 <use layer="9" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
 <use layer="9" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
 <use layer="9" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
@@ -9698,7 +9467,6 @@ h
 <use layer="9" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
 <use layer="9" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
 <use layer="9" name="mark/disk(sx)" pos="585.1428571428571 356.57142857142856" size="larger (8.0)" stroke="red"/>
-<use layer="9" name="mark/disk(sx)" pos="384.0 256.0" size="larger (8.0)" stroke="red"/>
 <use layer="10" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
 <use layer="10" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
 <use layer="10" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
@@ -9909,26 +9677,6 @@ h
 <use layer="30" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
 <use layer="30" name="mark/disk(sx)" pos="585.1428571428571 356.57142857142856" size="larger (8.0)" stroke="red"/>
 <use layer="30" name="mark/disk(sx)" pos="384.0 256.0" size="larger (8.0)" stroke="red"/>
-<use layer="31" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
-<use layer="31" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="31" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
-<use layer="31" name="mark/disk(sx)" pos="832.0 480.0" size="large (5.0)" stroke="black"/>
-<use layer="31" name="mark/disk(sx)" pos="256.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="31" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="31" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
-<use layer="31" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="31" name="mark/disk(sx)" pos="585.1428571428571 356.57142857142856" size="larger (8.0)" stroke="red"/>
-<use layer="31" name="mark/disk(sx)" pos="384.0 256.0" size="larger (8.0)" stroke="red"/>
-<use layer="32" name="mark/disk(sx)" pos="128.0 448.0" size="large (5.0)" stroke="black"/>
-<use layer="32" name="mark/disk(sx)" pos="768.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="32" name="mark/disk(sx)" pos="192.0 160.0" size="large (5.0)" stroke="black"/>
-<use layer="32" name="mark/disk(sx)" pos="832.0 480.0" size="large (5.0)" stroke="black"/>
-<use layer="32" name="mark/disk(sx)" pos="256.0 320.0" size="large (5.0)" stroke="black"/>
-<use layer="32" name="mark/disk(sx)" pos="512.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="32" name="mark/disk(sx)" pos="448.0 128.0" size="large (5.0)" stroke="black"/>
-<use layer="32" name="mark/disk(sx)" pos="640.0 192.0" size="large (5.0)" stroke="black"/>
-<use layer="32" name="mark/disk(sx)" pos="585.1428571428571 356.57142857142856" size="larger (8.0)" stroke="red"/>
-<use layer="32" name="mark/disk(sx)" pos="384.0 256.0" size="larger (8.0)" stroke="red"/>
 <text depth="0.0825" height="18.59" layer="0" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="0" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="0" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
@@ -10003,61 +9751,51 @@ h
 <text depth="0.0825" height="18.59" layer="3" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="512.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="384.0 264.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="544.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
 <text depth="0.0825" height="18.59" layer="3" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="276 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="428 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="3" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="3" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="3" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="3" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="3" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="3" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$]</text>
+<text depth="0.0825" height="18.59" layer="3" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[]</text>
 <text depth="0.0825" height="18.59" layer="4" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="512.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="384.0 264.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="544.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
 <text depth="0.0825" height="18.59" layer="4" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="276 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="428 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="4" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="4" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="4" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="4" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="4" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="4" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$]</text>
+<text depth="0.0825" height="18.59" layer="4" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[]</text>
 <text depth="0.0825" height="18.59" layer="5" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="5" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="5" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
@@ -10120,104 +9858,89 @@ h
 <text depth="0.0825" height="18.59" layer="7" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="512.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="384.0 264.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="544.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
 <text depth="0.0825" height="18.59" layer="7" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="132 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="276 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="428 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="7" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
+<text depth="0.0825" height="18.59" layer="7" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
+<text depth="0.0825" height="18.59" layer="7" pos="228 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
+<text depth="0.0825" height="18.59" layer="7" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="7" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="7" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="7" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
 <text depth="0.0825" height="18.59" layer="7" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="7" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
+<text depth="0.0825" height="18.59" layer="7" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$]</text>
 <text depth="0.0825" height="18.59" layer="8" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="512.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="384.0 264.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="544.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
 <text depth="0.0825" height="18.59" layer="8" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="132 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="276 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="428 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="8" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
+<text depth="0.0825" height="18.59" layer="8" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
+<text depth="0.0825" height="18.59" layer="8" pos="228 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
+<text depth="0.0825" height="18.59" layer="8" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="8" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="8" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="8" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
 <text depth="0.0825" height="18.59" layer="8" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="8" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
+<text depth="0.0825" height="18.59" layer="8" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$]</text>
 <text depth="0.0825" height="18.59" layer="9" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="512.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="384.0 264.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="544.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
 <text depth="0.0825" height="18.59" layer="9" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="132 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="276 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="428 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="9" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
+<text depth="0.0825" height="18.59" layer="9" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
+<text depth="0.0825" height="18.59" layer="9" pos="228 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
+<text depth="0.0825" height="18.59" layer="9" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="9" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="9" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="9" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
 <text depth="0.0825" height="18.59" layer="9" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="9" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
+<text depth="0.0825" height="18.59" layer="9" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$]</text>
 <text depth="0.0825" height="18.59" layer="10" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="10" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="10" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
@@ -10406,17 +10129,17 @@ h
 <text depth="0.0825" height="18.59" layer="15" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="15" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="15" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="15" pos="84 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="228 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="15" pos="380 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="15" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
+<text depth="0.0825" height="18.59" layer="15" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
+<text depth="0.0825" height="18.59" layer="15" pos="180 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
+<text depth="0.0825" height="18.59" layer="15" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="15" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="15" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="15" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="15" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="15" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="15" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
+<text depth="0.0825" height="18.59" layer="15" pos="12 336" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
 <text depth="0.0825" height="18.59" layer="15" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 <text depth="0.0825" height="18.59" layer="16" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="16" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
@@ -10505,12 +10228,11 @@ h
 <text depth="0.0825" height="18.59" layer="18" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="18" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="18" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="18" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="18" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="18" pos="180 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="18" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="18" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="18" pos="332 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="132 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="18" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="18" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="18" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
@@ -10546,8 +10268,7 @@ h
 <text depth="0.0825" height="18.59" layer="19" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="19" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="19" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="19" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
-<text depth="0.0825" height="18.59" layer="19" pos="12 336" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
+<text depth="0.0825" height="18.59" layer="19" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
 <text depth="0.0825" height="18.59" layer="19" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 <text depth="0.0825" height="18.59" layer="20" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="20" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
@@ -10601,11 +10322,10 @@ h
 <text depth="0.0825" height="18.59" layer="21" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="21" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="21" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="21" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="21" pos="132 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="21" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="21" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="21" pos="284 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="21" pos="84 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
+<text depth="0.0825" height="18.59" layer="21" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="21" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="21" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="21" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="21" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="21" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
@@ -10637,8 +10357,8 @@ h
 <text depth="0.0825" height="18.59" layer="22" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
-<text depth="0.0825" height="18.59" layer="22" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
-<text depth="0.0825" height="18.59" layer="22" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
+<text depth="0.0825" height="18.59" layer="22" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
+<text depth="0.0825" height="18.59" layer="22" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 <text depth="0.0825" height="18.59" layer="23" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
@@ -10692,10 +10412,9 @@ h
 <text depth="0.0825" height="18.59" layer="24" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="24" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="24" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="24" pos="84 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="24" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="24" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="24" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="24" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="24" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="24" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="24" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="24" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="24" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
@@ -10722,14 +10441,12 @@ h
 <text depth="0.0825" height="18.59" layer="25" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="25" pos="84 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="25" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="25" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="25" pos="236 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="25" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
+<text depth="0.0825" height="18.59" layer="25" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="25" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="25" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
-<text depth="0.0825" height="18.59" layer="25" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 <text depth="0.0825" height="18.59" layer="26" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="26" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
@@ -10752,13 +10469,11 @@ h
 <text depth="0.0825" height="18.59" layer="26" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="26" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="26" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="26" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="26" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="26" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="26" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="26" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="26" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
-<text depth="0.0825" height="18.59" layer="26" pos="12 384" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
 <text depth="0.0825" height="18.59" layer="26" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 <text depth="0.0825" height="18.59" layer="27" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="27" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
@@ -10781,12 +10496,10 @@ h
 <text depth="0.0825" height="18.59" layer="27" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="27" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="27" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="27" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="27" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="27" pos="188 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="27" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="27" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="27" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="27" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 <text depth="0.0825" height="18.59" layer="28" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="28" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
@@ -10809,11 +10522,9 @@ h
 <text depth="0.0825" height="18.59" layer="28" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="28" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="28" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="28" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="28" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="28" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="28" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
 <text depth="0.0825" height="18.59" layer="28" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="28" pos="12 432" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
 <text depth="0.0825" height="18.59" layer="28" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 <text depth="0.0825" height="18.59" layer="29" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="29" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
@@ -10836,10 +10547,8 @@ h
 <text depth="0.0825" height="18.59" layer="29" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="29" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="29" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="29" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="29" pos="140 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
+<text depth="0.0825" height="18.59" layer="29" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="29" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
-<text depth="0.0825" height="18.59" layer="29" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="29" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 <text depth="0.0825" height="18.59" layer="30" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="30" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
@@ -10862,57 +10571,8 @@ h
 <text depth="0.0825" height="18.59" layer="30" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
 <text depth="0.0825" height="18.59" layer="30" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
 <text depth="0.0825" height="18.59" layer="30" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="30" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
 <text depth="0.0825" height="18.59" layer="30" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
-<text depth="0.0825" height="18.59" layer="30" pos="12 480" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
 <text depth="0.0825" height="18.59" layer="30" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
-<text depth="0.0825" height="18.59" layer="31" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="512.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="384.0 264.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="544.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="31" pos="92 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
-<text depth="0.0825" height="18.59" layer="31" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
-<text depth="0.0825" height="18.59" layer="31" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
-<text depth="0.0825" height="18.59" layer="32" pos="112.0 456.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="776.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{0}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="448.0 392.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{0}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="176.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="840.0 488.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{1}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="512.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{1}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="240.0 328.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="520.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{2}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="384.0 264.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{2}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="432.0 136.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="648.0 200.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$q_{3}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="544.0 168.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$\ell_{3}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="585.1428571428571 332.57142857142856" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{0,1}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="384.0 232.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$e_{1,2}$</text>
-<text depth="0.0825" height="18.59" layer="32" pos="48 560" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf E}</text>
-<text depth="0.0825" height="18.59" layer="32" pos="16 528" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf L}</text>
-<text depth="0.0825" height="18.59" layer="32" pos="80 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">{\bf Output: }[$e_{0,1}$, $e_{1,2}$]</text>
 </page>
 
 </ipe>
