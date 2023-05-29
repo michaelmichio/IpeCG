@@ -221,6 +221,42 @@ public class TriangulationMonotonePolygon {
         return paths;
     }
 
+    public ArrayList<Path> setHighlightsPoint(Point p1, Point p2, Point p3) {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+        if (p1 != null) {
+            strPoints.add(new Ipe.Object.Point(String.valueOf(p1.x), String.valueOf(p1.y), "e"));
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "red");
+            attributes.put("pen", "fat (1.2)");
+            paths.add(new Path(strPoints, attributes));
+        }
+
+        if (p2 != null) {
+            strPoints = new ArrayList<>();
+            strPoints.add(new Ipe.Object.Point(String.valueOf(p2.x), String.valueOf(p2.y), "e"));
+            attributes = new HashMap<>();
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "red");
+            attributes.put("pen", "fat (1.2)");
+            paths.add(new Path(strPoints, attributes));
+        }
+
+        if (p3 != null) {
+            strPoints = new ArrayList<>();
+            strPoints.add(new Ipe.Object.Point(String.valueOf(p3.x), String.valueOf(p3.y), "e"));
+            attributes = new HashMap<>();
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("stroke", "red");
+            attributes.put("pen", "fat (1.2)");
+            paths.add(new Path(strPoints, attributes));
+        }
+
+        return paths;
+    }
+
     public void generateLayers() {
         Queue<Point> leftChainTmp = new LinkedList<>(leftChain);
         Queue<Point> rightChainTmp = new LinkedList<>(rightChain);
@@ -236,6 +272,15 @@ public class TriangulationMonotonePolygon {
 
         // Set two initial points
         pointsQueue.add(top);
+        // Layer
+        paths = new ArrayList<>(setPolygonIpe());
+        paths.addAll(setDataFrameIpe());
+        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), null, null));
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setPointLabelsIpe());
+        texts.addAll(setDataTextIpe());
+        layers.add(new Layer(paths, uses, texts));
+
         if (leftChainTmp.size() > 0 && rightChainTmp.size() > 0) {
             if (leftChainTmp.peek().y >= rightChainTmp.peek().y) {
                 pointsQueue.add(leftChainTmp.peek());
@@ -251,6 +296,7 @@ public class TriangulationMonotonePolygon {
         // Layer
         paths = new ArrayList<>(setPolygonIpe());
         paths.addAll(setDataFrameIpe());
+        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setPointLabelsIpe());
         texts.addAll(setDataTextIpe());
@@ -267,6 +313,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -282,6 +329,7 @@ public class TriangulationMonotonePolygon {
                             paths = new ArrayList<>(setPolygonIpe());
                             paths.addAll(setDataFrameIpe());
                             paths.addAll(setLineSegmentsIpe());
+                            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setPointLabelsIpe());
                             texts.addAll(setDataTextIpe());
@@ -291,6 +339,7 @@ public class TriangulationMonotonePolygon {
                             paths = new ArrayList<>(setPolygonIpe());
                             paths.addAll(setDataFrameIpe());
                             paths.addAll(setLineSegmentsIpe());
+                            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setPointLabelsIpe());
                             texts.addAll(setDataTextIpe());
@@ -310,6 +359,7 @@ public class TriangulationMonotonePolygon {
                     paths = new ArrayList<>(setPolygonIpe());
                     paths.addAll(setDataFrameIpe());
                     paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                     uses = new ArrayList<>(setPointsIpe());
                     texts = new ArrayList<>(setPointLabelsIpe());
                     texts.addAll(setDataTextIpe());
@@ -321,6 +371,7 @@ public class TriangulationMonotonePolygon {
                         paths = new ArrayList<>(setPolygonIpe());
                         paths.addAll(setDataFrameIpe());
                         paths.addAll(setLineSegmentsIpe());
+                        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setPointLabelsIpe());
                         texts.addAll(setDataTextIpe());
@@ -333,6 +384,7 @@ public class TriangulationMonotonePolygon {
                         paths = new ArrayList<>(setPolygonIpe());
                         paths.addAll(setDataFrameIpe());
                         paths.addAll(setLineSegmentsIpe());
+                        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setPointLabelsIpe());
                         texts.addAll(setDataTextIpe());
@@ -349,6 +401,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -363,6 +416,7 @@ public class TriangulationMonotonePolygon {
                     paths = new ArrayList<>(setPolygonIpe());
                     paths.addAll(setDataFrameIpe());
                     paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                     uses = new ArrayList<>(setPointsIpe());
                     texts = new ArrayList<>(setPointLabelsIpe());
                     texts.addAll(setDataTextIpe());
@@ -374,6 +428,7 @@ public class TriangulationMonotonePolygon {
                         paths = new ArrayList<>(setPolygonIpe());
                         paths.addAll(setDataFrameIpe());
                         paths.addAll(setLineSegmentsIpe());
+                        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setPointLabelsIpe());
                         texts.addAll(setDataTextIpe());
@@ -386,6 +441,7 @@ public class TriangulationMonotonePolygon {
                         paths = new ArrayList<>(setPolygonIpe());
                         paths.addAll(setDataFrameIpe());
                         paths.addAll(setLineSegmentsIpe());
+                        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setPointLabelsIpe());
                         texts.addAll(setDataTextIpe());
@@ -402,6 +458,7 @@ public class TriangulationMonotonePolygon {
                             paths = new ArrayList<>(setPolygonIpe());
                             paths.addAll(setDataFrameIpe());
                             paths.addAll(setLineSegmentsIpe());
+                            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setPointLabelsIpe());
                             texts.addAll(setDataTextIpe());
@@ -411,6 +468,7 @@ public class TriangulationMonotonePolygon {
                             paths = new ArrayList<>(setPolygonIpe());
                             paths.addAll(setDataFrameIpe());
                             paths.addAll(setLineSegmentsIpe());
+                            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setPointLabelsIpe());
                             texts.addAll(setDataTextIpe());
@@ -431,6 +489,7 @@ public class TriangulationMonotonePolygon {
             paths = new ArrayList<>(setPolygonIpe());
             paths.addAll(setDataFrameIpe());
             paths.addAll(setLineSegmentsIpe());
+            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
             uses = new ArrayList<>(setPointsIpe());
             texts = new ArrayList<>(setPointLabelsIpe());
             texts.addAll(setDataTextIpe());
@@ -442,6 +501,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -454,6 +514,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -467,6 +528,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -477,6 +539,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -487,6 +550,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -502,6 +566,7 @@ public class TriangulationMonotonePolygon {
             paths = new ArrayList<>(setPolygonIpe());
             paths.addAll(setDataFrameIpe());
             paths.addAll(setLineSegmentsIpe());
+            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
             uses = new ArrayList<>(setPointsIpe());
             texts = new ArrayList<>(setPointLabelsIpe());
             texts.addAll(setDataTextIpe());
@@ -513,6 +578,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -525,6 +591,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -538,6 +605,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -548,6 +616,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -558,6 +627,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -565,127 +635,13 @@ public class TriangulationMonotonePolygon {
             }
         }
 
-//        pointsQueue.add(top);
-//        if (leftChainTmp.peek().y >= rightChainTmp.peek().y) {
-//            pointsQueue.add(leftChainTmp.peek());
-//            leftChainTmp.poll();
-//            isLeftSide = true;
-//        }
-//        else {
-//            pointsQueue.add(rightChainTmp.peek());
-//            rightChainTmp.poll();
-//        }
-//
-//        while (leftChainTmp.size() > 0 || rightChainTmp.size() > 0) {
-//
-//            LineSegment ls = new LineSegment(pointsQueue.get(pointsQueue.size()-2), pointsQueue.getLast());
-//
-//            if (leftChainTmp.size() == 0) {
-//                while (pointsQueue.size() >= 2) {
-//                    // Layer
-//                    paths = new ArrayList<>(setPolygonIpe());
-//                    paths.addAll(setDataFrameIpe());
-//                    uses = new ArrayList<>(setPointsIpe());
-//                    texts = new ArrayList<>(setPointLabelsIpe());
-//                    texts.addAll(setDataTextIpe());
-//                    layers.add(new Layer(paths, uses, texts));
-//                    //addLayer(pointsQueue.get(1), rightChain.peek());
-//                    pointsQueue.removeFirst();
-//                }
-//                rightChainTmp.poll();
-//                while (rightChainTmp.size() > 0) {
-//                    // Layer
-//                    paths = new ArrayList<>(setPolygonIpe());
-//                    paths.addAll(setDataFrameIpe());
-//                    uses = new ArrayList<>(setPointsIpe());
-//                    texts = new ArrayList<>(setPointLabelsIpe());
-//                    texts.addAll(setDataTextIpe());
-//                    layers.add(new Layer(paths, uses, texts));
-//                    //addLayer(pointsQueue.getFirst(), rightChain.peek());
-//                    rightChainTmp.poll();
-//                }
-//            }
-//            else if (rightChainTmp.size() == 0) {
-//                while (pointsQueue.size() >= 2) {
-//                    // Layer
-//                    paths = new ArrayList<>(setPolygonIpe());
-//                    paths.addAll(setDataFrameIpe());
-//                    uses = new ArrayList<>(setPointsIpe());
-//                    texts = new ArrayList<>(setPointLabelsIpe());
-//                    texts.addAll(setDataTextIpe());
-//                    layers.add(new Layer(paths, uses, texts));
-//                    //addLayer(pointsQueue.get(1), leftChain.peek());
-//                    pointsQueue.removeFirst();
-//                }
-//                leftChainTmp.poll();
-//                while (leftChainTmp.size() > 0) {
-//                    // Layer
-//                    paths = new ArrayList<>(setPolygonIpe());
-//                    paths.addAll(setDataFrameIpe());
-//                    uses = new ArrayList<>(setPointsIpe());
-//                    texts = new ArrayList<>(setPointLabelsIpe());
-//                    texts.addAll(setDataTextIpe());
-//                    layers.add(new Layer(paths, uses, texts));
-//                    //addLayer(pointsQueue.getFirst(), leftChain.peek());
-//                    leftChainTmp.poll();
-//                }
-//            }
-//            else if (leftChainTmp.peek().y >= rightChainTmp.peek().y) {
-//                if (isLeftSide) {
-//                    if (ls.crossProductToPoint(leftChainTmp.peek()) > 0) { // in
-//                        pointsQueue.removeLast();
-//                        //addLayer(pointsQueue.getLast(), leftChain.peek());
-//                        // Layer
-//                        paths = new ArrayList<>(setPolygonIpe());
-//                        paths.addAll(setDataFrameIpe());
-//                        uses = new ArrayList<>(setPointsIpe());
-//                        texts = new ArrayList<>(setPointLabelsIpe());
-//                        texts.addAll(setDataTextIpe());
-//                        layers.add(new Layer(paths, uses, texts));
-//                    }
-//                }
-//                else {
-//                    for (int i = pointsQueue.size()-1; i > 0; i--) {
-//                        // Layer
-//                        paths = new ArrayList<>(setPolygonIpe());
-//                        paths.addAll(setDataFrameIpe());
-//                        uses = new ArrayList<>(setPointsIpe());
-//                        texts = new ArrayList<>(setPointLabelsIpe());
-//                        texts.addAll(setDataTextIpe());
-//                        layers.add(new Layer(paths, uses, texts));
-//                        //addLayer(pointsQueue.getLast(), leftChain.peek());
-//                        pointsQueue.removeLast();
-//                    }
-//                }
-//                pointsQueue.add(leftChainTmp.peek());
-//                leftChainTmp.poll();
-//            }
-//            else {
-//                if (isLeftSide) {
-//                    for (int i = pointsQueue.size()-1; i > 0; i--) {
-//                        // Layer
-//                        paths = new ArrayList<>(setPolygonIpe());
-//                        paths.addAll(setDataFrameIpe());
-//                        uses = new ArrayList<>(setPointsIpe());
-//                        texts = new ArrayList<>(setPointLabelsIpe());
-//                        texts.addAll(setDataTextIpe());
-//                        layers.add(new Layer(paths, uses, texts));
-//                        //addLayer(pointsQueue.getLast(), rightChain.peek());
-//                        pointsQueue.removeLast();
-//                    }
-//                }
-//                else {
-//                    if (ls.crossProductToPoint(rightChainTmp.peek()) < 0) { // in
-//                        pointsQueue.removeLast();
-//                        //addLayer(pointsQueue.getLast(), rightChain.peek());
-//                    }
-//                }
-//                pointsQueue.add(rightChainTmp.peek());
-//                rightChainTmp.poll();
-//            }
-//
-//        }
-
+        // Layer
+        paths = new ArrayList<>(setPolygonIpe());
+        paths.addAll(setDataFrameIpe());
+        paths.addAll(setLineSegmentsIpe());
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setPointLabelsIpe());
+        layers.add(new Layer(paths, uses, texts));
     }
 
     public void sortPoints() {

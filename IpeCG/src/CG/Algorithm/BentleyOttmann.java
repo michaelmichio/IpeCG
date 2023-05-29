@@ -15,8 +15,8 @@ public class BentleyOttmann {
     public ArrayList<LineSegment> lineSegments = new ArrayList<>();
     public TreeMap<Double, Deque<Endpoint>> eventPoints = new TreeMap<>();
     public TreeMap<Double, ArrayList<Integer>> activeLines = new TreeMap<>();
-    public ArrayList<String> intersectionPointsOutput = new ArrayList<>();
     public ArrayList<Endpoint> intersectionPoints = new ArrayList<>();
+    public ArrayList<String> intersectionPointsOutput = new ArrayList<>();
     public double sweepLineMaxY;
     public double sweepLineMinY;
 
@@ -191,7 +191,7 @@ public class BentleyOttmann {
         return  paths;
     }
 
-    public ArrayList<Path> setDataFramesIpe() {
+    public ArrayList<Path> setDataFrameIpe() {
         ArrayList<Path> paths = new ArrayList<>();
 
         for (int i = 0; i < 16; i++) {
@@ -634,7 +634,7 @@ public class BentleyOttmann {
 
         // Layer 0
         paths = new ArrayList<>(setLineSegmentsIpe());
-        paths.addAll(setDataFramesIpe());
+        paths.addAll(setDataFrameIpe());
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setLabelsIpe());
         texts.addAll(setDataTextIpe());
@@ -659,7 +659,7 @@ public class BentleyOttmann {
                     // Layer
                     paths = new ArrayList<>(setLineSegmentsIpe());
                     paths.addAll(setSweepLineIpe());
-                    paths.addAll(setDataFramesIpe());
+                    paths.addAll(setDataFrameIpe());
                     paths.addAll(setEventPointHighlightsIpe(0));
                     paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, false, false));
                     uses = new ArrayList<>(setPointsIpe());
@@ -700,7 +700,7 @@ public class BentleyOttmann {
                         // Layer
                         paths = new ArrayList<>(setLineSegmentsIpe());
                         paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
+                        paths.addAll(setDataFrameIpe());
                         paths.addAll(setEventPointHighlightsIpe(0));
                         paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, true, false));
                         uses = new ArrayList<>(setPointsIpe());
@@ -733,7 +733,7 @@ public class BentleyOttmann {
                                 // Layer
                                 paths = new ArrayList<>(setLineSegmentsIpe());
                                 paths.addAll(setSweepLineIpe());
-                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setDataFrameIpe());
                                 paths.addAll(setEventPointHighlightsIpe(0));
                                 paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
                                 paths.addAll(setStartIntersectHighlightsIpe(endpoint.segmentIndex, true, false));
@@ -749,7 +749,7 @@ public class BentleyOttmann {
                         // Layer
                         paths = new ArrayList<>(setLineSegmentsIpe());
                         paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
+                        paths.addAll(setDataFrameIpe());
                         paths.addAll(setEventPointHighlightsIpe(0));
                         paths.addAll(setStartHighlightsIpe(endpoint.segmentIndex, false, true));
                         uses = new ArrayList<>(setPointsIpe());
@@ -782,7 +782,7 @@ public class BentleyOttmann {
                                 // Layer
                                 paths = new ArrayList<>(setLineSegmentsIpe());
                                 paths.addAll(setSweepLineIpe());
-                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setDataFrameIpe());
                                 paths.addAll(setEventPointHighlightsIpe(0));
                                 paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
                                 paths.addAll(setStartIntersectHighlightsIpe(endpoint.segmentIndex, false, true));
@@ -800,7 +800,7 @@ public class BentleyOttmann {
                     // Layer
                     paths = new ArrayList<>(setLineSegmentsIpe());
                     paths.addAll(setSweepLineIpe());
-                    paths.addAll(setDataFramesIpe());
+                    paths.addAll(setDataFrameIpe());
                     paths.addAll(setEventPointHighlightsIpe(0));
                     paths.addAll(setEndHighlightsIpe(endpoint.segmentIndex));
                     uses = new ArrayList<>(setPointsIpe());
@@ -891,7 +891,7 @@ public class BentleyOttmann {
                         // Layer
                         paths = new ArrayList<>(setLineSegmentsIpe());
                         paths.addAll(setSweepLineIpe());
-                        paths.addAll(setDataFramesIpe());
+                        paths.addAll(setDataFrameIpe());
                         paths.addAll(setEventPointHighlightsIpe(0));
                         paths.addAll(setEndIntersectHighlightsIpe(0, leftNeighbourLineSegmentIndex, rightNeighbourLineSegmentIndex));
                         uses = new ArrayList<>(setPointsIpe());
@@ -903,7 +903,7 @@ public class BentleyOttmann {
                             // Layer
                             paths = new ArrayList<>(setLineSegmentsIpe());
                             paths.addAll(setSweepLineIpe());
-                            paths.addAll(setDataFramesIpe());
+                            paths.addAll(setDataFrameIpe());
                             paths.addAll(setEventPointHighlightsIpe(0));
                             paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
                             paths.addAll(setEndIntersectHighlightsIpe(1, leftNeighbourLineSegmentIndex, rightNeighbourLineSegmentIndex));
@@ -923,7 +923,7 @@ public class BentleyOttmann {
                     // Layer
                     paths = new ArrayList<>(setLineSegmentsIpe());
                     paths.addAll(setSweepLineIpe());
-                    paths.addAll(setDataFramesIpe());
+                    paths.addAll(setDataFrameIpe());
                     paths.addAll(setEventPointHighlightsIpe(0));
                     paths.addAll(setSwapHighlightsIpe(0, lineSegmentIndex1, lineSegmentIndex2));
                     uses = new ArrayList<>(setPointsIpe());
@@ -976,7 +976,7 @@ public class BentleyOttmann {
                     // Layer
                     paths = new ArrayList<>(setLineSegmentsIpe());
                     paths.addAll(setSweepLineIpe());
-                    paths.addAll(setDataFramesIpe());
+                    paths.addAll(setDataFrameIpe());
                     paths.addAll(setEventPointHighlightsIpe(0));
                     paths.addAll(setSwapHighlightsIpe(0, lineSegmentIndex1, lineSegmentIndex2));
                     uses = new ArrayList<>(setPointsIpe());
@@ -1079,7 +1079,7 @@ public class BentleyOttmann {
                                 // Layer
                                 paths = new ArrayList<>(setLineSegmentsIpe());
                                 paths.addAll(setSweepLineIpe());
-                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setDataFrameIpe());
                                 paths.addAll(setEventPointHighlightsIpe(0));
                                 paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
                                 paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex1, rightNeighbourLineSegmentIndex1));
@@ -1116,7 +1116,7 @@ public class BentleyOttmann {
                                 // Layer
                                 paths = new ArrayList<>(setLineSegmentsIpe());
                                 paths.addAll(setSweepLineIpe());
-                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setDataFrameIpe());
                                 paths.addAll(setEventPointHighlightsIpe(0));
                                 paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
                                 paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex1, leftNeighbourLineSegmentIndex1));
@@ -1153,7 +1153,7 @@ public class BentleyOttmann {
                                 // Layer
                                 paths = new ArrayList<>(setLineSegmentsIpe());
                                 paths.addAll(setSweepLineIpe());
-                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setDataFrameIpe());
                                 paths.addAll(setEventPointHighlightsIpe(0));
                                 paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
                                 paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex2, rightNeighbourLineSegmentIndex2));
@@ -1190,7 +1190,7 @@ public class BentleyOttmann {
                                 // Layer
                                 paths = new ArrayList<>(setLineSegmentsIpe());
                                 paths.addAll(setSweepLineIpe());
-                                paths.addAll(setDataFramesIpe());
+                                paths.addAll(setDataFrameIpe());
                                 paths.addAll(setEventPointHighlightsIpe(0));
                                 paths.addAll(setNewEventPointHighlightsIpe(new Endpoint(ep.x, ep.y, -1, ep.segmentIndex, ep.intersectSegmentIndex)));
                                 paths.addAll(setSwapHighlightsIpe(1, lineSegmentIndex2, leftNeighbourLineSegmentIndex2));
@@ -1207,7 +1207,7 @@ public class BentleyOttmann {
                 // Layer
                 paths = new ArrayList<>(setLineSegmentsIpe());
                 paths.addAll(setSweepLineIpe());
-                paths.addAll(setDataFramesIpe());
+                paths.addAll(setDataFrameIpe());
                 paths.addAll(setEventPointHighlightsIpe(1));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setLabelsIpe());
@@ -1222,7 +1222,7 @@ public class BentleyOttmann {
 
         // Layer
         paths = new ArrayList<>(setLineSegmentsIpe());
-        paths.addAll(setDataFramesIpe());
+        paths.addAll(setDataFrameIpe());
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setLabelsIpe());
         texts.addAll(setDataTextIpe());

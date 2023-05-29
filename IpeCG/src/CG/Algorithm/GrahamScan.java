@@ -49,7 +49,7 @@ public class GrahamScan {
         return uses;
     }
 
-    public ArrayList<Text> setInitialTextPointsIpe() {
+    public ArrayList<Text> setInitialLabelsIpe() {
         ArrayList<Text> texts = new ArrayList<>();
 
         for (int i = 0; i < initialPoints.size(); i++) {
@@ -88,7 +88,7 @@ public class GrahamScan {
         return uses;
     }
 
-    public ArrayList<Text> setTextPointsIpe() {
+    public ArrayList<Text> setLabelsIpe() {
         ArrayList<Text> texts = new ArrayList<>();
 
         for (int i = 0; i < initialPoints.size(); i++) {
@@ -119,6 +119,7 @@ public class GrahamScan {
         strPoints.add(new Ipe.Object.Point(String.valueOf(initialPoint.x), String.valueOf(initialPoint.y), "e"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
+        attributes.put("pen", "fat (1.2)");
         paths.add(new Path(strPoints, attributes));
 
         return  paths;
@@ -195,6 +196,77 @@ public class GrahamScan {
         return paths;
     }
 
+    public ArrayList<Text> setStackValuesIpe() {
+        ArrayList<Text> texts = new ArrayList<>();
+
+        for (int i = 0; i < hull.size(); i++) {
+            HashMap<String, String> attributes = new HashMap<>();
+
+            if ((initialPoints.indexOf(hull.get(i)) + 1) > 9) {
+                attributes.put("pos", 16 + " " + (8 + (32 * i)));
+            }
+            else {
+                attributes.put("pos", 24 + " " + (8 + (32 * i)));
+            }
+
+            attributes.put("layer", String.valueOf(layers.size()));
+            attributes.put("transformations", "translations");
+            attributes.put("stroke", "black");
+            attributes.put("type", "label");
+            attributes.put("width", "14.6575");
+            attributes.put("height", "18.59");
+            attributes.put("depth", "0.0825");
+            attributes.put("valign", "baseline");
+            texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(i)) + 1), attributes));
+        }
+
+        return texts;
+    }
+
+    public ArrayList<Path> setPointerFrameIpe() {
+        ArrayList<Path> paths = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+        strPoints.add(new Ipe.Object.Point("96", "544", "m"));
+        strPoints.add(new Ipe.Object.Point("96", "576", "l"));
+        strPoints.add(new Ipe.Object.Point("160", "576", "l"));
+        strPoints.add(new Ipe.Object.Point("160", "544", "l"));
+        strPoints.add(new Ipe.Object.Point("h"));
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("stroke", "black");
+        attributes.put("pen", "fat (1.2)");
+        paths.add(new Path(strPoints, attributes));
+
+        return paths;
+    }
+
+    public ArrayList<Text> setPointerValueIpe(int i) {
+        ArrayList<Text> texts = new ArrayList<>();
+        HashMap<String, String> attributes = new HashMap<>();
+
+        int num = initialPoints.indexOf(points.get(i)) + 1;
+
+        if (num > 9) {
+            attributes.put("pos", 112 + " " + 552);
+        }
+        else {
+            attributes.put("pos", 120 + " " + 552);
+        }
+
+        attributes.put("layer", String.valueOf(layers.size()));
+        attributes.put("transformations", "translations");
+        attributes.put("stroke", "black");
+        attributes.put("type", "label");
+        attributes.put("width", "14.6575");
+        attributes.put("height", "18.59");
+        attributes.put("depth", "0.0825");
+        attributes.put("valign", "baseline");
+        texts.add(new Text(String.valueOf(num), attributes));
+
+        return texts;
+    }
+
     public ArrayList<Path> setHighlightIpe() {
         ArrayList<Path> paths = new ArrayList<>();
         HashMap<String, String> attributes = new HashMap<>();
@@ -232,77 +304,6 @@ public class GrahamScan {
         return paths;
     }
 
-    public ArrayList<Path> setPointerFrameIpe() {
-        ArrayList<Path> paths = new ArrayList<>();
-        HashMap<String, String> attributes = new HashMap<>();
-        ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
-
-        strPoints.add(new Ipe.Object.Point("96", "544", "m"));
-        strPoints.add(new Ipe.Object.Point("96", "576", "l"));
-        strPoints.add(new Ipe.Object.Point("160", "576", "l"));
-        strPoints.add(new Ipe.Object.Point("160", "544", "l"));
-        strPoints.add(new Ipe.Object.Point("h"));
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("stroke", "black");
-        attributes.put("pen", "fat (1.2)");
-        paths.add(new Path(strPoints, attributes));
-
-        return paths;
-    }
-
-    public ArrayList<Text> setStackValuesIpe() {
-        ArrayList<Text> texts = new ArrayList<>();
-
-        for (int i = 0; i < hull.size(); i++) {
-            HashMap<String, String> attributes = new HashMap<>();
-
-            if ((initialPoints.indexOf(hull.get(i)) + 1) > 9) {
-                attributes.put("pos", 16 + " " + (8 + (32 * i)));
-            }
-            else {
-                attributes.put("pos", 24 + " " + (8 + (32 * i)));
-            }
-
-            attributes.put("layer", String.valueOf(layers.size()));
-            attributes.put("transformations", "translations");
-            attributes.put("stroke", "black");
-            attributes.put("type", "label");
-            attributes.put("width", "14.6575");
-            attributes.put("height", "18.59");
-            attributes.put("depth", "0.0825");
-            attributes.put("valign", "baseline");
-            texts.add(new Text(String.valueOf(initialPoints.indexOf(hull.get(i)) + 1), attributes));
-        }
-
-        return texts;
-    }
-
-    public ArrayList<Text> setPointerValueIpe(int i) {
-        ArrayList<Text> texts = new ArrayList<>();
-        HashMap<String, String> attributes = new HashMap<>();
-
-        int num = initialPoints.indexOf(points.get(i)) + 1;
-
-        if (num > 9) {
-            attributes.put("pos", 112 + " " + 552);
-        }
-        else {
-            attributes.put("pos", 120 + " " + 552);
-        }
-
-        attributes.put("layer", String.valueOf(layers.size()));
-        attributes.put("transformations", "translations");
-        attributes.put("stroke", "black");
-        attributes.put("type", "label");
-        attributes.put("width", "14.6575");
-        attributes.put("height", "18.59");
-        attributes.put("depth", "0.0825");
-        attributes.put("valign", "baseline");
-        texts.add(new Text(String.valueOf(num), attributes));
-
-        return texts;
-    }
-
     public ArrayList<Path> setCirclesIpe(int i) {
         ArrayList<Path> paths = new ArrayList<>();
         HashMap<String, String> attributes = new HashMap<>();
@@ -311,6 +312,7 @@ public class GrahamScan {
         strPoints.add(new Ipe.Object.Point(String.valueOf(hull.get(hull.size()-2).x), String.valueOf(hull.get(hull.size()-2).y), "e"));
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
+        attributes.put("pen", "fat (1.2)");
         paths.add(new Path(strPoints, attributes));
 
         strPoints = new ArrayList<>();
@@ -318,6 +320,7 @@ public class GrahamScan {
         attributes = new HashMap<>();
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
+        attributes.put("pen", "fat (1.2)");
         paths.add(new Path(strPoints, attributes));
 
         strPoints = new ArrayList<>();
@@ -325,6 +328,7 @@ public class GrahamScan {
         attributes = new HashMap<>();
         attributes.put("layer", String.valueOf(layers.size()));
         attributes.put("stroke", "black");
+        attributes.put("pen", "fat (1.2)");
         paths.add(new Path(strPoints, attributes));
 
         return paths;
@@ -404,25 +408,25 @@ public class GrahamScan {
 
         // Layer 0 (Add points and labels)
         uses = setInitialPointsIpe();
-        texts = setInitialTextPointsIpe();
+        texts = setInitialLabelsIpe();
         layers.add(new Layer(null, uses, texts));
 
         // Layer 1 (Add circle)
         uses = new ArrayList<>(setInitialPointsIpe());
-        texts = new ArrayList<>(setInitialTextPointsIpe());
+        texts = new ArrayList<>(setInitialLabelsIpe());
         paths = new ArrayList<>(setInitialCircleIpe());
         layers.add(new Layer(paths, uses, texts));
 
         // Layer 2 (Add arch)
         uses = new ArrayList<>(setInitialPointsIpe());
-        texts = new ArrayList<>(setInitialTextPointsIpe());
+        texts = new ArrayList<>(setInitialLabelsIpe());
         paths = new ArrayList<>(setInitialCircleIpe());
         paths.addAll(setArcIpe());
         layers.add(new Layer(paths, uses, texts));
 
         // Layer 3 (Add dashed line)
         uses = new ArrayList<>(setInitialPointsIpe());
-        texts = new ArrayList<>(setInitialTextPointsIpe());
+        texts = new ArrayList<>(setInitialLabelsIpe());
         paths = new ArrayList<>(setInitialCircleIpe());
         paths.addAll(setArcIpe());
         paths.addAll(setDashedLineIpe());
@@ -430,7 +434,7 @@ public class GrahamScan {
 
         // Layer 4 (Remove duplicate points)
         uses = new ArrayList<>(setPointsIpe());
-        texts = new ArrayList<>(setTextPointsIpe());
+        texts = new ArrayList<>(setLabelsIpe());
         paths = new ArrayList<>(setInitialCircleIpe());
         paths.addAll(setArcIpe());
         paths.addAll(setDashedLineIpe());
@@ -438,7 +442,7 @@ public class GrahamScan {
 
         // Layer 5 (Add stack frame)
         uses = new ArrayList<>(setPointsIpe());
-        texts = new ArrayList<>(setTextPointsIpe());
+        texts = new ArrayList<>(setLabelsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
         paths.addAll(setStackFrameIpe());
         layers.add(new Layer(paths, uses, texts));
@@ -448,7 +452,7 @@ public class GrahamScan {
 
         // Layer 6 (Add circles)
         uses = new ArrayList<>(setPointsIpe());
-        texts = new ArrayList<>(setTextPointsIpe());
+        texts = new ArrayList<>(setLabelsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
         paths.addAll(setStackFrameIpe());
         paths.addAll(setCirclesIpe(1));
@@ -456,7 +460,7 @@ public class GrahamScan {
 
         // Layer 7 (Add lines)
         uses = new ArrayList<>(setPointsIpe());
-        texts = new ArrayList<>(setTextPointsIpe());
+        texts = new ArrayList<>(setLabelsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
         paths.addAll(setStackFrameIpe());
         paths.addAll(setCirclesIpe(1));
@@ -467,7 +471,7 @@ public class GrahamScan {
 
         // Layer 8 (Remove circles)
         uses = new ArrayList<>(setPointsIpe());
-        texts = new ArrayList<>(setTextPointsIpe());
+        texts = new ArrayList<>(setLabelsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
         paths.addAll(setStackFrameIpe());
         texts.addAll(setStackValuesIpe());
@@ -479,7 +483,7 @@ public class GrahamScan {
         while (i < points.size()) {
             // Layer (Add circle)
             uses = new ArrayList<>(setPointsIpe());
-            texts = new ArrayList<>(setTextPointsIpe());
+            texts = new ArrayList<>(setLabelsIpe());
             paths = new ArrayList<>(setDashedLineIpe());
             paths.addAll(setStackFrameIpe());
             paths.addAll(setPointerFrameIpe());
@@ -499,7 +503,7 @@ public class GrahamScan {
 
                 // Layer (Add red dashed line)
                 uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setTextPointsIpe());
+                texts = new ArrayList<>(setLabelsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
@@ -513,7 +517,7 @@ public class GrahamScan {
 
                 // Layer (Remove red dashed line)
                 uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setTextPointsIpe());
+                texts = new ArrayList<>(setLabelsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
@@ -526,7 +530,7 @@ public class GrahamScan {
 
                 // Layer (Remove line)
                 uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setTextPointsIpe());
+                texts = new ArrayList<>(setLabelsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
@@ -540,7 +544,7 @@ public class GrahamScan {
 
                 // Layer (Remove circle)
                 uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setTextPointsIpe());
+                texts = new ArrayList<>(setLabelsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
@@ -553,7 +557,7 @@ public class GrahamScan {
             else {
                 // Layer (Add green dashed line)
                 uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setTextPointsIpe());
+                texts = new ArrayList<>(setLabelsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
@@ -567,7 +571,7 @@ public class GrahamScan {
 
                 // Layer (Add line)
                 uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setTextPointsIpe());
+                texts = new ArrayList<>(setLabelsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
@@ -581,7 +585,7 @@ public class GrahamScan {
 
                 // Layer (Remove circle)
                 uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setTextPointsIpe());
+                texts = new ArrayList<>(setLabelsIpe());
                 paths = new ArrayList<>(setDashedLineIpe());
                 paths.addAll(setStackFrameIpe());
                 paths.addAll(setPointerFrameIpe());
@@ -593,7 +597,7 @@ public class GrahamScan {
 
         // Layer (Hull polygon)
         uses = new ArrayList<>(setPointsIpe());
-        texts = new ArrayList<>(setTextPointsIpe());
+        texts = new ArrayList<>(setLabelsIpe());
         paths = new ArrayList<>(setDashedLineIpe());
         paths.addAll(setStackFrameIpe());
         texts.addAll(setStackValuesIpe());
