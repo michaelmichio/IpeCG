@@ -2563,6 +2563,8 @@ h
 <layer name="23"/>
 <layer name="24"/>
 <layer name="25"/>
+<layer name="26"/>
+<layer name="27"/>
 <view layers="0"/>
 <view layers="1"/>
 <view layers="2"/>
@@ -2589,6 +2591,8 @@ h
 <view layers="23"/>
 <view layers="24"/>
 <view layers="25"/>
+<view layers="26"/>
+<view layers="27"/>
 <path layer="0" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -3250,6 +3254,13 @@ h
 <path layer="4" pen="fat (1.2)" stroke="red">
 16 0 0 16 432.0 544.0 e
 </path>
+<path fill="red" layer="4" opacity="50%" stroke-opacity="opaque">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
 <path layer="5" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -4085,6 +4096,13 @@ h
 <path layer="10" pen="fat (1.2)" stroke="red">
 16 0 0 16 400.0 368.0 e
 </path>
+<path fill="red" layer="10" opacity="50%" stroke-opacity="opaque">
+272 0 m
+320 0 l
+320 48 l
+272 48 l
+h
+</path>
 <path layer="11" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -4372,6 +4390,13 @@ h
 <path layer="12" pen="fat (1.2)" stroke="red">
 16 0 0 16 432.0 400.0 e
 </path>
+<path fill="red" layer="12" opacity="50%" stroke-opacity="opaque">
+224 0 m
+272 0 l
+272 48 l
+224 48 l
+h
+</path>
 <path layer="13" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -4655,15 +4680,14 @@ h
 368.0 320.0 l
 </path>
 <path layer="14" pen="fat (1.2)" stroke="red">
-368.0 320.0 m
-576.0 272.0 l
-</path>
-<path layer="14" pen="fat (1.2)" stroke="red">
 16 0 0 16 576.0 272.0 e
 </path>
 <path layer="14" pen="fat (1.2)" stroke="red">
 16 0 0 16 368.0 320.0 e
 </path>
+<path layer="14" pen="fat (1.2)" stroke="red">
+16 0 0 16 432.0 400.0 e
+</path>
 <path layer="15" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -4805,10 +4829,6 @@ h
 <path layer="15" pen="fat (1.2)" stroke="red">
 368.0 320.0 m
 576.0 272.0 l
-</path>
-<path layer="15" pen="fat (1.2)" stroke="red">
-576.0 272.0 m
-432.0 400.0 l
 </path>
 <path layer="15" pen="fat (1.2)" stroke="red">
 16 0 0 16 576.0 272.0 e
@@ -4816,6 +4836,30 @@ h
 <path layer="15" pen="fat (1.2)" stroke="red">
 16 0 0 16 368.0 320.0 e
 </path>
+<path layer="15" pen="fat (1.2)" stroke="red">
+16 0 0 16 432.0 400.0 e
+</path>
+<path fill="red" layer="15" opacity="50%" stroke-opacity="opaque">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path fill="red" layer="15" opacity="50%" stroke-opacity="opaque">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
+<path fill="red" layer="15" opacity="50%" stroke-opacity="opaque">
+176 0 m
+224 0 l
+224 48 l
+176 48 l
+h
+</path>
 <path layer="16" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -4968,6 +5012,27 @@ h
 <path layer="16" pen="fat (1.2)" stroke="red">
 16 0 0 16 368.0 320.0 e
 </path>
+<path fill="red" layer="16" opacity="50%" stroke-opacity="opaque">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path fill="red" layer="16" opacity="50%" stroke-opacity="opaque">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
+<path fill="red" layer="16" opacity="50%" stroke-opacity="opaque">
+176 0 m
+224 0 l
+224 48 l
+176 48 l
+h
+</path>
 <path layer="17" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -5113,10 +5178,6 @@ h
 <path layer="17" pen="fat (1.2)" stroke="red">
 576.0 272.0 m
 432.0 400.0 l
-</path>
-<path layer="17" pen="fat (1.2)" stroke="red">
-576.0 272.0 m
-448.0 448.0 l
 </path>
 <path layer="17" pen="fat (1.2)" stroke="red">
 16 0 0 16 576.0 272.0 e
@@ -5124,6 +5185,20 @@ h
 <path layer="17" pen="fat (1.2)" stroke="red">
 16 0 0 16 368.0 320.0 e
 </path>
+<path fill="red" layer="17" opacity="50%" stroke-opacity="opaque">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path fill="red" layer="17" opacity="50%" stroke-opacity="opaque">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
 <path layer="18" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -5280,6 +5355,20 @@ h
 <path layer="18" pen="fat (1.2)" stroke="red">
 16 0 0 16 368.0 320.0 e
 </path>
+<path fill="red" layer="18" opacity="50%" stroke-opacity="opaque">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path fill="red" layer="18" opacity="50%" stroke-opacity="opaque">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
 <path layer="19" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
 400.0 368.0 l
@@ -5431,171 +5520,164 @@ h
 448.0 448.0 l
 </path>
 <path layer="19" pen="fat (1.2)" stroke="red">
+16 0 0 16 576.0 272.0 e
+</path>
+<path layer="19" pen="fat (1.2)" stroke="red">
+16 0 0 16 368.0 320.0 e
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+320.0 352.0 m
+400.0 368.0 l
+432.0 400.0 l
+448.0 448.0 l
+384.0 496.0 l
+432.0 544.0 l
+576.0 272.0 l
+560.0 224.0 l
+480.0 192.0 l
+432.0 80.0 l
+368.0 320.0 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+176 0 m
+224 0 l
+224 48 l
+176 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+224 0 m
+272 0 l
+272 48 l
+224 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+272 0 m
+320 0 l
+320 48 l
+272 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+320 0 m
+368 0 l
+368 48 l
+320 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+368 0 m
+416 0 l
+416 48 l
+368 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+416 0 m
+464 0 l
+464 48 l
+416 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+464 0 m
+512 0 l
+512 48 l
+464 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+512 0 m
+560 0 l
+560 48 l
+512 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+560 0 m
+608 0 l
+608 48 l
+560 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+608 0 m
+656 0 l
+656 48 l
+608 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+656 0 m
+704 0 l
+704 48 l
+656 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+704 0 m
+752 0 l
+752 48 l
+704 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+752 0 m
+800 0 l
+800 48 l
+752 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="black">
+800 0 m
+848 0 l
+848 48 l
+800 48 l
+h
+</path>
+<path layer="20" pen="fat (1.2)" stroke="red">
+432.0 544.0 m
+448.0 448.0 l
+</path>
+<path layer="20" pen="fat (1.2)" stroke="red">
+400.0 368.0 m
+368.0 320.0 l
+</path>
+<path layer="20" pen="fat (1.2)" stroke="red">
+432.0 400.0 m
+368.0 320.0 l
+</path>
+<path layer="20" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+576.0 272.0 l
+</path>
+<path layer="20" pen="fat (1.2)" stroke="red">
+576.0 272.0 m
+432.0 400.0 l
+</path>
+<path layer="20" pen="fat (1.2)" stroke="red">
+576.0 272.0 m
+448.0 448.0 l
+</path>
+<path layer="20" pen="fat (1.2)" stroke="red">
 16 0 0 16 560.0 224.0 e
 </path>
-<path layer="19" pen="fat (1.2)" stroke="red">
-16 0 0 16 576.0 272.0 e
-</path>
-<path layer="19" pen="fat (1.2)" stroke="red">
-16 0 0 16 368.0 320.0 e
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-320.0 352.0 m
-400.0 368.0 l
-432.0 400.0 l
-448.0 448.0 l
-384.0 496.0 l
-432.0 544.0 l
-576.0 272.0 l
-560.0 224.0 l
-480.0 192.0 l
-432.0 80.0 l
-368.0 320.0 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-80 0 m
-128 0 l
-128 48 l
-80 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-128 0 m
-176 0 l
-176 48 l
-128 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-176 0 m
-224 0 l
-224 48 l
-176 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-224 0 m
-272 0 l
-272 48 l
-224 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-272 0 m
-320 0 l
-320 48 l
-272 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-320 0 m
-368 0 l
-368 48 l
-320 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-368 0 m
-416 0 l
-416 48 l
-368 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-416 0 m
-464 0 l
-464 48 l
-416 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-464 0 m
-512 0 l
-512 48 l
-464 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-512 0 m
-560 0 l
-560 48 l
-512 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-560 0 m
-608 0 l
-608 48 l
-560 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-608 0 m
-656 0 l
-656 48 l
-608 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-656 0 m
-704 0 l
-704 48 l
-656 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-704 0 m
-752 0 l
-752 48 l
-704 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-752 0 m
-800 0 l
-800 48 l
-752 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="black">
-800 0 m
-848 0 l
-848 48 l
-800 48 l
-h
-</path>
-<path layer="20" pen="fat (1.2)" stroke="red">
-432.0 544.0 m
-448.0 448.0 l
-</path>
-<path layer="20" pen="fat (1.2)" stroke="red">
-400.0 368.0 m
-368.0 320.0 l
-</path>
-<path layer="20" pen="fat (1.2)" stroke="red">
-432.0 400.0 m
-368.0 320.0 l
-</path>
-<path layer="20" pen="fat (1.2)" stroke="red">
-368.0 320.0 m
-576.0 272.0 l
-</path>
-<path layer="20" pen="fat (1.2)" stroke="red">
-576.0 272.0 m
-432.0 400.0 l
-</path>
-<path layer="20" pen="fat (1.2)" stroke="red">
-576.0 272.0 m
-448.0 448.0 l
-</path>
-<path layer="20" pen="fat (1.2)" stroke="red">
-368.0 320.0 m
-560.0 224.0 l
-</path>
-<path layer="20" pen="fat (1.2)" stroke="red">
-16 0 0 16 560.0 224.0 e
-</path>
 <path layer="20" pen="fat (1.2)" stroke="red">
 16 0 0 16 576.0 272.0 e
 </path>
@@ -5760,7 +5842,17 @@ h
 16 0 0 16 560.0 224.0 e
 </path>
 <path layer="21" pen="fat (1.2)" stroke="red">
+16 0 0 16 576.0 272.0 e
+</path>
+<path layer="21" pen="fat (1.2)" stroke="red">
 16 0 0 16 368.0 320.0 e
+</path>
+<path fill="red" layer="21" opacity="50%" stroke-opacity="opaque">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
 </path>
 <path layer="22" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
@@ -5917,175 +6009,168 @@ h
 560.0 224.0 l
 </path>
 <path layer="22" pen="fat (1.2)" stroke="red">
+16 0 0 16 560.0 224.0 e
+</path>
+<path layer="22" pen="fat (1.2)" stroke="red">
+16 0 0 16 368.0 320.0 e
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+320.0 352.0 m
+400.0 368.0 l
+432.0 400.0 l
+448.0 448.0 l
+384.0 496.0 l
+432.0 544.0 l
+576.0 272.0 l
+560.0 224.0 l
+480.0 192.0 l
+432.0 80.0 l
+368.0 320.0 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+176 0 m
+224 0 l
+224 48 l
+176 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+224 0 m
+272 0 l
+272 48 l
+224 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+272 0 m
+320 0 l
+320 48 l
+272 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+320 0 m
+368 0 l
+368 48 l
+320 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+368 0 m
+416 0 l
+416 48 l
+368 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+416 0 m
+464 0 l
+464 48 l
+416 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+464 0 m
+512 0 l
+512 48 l
+464 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+512 0 m
+560 0 l
+560 48 l
+512 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+560 0 m
+608 0 l
+608 48 l
+560 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+608 0 m
+656 0 l
+656 48 l
+608 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+656 0 m
+704 0 l
+704 48 l
+656 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+704 0 m
+752 0 l
+752 48 l
+704 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+752 0 m
+800 0 l
+800 48 l
+752 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="black">
+800 0 m
+848 0 l
+848 48 l
+800 48 l
+h
+</path>
+<path layer="23" pen="fat (1.2)" stroke="red">
+432.0 544.0 m
+448.0 448.0 l
+</path>
+<path layer="23" pen="fat (1.2)" stroke="red">
+400.0 368.0 m
+368.0 320.0 l
+</path>
+<path layer="23" pen="fat (1.2)" stroke="red">
+432.0 400.0 m
+368.0 320.0 l
+</path>
+<path layer="23" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+576.0 272.0 l
+</path>
+<path layer="23" pen="fat (1.2)" stroke="red">
+576.0 272.0 m
+432.0 400.0 l
+</path>
+<path layer="23" pen="fat (1.2)" stroke="red">
+576.0 272.0 m
+448.0 448.0 l
+</path>
+<path layer="23" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+560.0 224.0 l
+</path>
+<path layer="23" pen="fat (1.2)" stroke="red">
 16 0 0 16 480.0 192.0 e
 </path>
-<path layer="22" pen="fat (1.2)" stroke="red">
-16 0 0 16 560.0 224.0 e
-</path>
-<path layer="22" pen="fat (1.2)" stroke="red">
-16 0 0 16 368.0 320.0 e
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-320.0 352.0 m
-400.0 368.0 l
-432.0 400.0 l
-448.0 448.0 l
-384.0 496.0 l
-432.0 544.0 l
-576.0 272.0 l
-560.0 224.0 l
-480.0 192.0 l
-432.0 80.0 l
-368.0 320.0 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-80 0 m
-128 0 l
-128 48 l
-80 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-128 0 m
-176 0 l
-176 48 l
-128 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-176 0 m
-224 0 l
-224 48 l
-176 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-224 0 m
-272 0 l
-272 48 l
-224 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-272 0 m
-320 0 l
-320 48 l
-272 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-320 0 m
-368 0 l
-368 48 l
-320 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-368 0 m
-416 0 l
-416 48 l
-368 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-416 0 m
-464 0 l
-464 48 l
-416 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-464 0 m
-512 0 l
-512 48 l
-464 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-512 0 m
-560 0 l
-560 48 l
-512 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-560 0 m
-608 0 l
-608 48 l
-560 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-608 0 m
-656 0 l
-656 48 l
-608 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-656 0 m
-704 0 l
-704 48 l
-656 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-704 0 m
-752 0 l
-752 48 l
-704 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-752 0 m
-800 0 l
-800 48 l
-752 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="black">
-800 0 m
-848 0 l
-848 48 l
-800 48 l
-h
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-432.0 544.0 m
-448.0 448.0 l
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-400.0 368.0 m
-368.0 320.0 l
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-432.0 400.0 m
-368.0 320.0 l
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-368.0 320.0 m
-576.0 272.0 l
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-576.0 272.0 m
-432.0 400.0 l
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-576.0 272.0 m
-448.0 448.0 l
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-368.0 320.0 m
-560.0 224.0 l
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-368.0 320.0 m
-480.0 192.0 l
-</path>
-<path layer="23" pen="fat (1.2)" stroke="red">
-16 0 0 16 480.0 192.0 e
-</path>
 <path layer="23" pen="fat (1.2)" stroke="red">
 16 0 0 16 560.0 224.0 e
 </path>
@@ -6254,7 +6339,17 @@ h
 16 0 0 16 480.0 192.0 e
 </path>
 <path layer="24" pen="fat (1.2)" stroke="red">
+16 0 0 16 560.0 224.0 e
+</path>
+<path layer="24" pen="fat (1.2)" stroke="red">
 16 0 0 16 368.0 320.0 e
+</path>
+<path fill="red" layer="24" opacity="50%" stroke-opacity="opaque">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
 </path>
 <path layer="25" pen="fat (1.2)" stroke="black">
 320.0 352.0 m
@@ -6411,6 +6506,348 @@ h
 560.0 224.0 l
 </path>
 <path layer="25" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+480.0 192.0 l
+</path>
+<path layer="25" pen="fat (1.2)" stroke="red">
+16 0 0 16 480.0 192.0 e
+</path>
+<path layer="25" pen="fat (1.2)" stroke="red">
+16 0 0 16 368.0 320.0 e
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+320.0 352.0 m
+400.0 368.0 l
+432.0 400.0 l
+448.0 448.0 l
+384.0 496.0 l
+432.0 544.0 l
+576.0 272.0 l
+560.0 224.0 l
+480.0 192.0 l
+432.0 80.0 l
+368.0 320.0 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+176 0 m
+224 0 l
+224 48 l
+176 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+224 0 m
+272 0 l
+272 48 l
+224 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+272 0 m
+320 0 l
+320 48 l
+272 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+320 0 m
+368 0 l
+368 48 l
+320 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+368 0 m
+416 0 l
+416 48 l
+368 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+416 0 m
+464 0 l
+464 48 l
+416 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+464 0 m
+512 0 l
+512 48 l
+464 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+512 0 m
+560 0 l
+560 48 l
+512 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+560 0 m
+608 0 l
+608 48 l
+560 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+608 0 m
+656 0 l
+656 48 l
+608 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+656 0 m
+704 0 l
+704 48 l
+656 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+704 0 m
+752 0 l
+752 48 l
+704 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+752 0 m
+800 0 l
+800 48 l
+752 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="black">
+800 0 m
+848 0 l
+848 48 l
+800 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+432.0 544.0 m
+448.0 448.0 l
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+400.0 368.0 m
+368.0 320.0 l
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+432.0 400.0 m
+368.0 320.0 l
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+576.0 272.0 l
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+576.0 272.0 m
+432.0 400.0 l
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+576.0 272.0 m
+448.0 448.0 l
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+560.0 224.0 l
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+480.0 192.0 l
+</path>
+<path fill="red" layer="26" opacity="50%" stroke-opacity="opaque">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path fill="red" layer="26" opacity="50%" stroke-opacity="opaque">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+16 0 0 16 480.0 192.0 e
+</path>
+<path layer="26" pen="fat (1.2)" stroke="red">
+16 0 0 16 368.0 320.0 e
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+320.0 352.0 m
+400.0 368.0 l
+432.0 400.0 l
+448.0 448.0 l
+384.0 496.0 l
+432.0 544.0 l
+576.0 272.0 l
+560.0 224.0 l
+480.0 192.0 l
+432.0 80.0 l
+368.0 320.0 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+80 0 m
+128 0 l
+128 48 l
+80 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+128 0 m
+176 0 l
+176 48 l
+128 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+176 0 m
+224 0 l
+224 48 l
+176 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+224 0 m
+272 0 l
+272 48 l
+224 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+272 0 m
+320 0 l
+320 48 l
+272 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+320 0 m
+368 0 l
+368 48 l
+320 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+368 0 m
+416 0 l
+416 48 l
+368 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+416 0 m
+464 0 l
+464 48 l
+416 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+464 0 m
+512 0 l
+512 48 l
+464 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+512 0 m
+560 0 l
+560 48 l
+512 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+560 0 m
+608 0 l
+608 48 l
+560 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+608 0 m
+656 0 l
+656 48 l
+608 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+656 0 m
+704 0 l
+704 48 l
+656 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+704 0 m
+752 0 l
+752 48 l
+704 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+752 0 m
+800 0 l
+800 48 l
+752 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="black">
+800 0 m
+848 0 l
+848 48 l
+800 48 l
+h
+</path>
+<path layer="27" pen="fat (1.2)" stroke="red">
+432.0 544.0 m
+448.0 448.0 l
+</path>
+<path layer="27" pen="fat (1.2)" stroke="red">
+400.0 368.0 m
+368.0 320.0 l
+</path>
+<path layer="27" pen="fat (1.2)" stroke="red">
+432.0 400.0 m
+368.0 320.0 l
+</path>
+<path layer="27" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+576.0 272.0 l
+</path>
+<path layer="27" pen="fat (1.2)" stroke="red">
+576.0 272.0 m
+432.0 400.0 l
+</path>
+<path layer="27" pen="fat (1.2)" stroke="red">
+576.0 272.0 m
+448.0 448.0 l
+</path>
+<path layer="27" pen="fat (1.2)" stroke="red">
+368.0 320.0 m
+560.0 224.0 l
+</path>
+<path layer="27" pen="fat (1.2)" stroke="red">
 368.0 320.0 m
 480.0 192.0 l
 </path>
@@ -6700,6 +7137,28 @@ h
 <use layer="25" name="mark/disk(sx)" pos="480.0 192.0" size="large (5.0)" stroke="black"/>
 <use layer="25" name="mark/disk(sx)" pos="432.0 80.0" size="large (5.0)" stroke="black"/>
 <use layer="25" name="mark/disk(sx)" pos="368.0 320.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="320.0 352.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="400.0 368.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="432.0 400.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="448.0 448.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="384.0 496.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="432.0 544.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="576.0 272.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="560.0 224.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="480.0 192.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="432.0 80.0" size="large (5.0)" stroke="black"/>
+<use layer="26" name="mark/disk(sx)" pos="368.0 320.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="320.0 352.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="400.0 368.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="432.0 400.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="448.0 448.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="384.0 496.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="432.0 544.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="576.0 272.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="560.0 224.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="480.0 192.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="432.0 80.0" size="large (5.0)" stroke="black"/>
+<use layer="27" name="mark/disk(sx)" pos="368.0 320.0" size="large (5.0)" stroke="black"/>
 <text depth="0.0825" height="18.59" layer="0" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="0" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
 <text depth="0.0825" height="18.59" layer="0" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
@@ -6948,8 +7407,9 @@ h
 <text depth="0.0825" height="18.59" layer="16" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
 <text depth="0.0825" height="18.59" layer="16" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="16" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
-<text depth="0.0825" height="18.59" layer="16" pos="188 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
-<text depth="0.0825" height="18.59" layer="16" pos="236 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
+<text depth="0.0825" height="18.59" layer="16" pos="188 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
+<text depth="0.0825" height="18.59" layer="16" pos="236 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
+<text depth="0.0825" height="18.59" layer="16" pos="284 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
 <text depth="0.0825" height="18.59" layer="17" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="17" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
 <text depth="0.0825" height="18.59" layer="17" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
@@ -6976,8 +7436,10 @@ h
 <text depth="0.0825" height="18.59" layer="18" pos="592.0 272.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
 <text depth="0.0825" height="18.59" layer="18" pos="576.0 224.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
 <text depth="0.0825" height="18.59" layer="18" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
-<text depth="0.0825" height="18.59" layer="18" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
-<text depth="0.0825" height="18.59" layer="18" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="188 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
+<text depth="0.0825" height="18.59" layer="18" pos="236 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
 <text depth="0.0825" height="18.59" layer="19" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="19" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
 <text depth="0.0825" height="18.59" layer="19" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
@@ -6991,7 +7453,6 @@ h
 <text depth="0.0825" height="18.59" layer="19" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
 <text depth="0.0825" height="18.59" layer="19" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
 <text depth="0.0825" height="18.59" layer="19" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
-<text depth="0.0825" height="18.59" layer="19" pos="188 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
 <text depth="0.0825" height="18.59" layer="20" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="20" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
 <text depth="0.0825" height="18.59" layer="20" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
@@ -7018,7 +7479,8 @@ h
 <text depth="0.0825" height="18.59" layer="21" pos="576.0 224.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
 <text depth="0.0825" height="18.59" layer="21" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
 <text depth="0.0825" height="18.59" layer="21" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
-<text depth="0.0825" height="18.59" layer="21" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
+<text depth="0.0825" height="18.59" layer="21" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
+<text depth="0.0825" height="18.59" layer="21" pos="188 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
@@ -7032,7 +7494,6 @@ h
 <text depth="0.0825" height="18.59" layer="22" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
 <text depth="0.0825" height="18.59" layer="22" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
-<text depth="0.0825" height="18.59" layer="22" pos="188 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
 <text depth="0.0825" height="18.59" layer="23" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="23" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
 <text depth="0.0825" height="18.59" layer="23" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
@@ -7059,7 +7520,8 @@ h
 <text depth="0.0825" height="18.59" layer="24" pos="576.0 224.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
 <text depth="0.0825" height="18.59" layer="24" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
 <text depth="0.0825" height="18.59" layer="24" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
-<text depth="0.0825" height="18.59" layer="24" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
+<text depth="0.0825" height="18.59" layer="24" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
+<text depth="0.0825" height="18.59" layer="24" pos="188 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
@@ -7071,6 +7533,32 @@ h
 <text depth="0.0825" height="18.59" layer="25" pos="592.0 272.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="576.0 224.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
 <text depth="0.0825" height="18.59" layer="25" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
+<text depth="0.0825" height="18.59" layer="25" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
+<text depth="0.0825" height="18.59" layer="25" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="416.0 448.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="400.0 400.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="368.0 368.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{4}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="288.0 352.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{5}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="336.0 320.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="592.0 272.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="576.0 224.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="92 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
+<text depth="0.0825" height="18.59" layer="26" pos="140 16" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="416.0 560.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{0}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="416.0 64.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{10}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="352.0 496.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{1}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="416.0 448.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{2}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="400.0 400.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{3}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="368.0 368.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{4}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="288.0 352.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{5}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="336.0 320.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{6}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="592.0 272.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{7}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="576.0 224.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{8}$</text>
+<text depth="0.0825" height="18.59" layer="27" pos="496.0 192.0" stroke="black" transformations="translations" type="label" valign="baseline" width="14.6575">$p_{9}$</text>
 </page>
 
 </ipe>

@@ -221,7 +221,7 @@ public class TriangulationMonotonePolygon {
         return paths;
     }
 
-    public ArrayList<Path> setHighlightsPoint(Point p1, Point p2, Point p3) {
+    public ArrayList<Path> setHighlightsPointIpe(Point p1, Point p2, Point p3) {
         ArrayList<Path> paths = new ArrayList<>();
         HashMap<String, String> attributes = new HashMap<>();
         ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
@@ -257,6 +257,81 @@ public class TriangulationMonotonePolygon {
         return paths;
     }
 
+    public ArrayList<Path> setHighlightsQueueIpe(int n) {
+        ArrayList<Path> paths = new ArrayList<>();
+        if (n == 0) {
+            for (int i = 0; i < pointsQueue.size()-2; i++) {
+                HashMap<String, String> attributes = new HashMap<>();
+                ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+                strPoints.add(new Ipe.Object.Point(String.valueOf((i * 48) + 80), "0", "m"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(((i + 1) * 48) + 80), "0", "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(((i + 1) * 48) + 80), "48", "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf((i * 48) + 80), "48", "l"));
+                strPoints.add(new Ipe.Object.Point("h"));
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("opacity", "50%");
+                attributes.put("stroke-opacity", "opaque");
+                attributes.put("fill", "red");
+                paths.add(new Path(strPoints, attributes));
+            }
+        }
+        else if (n == 1) {
+            for (int i = 0; i < pointsQueue.size()-1; i++) {
+                if (i == pointsQueue.size()-2) {
+                    HashMap<String, String> attributes = new HashMap<>();
+                    ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+                    strPoints.add(new Ipe.Object.Point(String.valueOf((i * 48) + 80), "0", "m"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(((i + 1) * 48) + 80), "0", "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf(((i + 1) * 48) + 80), "48", "l"));
+                    strPoints.add(new Ipe.Object.Point(String.valueOf((i * 48) + 80), "48", "l"));
+                    strPoints.add(new Ipe.Object.Point("h"));
+                    attributes.put("layer", String.valueOf(layers.size()));
+                    attributes.put("opacity", "50%");
+                    attributes.put("stroke-opacity", "opaque");
+                    attributes.put("fill", "red");
+                    paths.add(new Path(strPoints, attributes));
+                }
+            }
+        }
+        else if (n == 2) {
+            for (int i = 0; i < pointsQueue.size(); i++) {
+                HashMap<String, String> attributes = new HashMap<>();
+                ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+                strPoints.add(new Ipe.Object.Point(String.valueOf((i * 48) + 80), "0", "m"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(((i + 1) * 48) + 80), "0", "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(((i + 1) * 48) + 80), "48", "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf((i * 48) + 80), "48", "l"));
+                strPoints.add(new Ipe.Object.Point("h"));
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("opacity", "50%");
+                attributes.put("stroke-opacity", "opaque");
+                attributes.put("fill", "red");
+                paths.add(new Path(strPoints, attributes));
+            }
+        }
+        else if (n == 3) {
+            for (int i = 0; i < pointsQueue.size()-1; i++) {
+                HashMap<String, String> attributes = new HashMap<>();
+                ArrayList<Ipe.Object.Point> strPoints = new ArrayList<>();
+
+                strPoints.add(new Ipe.Object.Point(String.valueOf((i * 48) + 80), "0", "m"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(((i + 1) * 48) + 80), "0", "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf(((i + 1) * 48) + 80), "48", "l"));
+                strPoints.add(new Ipe.Object.Point(String.valueOf((i * 48) + 80), "48", "l"));
+                strPoints.add(new Ipe.Object.Point("h"));
+                attributes.put("layer", String.valueOf(layers.size()));
+                attributes.put("opacity", "50%");
+                attributes.put("stroke-opacity", "opaque");
+                attributes.put("fill", "red");
+                paths.add(new Path(strPoints, attributes));
+            }
+        }
+        return paths;
+    }
+
     public void generateLayers() {
         Queue<Point> leftChainTmp = new LinkedList<>(leftChain);
         Queue<Point> rightChainTmp = new LinkedList<>(rightChain);
@@ -275,7 +350,7 @@ public class TriangulationMonotonePolygon {
         // Layer
         paths = new ArrayList<>(setPolygonIpe());
         paths.addAll(setDataFrameIpe());
-        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), null, null));
+        paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), null, null));
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setPointLabelsIpe());
         texts.addAll(setDataTextIpe());
@@ -292,11 +367,19 @@ public class TriangulationMonotonePolygon {
                 rightChainTmp.poll();
             }
         }
+        else if (leftChainTmp.size() > 1) {
+            pointsQueue.add(leftChainTmp.peek());
+            leftChainTmp.poll();
+        }
+        else if (rightChainTmp.size() > 0) {
+            pointsQueue.add(rightChainTmp.peek());
+            rightChainTmp.poll();
+        }
 
         // Layer
         paths = new ArrayList<>(setPolygonIpe());
         paths.addAll(setDataFrameIpe());
-        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+        paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
         uses = new ArrayList<>(setPointsIpe());
         texts = new ArrayList<>(setPointLabelsIpe());
         texts.addAll(setDataTextIpe());
@@ -313,7 +396,7 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
@@ -321,36 +404,43 @@ public class TriangulationMonotonePolygon {
 
                 // From Left
                 if (isLeftSide) {
+                    // While there is convex
                     while (pointsQueue.size() > 2) {
                         LineSegment ls = new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-2));
+                        // If convex
                         if (ls.crossProductToPoint(pointsQueue.get(pointsQueue.size()-1)) > 0) {
                             lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
                             // Layer
                             paths = new ArrayList<>(setPolygonIpe());
                             paths.addAll(setDataFrameIpe());
                             paths.addAll(setLineSegmentsIpe());
-                            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                            paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                            paths.addAll(setHighlightsQueueIpe(1));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setPointLabelsIpe());
                             texts.addAll(setDataTextIpe());
                             layers.add(new Layer(paths, uses, texts));
+
                             pointsQueue.remove(pointsQueue.size()-2);
+
                             // Layer
                             paths = new ArrayList<>(setPolygonIpe());
                             paths.addAll(setDataFrameIpe());
                             paths.addAll(setLineSegmentsIpe());
-                            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                            paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setPointLabelsIpe());
                             texts.addAll(setDataTextIpe());
                             layers.add(new Layer(paths, uses, texts));
                         }
+                        // If concave
                         else {
                             break;
                         }
                     }
                 }
-                // From right
+                // From right (change side)
                 else {
                     isLeftSide = true;
                     lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2)));
@@ -359,32 +449,57 @@ public class TriangulationMonotonePolygon {
                     paths = new ArrayList<>(setPolygonIpe());
                     paths.addAll(setDataFrameIpe());
                     paths.addAll(setLineSegmentsIpe());
-                    paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                    paths.addAll(setHighlightsQueueIpe(0));
                     uses = new ArrayList<>(setPointsIpe());
                     texts = new ArrayList<>(setPointLabelsIpe());
                     texts.addAll(setDataTextIpe());
                     layers.add(new Layer(paths, uses, texts));
 
+                    // Draw all the line segments with each point on the points queue
                     while (pointsQueue.size() > 2) {
+                        if (!rightChain.contains(pointsQueue.get(pointsQueue.size()-3))) {
+                            pointsQueue.remove(pointsQueue.size()-3);
+
+                            // Layer
+                            paths = new ArrayList<>(setPolygonIpe());
+                            paths.addAll(setDataFrameIpe());
+                            paths.addAll(setLineSegmentsIpe());
+                            paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                            paths.addAll(setHighlightsQueueIpe(0));
+                            uses = new ArrayList<>(setPointsIpe());
+                            texts = new ArrayList<>(setPointLabelsIpe());
+                            texts.addAll(setDataTextIpe());
+                            layers.add(new Layer(paths, uses, texts));
+
+                            break;
+                        }
+
                         lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-3)));
+
                         // Layer
                         paths = new ArrayList<>(setPolygonIpe());
                         paths.addAll(setDataFrameIpe());
                         paths.addAll(setLineSegmentsIpe());
-                        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                        paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                        paths.addAll(setHighlightsQueueIpe(0));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setPointLabelsIpe());
                         texts.addAll(setDataTextIpe());
                         layers.add(new Layer(paths, uses, texts));
+
                         pointsQueue.remove(pointsQueue.size()-3);
+
                         if (pointsQueue.size() == 3) {
                             pointsQueue.remove(0);
                         }
+
                         // Layer
                         paths = new ArrayList<>(setPolygonIpe());
                         paths.addAll(setDataFrameIpe());
                         paths.addAll(setLineSegmentsIpe());
-                        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                        paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                        paths.addAll(setHighlightsQueueIpe(0));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setPointLabelsIpe());
                         texts.addAll(setDataTextIpe());
@@ -401,13 +516,13 @@ public class TriangulationMonotonePolygon {
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
 
-                // From left
+                // From left (change side)
                 if (isLeftSide) {
                     isLeftSide = false;
                     lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2)));
@@ -416,32 +531,57 @@ public class TriangulationMonotonePolygon {
                     paths = new ArrayList<>(setPolygonIpe());
                     paths.addAll(setDataFrameIpe());
                     paths.addAll(setLineSegmentsIpe());
-                    paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                    paths.addAll(setHighlightsQueueIpe(0));
                     uses = new ArrayList<>(setPointsIpe());
                     texts = new ArrayList<>(setPointLabelsIpe());
                     texts.addAll(setDataTextIpe());
                     layers.add(new Layer(paths, uses, texts));
 
+                    // Draw all the line segments with each point on the points queue
                     while (pointsQueue.size() > 2) {
+                        if (!leftChain.contains(pointsQueue.get(pointsQueue.size()-3))) {
+                            pointsQueue.remove(pointsQueue.size()-3);
+
+                            // Layer
+                            paths = new ArrayList<>(setPolygonIpe());
+                            paths.addAll(setDataFrameIpe());
+                            paths.addAll(setLineSegmentsIpe());
+                            paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                            paths.addAll(setHighlightsQueueIpe(0));
+                            uses = new ArrayList<>(setPointsIpe());
+                            texts = new ArrayList<>(setPointLabelsIpe());
+                            texts.addAll(setDataTextIpe());
+                            layers.add(new Layer(paths, uses, texts));
+
+                            break;
+                        }
+
                         lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-3)));
+
                         // Layer
                         paths = new ArrayList<>(setPolygonIpe());
                         paths.addAll(setDataFrameIpe());
                         paths.addAll(setLineSegmentsIpe());
-                        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                        paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                        paths.addAll(setHighlightsQueueIpe(0));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setPointLabelsIpe());
                         texts.addAll(setDataTextIpe());
                         layers.add(new Layer(paths, uses, texts));
+
                         pointsQueue.remove(pointsQueue.size()-3);
+
                         if (pointsQueue.size() == 3) {
                             pointsQueue.remove(0);
                         }
+
                         // Layer
                         paths = new ArrayList<>(setPolygonIpe());
                         paths.addAll(setDataFrameIpe());
                         paths.addAll(setLineSegmentsIpe());
-                        paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                        paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                        paths.addAll(setHighlightsQueueIpe(0));
                         uses = new ArrayList<>(setPointsIpe());
                         texts = new ArrayList<>(setPointLabelsIpe());
                         texts.addAll(setDataTextIpe());
@@ -450,30 +590,37 @@ public class TriangulationMonotonePolygon {
                 }
                 // From right
                 else {
+                    // While there is convex
                     while (pointsQueue.size() > 2) {
                         LineSegment ls = new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-2));
+                        // If convex
                         if (ls.crossProductToPoint(pointsQueue.get(pointsQueue.size()-1)) < 0) {
                             lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
                             // Layer
                             paths = new ArrayList<>(setPolygonIpe());
                             paths.addAll(setDataFrameIpe());
                             paths.addAll(setLineSegmentsIpe());
-                            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                            paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                            paths.addAll(setHighlightsQueueIpe(1));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setPointLabelsIpe());
                             texts.addAll(setDataTextIpe());
                             layers.add(new Layer(paths, uses, texts));
+
                             pointsQueue.remove(pointsQueue.size()-2);
+
                             // Layer
                             paths = new ArrayList<>(setPolygonIpe());
                             paths.addAll(setDataFrameIpe());
                             paths.addAll(setLineSegmentsIpe());
-                            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                            paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                             uses = new ArrayList<>(setPointsIpe());
                             texts = new ArrayList<>(setPointLabelsIpe());
                             texts.addAll(setDataTextIpe());
                             layers.add(new Layer(paths, uses, texts));
                         }
+                        // If concave
                         else {
                             break;
                         }
@@ -481,159 +628,468 @@ public class TriangulationMonotonePolygon {
                 }
             }
         }
+
+        // If only left chain remains
         if (leftChainTmp.size() > 0) {
             pointsQueue.add(leftChainTmp.peek());
             leftChainTmp.poll();
-            lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-1)));
+
             // Layer
             paths = new ArrayList<>(setPolygonIpe());
             paths.addAll(setDataFrameIpe());
             paths.addAll(setLineSegmentsIpe());
-            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+            paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
             uses = new ArrayList<>(setPointsIpe());
             texts = new ArrayList<>(setPointLabelsIpe());
             texts.addAll(setDataTextIpe());
             layers.add(new Layer(paths, uses, texts));
 
-            while (pointsQueue.size() > 2) {
-                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-3)));
+            if (leftChain.contains(pointsQueue.get(pointsQueue.size()-2))) {
+                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
                 // Layer
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsQueueIpe(1));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
-                pointsQueue.remove(pointsQueue.size()-3);
-                if (pointsQueue.size() == 3) {
-                    pointsQueue.remove(0);
-                }
+
+                pointsQueue.remove(pointsQueue.size()-2);
+
                 // Layer
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+            }
+            else {
+                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-1)));
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsQueueIpe(0));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+
+//                pointsQueue.remove(pointsQueue.size()-3);
+//
+//                // Layer
+//                paths = new ArrayList<>(setPolygonIpe());
+//                paths.addAll(setDataFrameIpe());
+//                paths.addAll(setLineSegmentsIpe());
+//                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+//                uses = new ArrayList<>(setPointsIpe());
+//                texts = new ArrayList<>(setPointLabelsIpe());
+//                texts.addAll(setDataTextIpe());
+//                layers.add(new Layer(paths, uses, texts));
+            }
+
+            // Draw all the line segments with each point on the points queue
+            while (pointsQueue.size() > 2) {
+                if (!rightChain.contains(pointsQueue.get(pointsQueue.size()-3))) {
+                    pointsQueue.remove(pointsQueue.size()-3);
+
+                    // Layer
+                    paths = new ArrayList<>(setPolygonIpe());
+                    paths.addAll(setDataFrameIpe());
+                    paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                    paths.addAll(setHighlightsQueueIpe(0));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setPointLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+
+                    break;
+                }
+
+                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-3)));
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                paths.addAll(setHighlightsQueueIpe(0));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+
+                pointsQueue.remove(pointsQueue.size()-3);
+
+                if (pointsQueue.size() == 3) {
+                    pointsQueue.remove(0);
+                }
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                paths.addAll(setHighlightsQueueIpe(0));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
             }
 
+            // Draw all the line segments with each point on the left chain
             while (leftChainTmp.size() > 0) {
                 pointsQueue.add(leftChainTmp.peek());
                 leftChainTmp.poll();
+
                 // Layer
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
 
-                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+                LineSegment ls = new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-2));
+                // If convex
+                if (ls.crossProductToPoint(pointsQueue.get(pointsQueue.size()-1)) > 0) {
+                    lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
+                    // Layer
+                    paths = new ArrayList<>(setPolygonIpe());
+                    paths.addAll(setDataFrameIpe());
+                    paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                    paths.addAll(setHighlightsQueueIpe(1));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setPointLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+
+                    pointsQueue.remove(pointsQueue.size()-2);
+                }
+                else {
+                    // pointsQueue.remove(pointsQueue.size()-3);
+                }
+
                 // Layer
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+            }
+
+            if (pointsQueue.size() > 2) {
+                LineSegment ls = new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-2));
+                // If convex
+                if (ls.crossProductToPoint(pointsQueue.get(pointsQueue.size()-1)) > 0) {
+                    lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
+                    // Layer
+                    paths = new ArrayList<>(setPolygonIpe());
+                    paths.addAll(setDataFrameIpe());
+                    paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                    paths.addAll(setHighlightsQueueIpe(1));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setPointLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+
+                    pointsQueue.remove(pointsQueue.size()-2);
+
+                    // Layer
+                    paths = new ArrayList<>(setPolygonIpe());
+                    paths.addAll(setDataFrameIpe());
+                    paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setPointLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+                }
+            }
+
+            if (leftChain.contains(pointsQueue.get(0))) {
+                pointsQueue.add(bottom);
+                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsQueueIpe(1));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
 
                 pointsQueue.remove(pointsQueue.size()-2);
+
                 // Layer
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
             }
         }
+        // If only right chain remains
         else if (rightChainTmp.size() > 0) {
             pointsQueue.add(rightChainTmp.peek());
             rightChainTmp.poll();
-            lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-1)));
 
             // Layer
             paths = new ArrayList<>(setPolygonIpe());
             paths.addAll(setDataFrameIpe());
             paths.addAll(setLineSegmentsIpe());
-            paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+            paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
             uses = new ArrayList<>(setPointsIpe());
             texts = new ArrayList<>(setPointLabelsIpe());
             texts.addAll(setDataTextIpe());
             layers.add(new Layer(paths, uses, texts));
 
-            while (pointsQueue.size() > 2) {
-                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-3)));
-                // Layer
-                paths = new ArrayList<>(setPolygonIpe());
-                paths.addAll(setDataFrameIpe());
-                paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
-                uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setPointLabelsIpe());
-                texts.addAll(setDataTextIpe());
-                layers.add(new Layer(paths, uses, texts));
-                pointsQueue.remove(pointsQueue.size()-3);
-                if (pointsQueue.size() == 3) {
-                    pointsQueue.remove(0);
-                }
-                // Layer
-                paths = new ArrayList<>(setPolygonIpe());
-                paths.addAll(setDataFrameIpe());
-                paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
-                uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setPointLabelsIpe());
-                texts.addAll(setDataTextIpe());
-                layers.add(new Layer(paths, uses, texts));
-            }
-
-            while (rightChainTmp.size() > 0) {
-                pointsQueue.add(rightChainTmp.peek());
-                rightChainTmp.poll();
-                // Layer
-                paths = new ArrayList<>(setPolygonIpe());
-                paths.addAll(setDataFrameIpe());
-                paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
-                uses = new ArrayList<>(setPointsIpe());
-                texts = new ArrayList<>(setPointLabelsIpe());
-                texts.addAll(setDataTextIpe());
-                layers.add(new Layer(paths, uses, texts));
-
+            if (rightChain.contains(pointsQueue.get(pointsQueue.size()-2))) {
                 lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
                 // Layer
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsQueueIpe(0));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
 
                 pointsQueue.remove(pointsQueue.size()-2);
+
                 // Layer
                 paths = new ArrayList<>(setPolygonIpe());
                 paths.addAll(setDataFrameIpe());
                 paths.addAll(setLineSegmentsIpe());
-                paths.addAll(setHighlightsPoint(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+            }
+            else {
+                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-1)));
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsQueueIpe(0));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+
+//                pointsQueue.remove(pointsQueue.size()-3);
+//
+//                // Layer
+//                paths = new ArrayList<>(setPolygonIpe());
+//                paths.addAll(setDataFrameIpe());
+//                paths.addAll(setLineSegmentsIpe());
+//                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+//                uses = new ArrayList<>(setPointsIpe());
+//                texts = new ArrayList<>(setPointLabelsIpe());
+//                texts.addAll(setDataTextIpe());
+//                layers.add(new Layer(paths, uses, texts));
+            }
+
+            // Draw all the line segments with each point on the points queue
+            while (pointsQueue.size() > 2) {
+                if (!leftChain.contains(pointsQueue.get(pointsQueue.size()-3))) {
+                    pointsQueue.remove(pointsQueue.size()-3);
+
+                    // Layer
+                    paths = new ArrayList<>(setPolygonIpe());
+                    paths.addAll(setDataFrameIpe());
+                    paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                    paths.addAll(setHighlightsQueueIpe(0));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setPointLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+
+                    break;
+                }
+
+                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-3)));
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                paths.addAll(setHighlightsQueueIpe(0));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+
+                pointsQueue.remove(pointsQueue.size()-3);
+
+                if (pointsQueue.size() == 3) {
+                    pointsQueue.remove(0);
+                }
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                paths.addAll(setHighlightsQueueIpe(0));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+            }
+
+            // Draw all the line segments with each point on the right chain
+            while (rightChainTmp.size() > 0) {
+                pointsQueue.add(rightChainTmp.peek());
+                rightChainTmp.poll();
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+
+                LineSegment ls = new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-2));
+                // If convex
+                if (ls.crossProductToPoint(pointsQueue.get(pointsQueue.size()-1)) < 0) {
+                    lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
+                    // Layer
+                    paths = new ArrayList<>(setPolygonIpe());
+                    paths.addAll(setDataFrameIpe());
+                    paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                    paths.addAll(setHighlightsQueueIpe(1));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setPointLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+
+                    pointsQueue.remove(pointsQueue.size()-2);
+                }
+                else {
+                    // pointsQueue.remove(pointsQueue.size()-3);
+                }
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+            }
+
+            if (pointsQueue.size() > 2) {
+                LineSegment ls = new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-2));
+                // If convex
+                if (ls.crossProductToPoint(pointsQueue.get(pointsQueue.size()-1)) < 0) {
+                    lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
+                    // Layer
+                    paths = new ArrayList<>(setPolygonIpe());
+                    paths.addAll(setDataFrameIpe());
+                    paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                    paths.addAll(setHighlightsQueueIpe(1));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setPointLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+
+                    pointsQueue.remove(pointsQueue.size()-2);
+
+                    // Layer
+                    paths = new ArrayList<>(setPolygonIpe());
+                    paths.addAll(setDataFrameIpe());
+                    paths.addAll(setLineSegmentsIpe());
+                    paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+                    uses = new ArrayList<>(setPointsIpe());
+                    texts = new ArrayList<>(setPointLabelsIpe());
+                    texts.addAll(setDataTextIpe());
+                    layers.add(new Layer(paths, uses, texts));
+                }
+            }
+
+            if (rightChain.contains(pointsQueue.get(0))) {
+                pointsQueue.add(bottom);
+                lineSegments.add(new LineSegment(pointsQueue.get(pointsQueue.size()-3), pointsQueue.get(pointsQueue.size()-1)));
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), pointsQueue.get(pointsQueue.size()-3)));
+                paths.addAll(setHighlightsQueueIpe(1));
+                uses = new ArrayList<>(setPointsIpe());
+                texts = new ArrayList<>(setPointLabelsIpe());
+                texts.addAll(setDataTextIpe());
+                layers.add(new Layer(paths, uses, texts));
+
+                pointsQueue.remove(pointsQueue.size()-2);
+
+                // Layer
+                paths = new ArrayList<>(setPolygonIpe());
+                paths.addAll(setDataFrameIpe());
+                paths.addAll(setLineSegmentsIpe());
+                paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
                 uses = new ArrayList<>(setPointsIpe());
                 texts = new ArrayList<>(setPointLabelsIpe());
                 texts.addAll(setDataTextIpe());
                 layers.add(new Layer(paths, uses, texts));
             }
         }
+
+        // Layer
+        paths = new ArrayList<>(setPolygonIpe());
+        paths.addAll(setDataFrameIpe());
+        paths.addAll(setLineSegmentsIpe());
+        paths.addAll(setHighlightsQueueIpe(2));
+        paths.addAll(setHighlightsPointIpe(pointsQueue.get(pointsQueue.size()-1), pointsQueue.get(pointsQueue.size()-2), null));
+        uses = new ArrayList<>(setPointsIpe());
+        texts = new ArrayList<>(setPointLabelsIpe());
+        texts.addAll(setDataTextIpe());
+        layers.add(new Layer(paths, uses, texts));
 
         // Layer
         paths = new ArrayList<>(setPolygonIpe());
@@ -737,7 +1193,7 @@ public class TriangulationMonotonePolygon {
                     }
                 }
                 else {
-                    if (vertical.crossProductToPoint(points.get(i-1)) > 0) {
+                    if (vertical.crossProductToPoint(points.get(i-1)) > 0) { // bug
                         boolean leftEnd = false;
                         boolean rightEnd = false;
                         for (int j = i-1; j >= 0; j--) {
